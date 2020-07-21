@@ -22,3 +22,6 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+#ER図
+https://github.com/takanori-k-1074/fleemarket_sample_79a/files/4954061/ER.IE.pdf
