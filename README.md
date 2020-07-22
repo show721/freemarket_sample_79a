@@ -24,4 +24,4 @@ Things you may want to cover:
 * ...
 
 #ER図
-https://github.com/takanori-k-1074/fleemarket_sample_79a/files/4954061/ER.IE.pdf
+[データベース ER 図 (IE記法).pdf](https://github.com/takanori-k-1074/fleemarket_sample_79a/files/4957479/ER.IE.pdf)
