@@ -27,6 +27,9 @@ require "capistrano/deploy"
 #   https://github.com/capistrano/passenger
 #
 # require "capistrano/rvm"
+require "capistrano/scm/git"
+install_plugin Capistrano::SCM::Git
+require 'capistrano/rails/console'
 require "capistrano/rbenv"
 # require "capistrano/chruby"
 require "capistrano/bundler"
