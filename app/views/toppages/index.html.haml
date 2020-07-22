@@ -1,0 +1,27 @@
+.TopHeader
+  .SearchBar
+    .SearchBar__Icon
+    .SearchBar__Form
+    .form-group
+    = text_field :search_tab, '', class: 'form-search', placeholder: 'キーワードから探す'
+    = submit_tag 'Search', class: 'Search_btn', name: nil
+  .BottomBtn
+    %ul.LeftBtn
+      %li カテゴリー
+      %li ブランド
+    %ul.RightBtn
+      %li ログイン
+      %li 新規会員登録
+.Main
+  .Mainvisual
+  .topIntroduction
+    %h2.subtitile FURIMAが選ばれる３つの理由
+    %ul.lists
+      %li.list
+      %h3.list__text 3分すぐに出品
+      %p スマホで入力するだけで簡単に出品できる！
+      %li.list
+        %h3
+      %li.list
+        %h3
+  
