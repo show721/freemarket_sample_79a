@@ -21,17 +21,19 @@
 - has_many :products
 - has_many :comments
 - has_many :likes
+- has_one :addresses
+- has_one :cards
 
 
 ## addressesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|zip_code|integer|
 |prefecture|string|
-|zip_code|string|null: false|
+|zip_code(7)|string|null: false|
 |city|string|null: false|
 |street|string|null: false|
 |building_name|string|
+|room_number|string|
 |user_id|references|null: false, foreign_key: true|
 ### Association
 - belongs_to :user
@@ -115,7 +117,7 @@
 |------|----|-------|
 |category|string|null: false|
 ### Association
-- has_many :sub2_categories
+- has_many :main_categories
 
 
 ## sub2_categoriesテーブル
