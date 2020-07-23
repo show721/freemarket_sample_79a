@@ -1,0 +1,50 @@
+.header
+  = render partial: 'mypage/header'
+.title
+  .title__chapter
+    クレジットカード情報入力
+
+.main-form
+  .main-form__frame
+    = form_with url: users_path do |f|
+      .form-group
+        = f.label :カード番号
+        %span.form-group__require 必須
+        %br
+        = f.text_field :card_number, class:'form-card__input', placeholder:'半角数字のみ'
+      .form-group
+        .card-company
+          %ul.card-list
+            %li.icon-visa
+              %img{ alt: "Visa", widch: "49", height: "20", src: "assets/visa.png"}
+            %li.icon-master
+              %img{ alt: "Master", width: "34", height: "20", src: "assets/master.png"}
+            %li.icon-saison
+              %img{ alt: "Saison", width: "30", height: "20", src: "assets/saison.png"}
+            %li.icon-jcb
+              %img{ alt: "JCB", width: "32", height: "20", src: "assets/jcb.png"}
+            %li.icon-amex
+              %img{ alt: "AMEX", width: "21", height: "20", src: "assets/amex.png"}
+            %li.icon-dinners
+              %img{ alt: "Dinners", width: "32", height: "20", src: "assets/dinners.png"}
+            %li.icon-discover
+              %img{ alt: "DISCOVER", width: "32", height: "20", src: "assets/discover.png"}
+      .form-group
+        = f.label :有効期限
+        %span.form-group__require 必須
+        %br
+        = f.select :card_month, options_for_select(["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11","12"]),{}, class: 'form-card__input__valid'
+        = f.label :月, class: "form-group__card__deadline"
+        = f.select :card_year, options_for_select(["20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30"]),{}, class: 'form-card__input__valid'
+        = f.label :年, class: "form-group__card__deadline"
+      .form-group
+        = f.label :セキュリティコード
+        %span.form-group__require 必須
+        = f.text_field :card_pass, class:'form-card__input', placeholder: "カード背面４桁もしくは3桁の番号"
+      .form-group__addition
+        .form-group__addition__question ?
+        %p.form-group__text
+          カードの裏面の番号とは？
+      .form-group
+        = f.submit "追加する", class: "btn", url:"#"
+.footer
