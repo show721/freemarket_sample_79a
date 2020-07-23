@@ -21,8 +21,8 @@
 - has_many :products
 - has_many :comments
 - has_many :likes
-- has_one :addresses
-- has_one :cards
+- has_one :address
+- has_one :card
 
 
 ## addressesテーブル
@@ -87,7 +87,6 @@
 ## likesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|nickname|string|null: false|
 |user_id|references|null: false, foreign_key: true|
 |product_id|references|null: false, foreign_key: true|
 ### Association
@@ -108,6 +107,7 @@
 |Column|Type|Options|
 |------|----|-------|
 |category|string|null: false|
+|ancestry|string|
 ### Association
 - belongs_to :product
 - has_many :sub_categories
@@ -116,6 +116,7 @@
 |Column|Type|Options|
 |------|----|-------|
 |category|string|null: false|
+|ancestry|string|
 ### Association
 - has_many :main_categories
 
@@ -124,5 +125,6 @@
 |Column|Type|Options|
 |------|----|-------|
 |category|string|null: false|
+|ancestry|string|
 ### Association
 - belongs_to :sub-categories
