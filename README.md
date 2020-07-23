@@ -150,3 +150,5 @@
 ### Association
 
 - belongs_to :sub-categories
+
+test
