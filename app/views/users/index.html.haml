@@ -1,3 +1,5 @@
+.header
+  = render partial: 'layouts/header'
 .nav-guide
   %ul
     %li 
@@ -45,7 +47,7 @@
       %ul.setting-lists
         %li.list-setting
           .list-setting__info
-            =link_to "#" do
+            =link_to new_user_path do
               クレジットカード登録・変更
           = icon('fas','angle-right')
         %li.list-setting

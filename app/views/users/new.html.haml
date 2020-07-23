@@ -1,5 +1,5 @@
 .header
-  = render partial: 'mypage/header'
+  = render partial: 'layouts/header'
 .title
   .title__chapter
     クレジットカード情報入力
@@ -16,19 +16,19 @@
         .card-company
           %ul.card-list
             %li.icon-visa
-              %img{ alt: "Visa", widch: "49", height: "20", src: "assets/visa.png"}
+              %img{ alt: "Visa", widch: "49", height: "20", src: "/assets/visa.png"}
             %li.icon-master
-              %img{ alt: "Master", width: "34", height: "20", src: "assets/master.png"}
+              %img{ alt: "Master", width: "34", height: "20", src: "/assets/master.png"}
             %li.icon-saison
-              %img{ alt: "Saison", width: "30", height: "20", src: "assets/saison.png"}
+              %img{ alt: "Saison", width: "30", height: "20", src: "/assets/saison.png"}
             %li.icon-jcb
-              %img{ alt: "JCB", width: "32", height: "20", src: "assets/jcb.png"}
+              %img{ alt: "JCB", width: "32", height: "20", src: "/assets/jcb.png"}
             %li.icon-amex
-              %img{ alt: "AMEX", width: "21", height: "20", src: "assets/amex.png"}
+              %img{ alt: "AMEX", width: "21", height: "20", src: "/assets/amex.png"}
             %li.icon-dinners
-              %img{ alt: "Dinners", width: "32", height: "20", src: "assets/dinners.png"}
+              %img{ alt: "Dinners", width: "32", height: "20", src: "/assets/diners.png"}
             %li.icon-discover
-              %img{ alt: "DISCOVER", width: "32", height: "20", src: "assets/discover.png"}
+              %img{ alt: "DISCOVER", width: "32", height: "20", src: "/assets/discover.png"}
       .form-group
         = f.label :有効期限
         %span.form-group__require 必須
