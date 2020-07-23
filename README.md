@@ -21,8 +21,8 @@
 - has_many :products
 - has_many :comments
 - has_many :likes
-- has_one :address
-- has_one :card
+- has_one :address dependent: :destroy
+- has_one :card dependent: :destroy
 
 
 ## addressesテーブル
