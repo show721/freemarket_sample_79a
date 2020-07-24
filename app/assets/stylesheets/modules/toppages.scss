@@ -1,3 +1,9 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+	overflow: auto;}
 .Body{
   overflow-x: hidden;
 }
@@ -17,6 +23,10 @@
   background-position: top center;
   display: flex;
   align-items: center;
+  line-height: 1.2;
+  text-shadow: 0 0 5px rgba(0,0,0,0.4);
+  font-size: 60px;
+
   }
 
 
@@ -24,7 +34,7 @@
     max-width: 1280px;
     width: 100%;
     margin: 0 auto;
-    padding: 35px 0 0 60px;
+    margin-top: 100px;
     
     &__subtitle{
     text-shadow: 0 0 5px rgba(0,0,0,0.4);
@@ -39,13 +49,12 @@
     font-size: 18px;
     color: #fff;
     line-height: 1.77778;
-    margin: 16px 0 0 0;}
+    margin: 16px 0 10px 0;}
 
     &__text--bottom{
       text-shadow: 0 0 5px rgba(0,0,0,0.4);
       font-size: 18px;
       color: #fff;}
-
     }
 
     
@@ -56,34 +65,39 @@
 
     
   .BuyBtn{
-    height: 80px;
-    width: 80px;
-    background-color: #3CCACE;
-    padding: 20px;
+    width: 120px;
+    height :120px;
+    background: #3CCACE;
     text-align: center;
-    border-radius: 10px;
+    border-radius: 4%;
+    bottom: 32px;
+    right: 32px;
     position: fixed;
-    right:30px;
-    bottom:30px;
+    line-height: 30px;
     
     &__text{
     font-size: 18px;
     color: #fff;
+    vertical-align : middle;
     }
   }
 
   
   .topIntroduction{
   height: 600px;
-  width: 100vw;
+  width: 100%;
+  padding: 60px 20px;
+  margin-bottom: 30px;
   }
   
-  h2{
-  color: black;
-  font-size: 25px;
-  text-align: center;
-  margin-top: 60px;
-  margin-bottom: 30px;
+  h2.subtitile{
+    text-align: center;
+    font-size: 25px;
+    line-height: 1.4;
+    font-weight: bold;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    position: relative;
 }
 
 span {
@@ -159,19 +173,22 @@ margin: 16px 0 0;
 }
 
 .Topmiddle{
-  height: 370px;
+  height: 400px;
+  width: 100%;
   align-items: center;
   background-image: url(/assets/bg-topMiddleDl-pict.jpg);
   background-size: cover;
   background-position: bottom center;
-  padding: 30px 0 0 180px;
+  padding: 100px 30px 30px 180px;
 }
 
 h2.subtitle{
   color: #fff;
   text-shadow: 0 0 5px rgba(0,0,0,0.4);
   text-align: left;
-  max-width: 1040px
+  max-width: 1040px;
+  font-size: 27px;
+  margin-bottom: 25px;
 }
 
 
@@ -197,16 +214,28 @@ h2.subtitle{
 }
 
 .FurimaFeature{
-  height: 600px;
+  height: 710px;
   padding: 60px 100px;
 }
-  h2.head {
+h2.Feature {
   font-size: 27px;
   text-align: center;
   margin: 0 0 40px;
   font-weight: bold;
   margin-bottom: 25px;
   padding-bottom: 15px;
+  position: relative;
+  }
+  .h2.Feature::after {
+    content: "-";
+    width: 70px;
+    height: 4px;
+    background-color: #3CCACE;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%)
+
   }
 
 .Items{
@@ -237,6 +266,9 @@ h2.subtitle{
     margin-block-end: 1em;
     margin-inline-start: 0px;
     margin-inline-end: 0px;
+    font-weight: bold;
+    font-size: 19px;
+    margin-bottom: 0;
     }
     
     &__detail{
@@ -250,7 +282,7 @@ h2.subtitle{
 
 .PickupContent{
   background-color: #f8f8f8;
-  padding-top: 70px;
+  padding: 40px 0 80px 0;
 }
 h2.head{
 margin-bottom: 0px;
@@ -262,47 +294,23 @@ font-weight: bold;
 h2.ProductHead {
   margin: 0 0 0 0;
   color: #3ccace;
-
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
 }
-.ProductBox {
-width: 100%;
-height: 300px;
-display: flex;
-align-items: center;
-justify-content: center;
-  }
-
-.ProductBoxBottom{
-width: 100%;
-height: 300px;
-display: flex;
-align-items: center;
-justify-content: center;
-padding-bottom: 70px;
+.ProductLists{
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
 }
-
-ul.ProductLists{
-  background-color: #ffffff;
-  padding: 0px;
+.ProductList__Body{
+  background-color: white;
 }
-li.ProductList{
-  height: 245px;
-  width: 220px;
-  display: inline-block;
-  margin: 0px;
-  padding: 0px;
-}
-
 .ProductList__img{
   height:150px;
   width: 220px;
 
 }
-
-.ProductList__Body{
-  padding: 16px;
-}
-
 
 ul.Detail{
 padding: 0px;
@@ -315,7 +323,12 @@ li{
 
 h3.name{
   margin-bottom: 5px;}
-p.price {
+
+ul.PriceLike {
+  display: flex;
+  justify-content: space-between;
+}
+li.price {
 margin: 0;
 text-align: left;
 }
@@ -328,7 +341,7 @@ p.tax{
 
 aside.AppAdvertisement{
   width: 100%;
-  height: 300px;
+  height: 350px;
   background-color: black;
   background-image: url(/assets/bg-appBanner-pict.jpg);
   background-size: cover;
@@ -342,12 +355,14 @@ h2.Inner__title{
   color: #fff;
   text-shadow: 0 0 5px rgba(0,0,0,0.4);
   text-align: center;
+  font-weight: bold;
   margin: 0px;
 }
 p.inner__text{
   font-size: 35px;
   color: #fff;
   text-shadow: 0 0 5px rgba(0,0,0,0.4);
+  font-size: 35px;
   margin: 0px;
 }
 
@@ -358,28 +373,38 @@ p.inner__text{
 }
 
 .Footer{
-  height: 250px;
-  width: 100%;
-  padding: 60px 0;
+  height: 350px;
   color: #fff;
   background-color: #272727;
+  padding-top: 60px;
+  
 }
 
 ul.contents{
+  width: 700px;
+  text-align: center;
+  margin: 0 auto;
   display: flex;
   justify-content: space-around;
-  list-style: none;
-  width: 100%;
-  margin: 0 100px 0 100px;
-  padding:0}
 
-h2.content__head{margin: 0 0 20px;
+}
+
+  
+
+h2.content__head{
   font-size: 16px;
   font-weight: bold;
-  color: #fff;}
+  color: #fff;
+  margin-bottom: 25px;
+}
 
 li{
   list-style: none;
+  text-align: center;
+  font-size: 12px;
+  margin: 10px;
+
+  
 }
 
 .Footer_logo{
@@ -388,5 +413,6 @@ li{
 
 p{
 text-align: center;
+font-size: 13px;
 }
 
