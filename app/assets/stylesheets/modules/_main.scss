@@ -7,23 +7,23 @@ html {
   width: 100%;
 }
 body {
-   height:900px;
-   margin:0;
-   width: 100%;
-   overflow-x: hidden;
-   overflow-y: auto;
+  height: 900px;
+  margin: 0;
+  width: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
-.nav-guide {
+.nav-guides {
   height: 40px;
   width: 100%;
   padding: 0 50px;
-  border-top:1px solid #eee;
-  box-shadow: 0 3px 3px 0 rgba(0,0,0,0.16);
+  border-top: 1px solid #eee;
+  box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.16);
   position: relative;
   background-color: white;
   ul {
     height: 40px;
-    width: 1055px;
+    width: 1155px;
     max-width: 1000;
     margin: 0 auto;
     display: flex;
@@ -70,7 +70,7 @@ body {
           display: flex;
           border-bottom: 1px solid $font_title;
           .lists-info {
-            width: 270px;    
+            width: 270px;
             font-size: 14px;
             line-height: 50px;
             height: 50px;
@@ -166,10 +166,10 @@ body {
         text-align: center;
         font-size: 20px;
         font-weight: bold;
-        background-color:#3ccace;
+        background-color: #3ccace;
         color: $font_title;
       }
-      .tab-content{
+      .tab-content {
         .todo-lists {
           width: 700px;
           height: 80px;
@@ -204,7 +204,7 @@ body {
         font-size: 20px;
         font-weight: bold;
         background-color: #3ccace;
-        color:$font_title;
+        color: $font_title;
       }
       .tab-buy {
         width: 700px;
@@ -225,13 +225,13 @@ body {
             .list-item {
               width: 650px;
               color: $font_color;
-              padding-left: 10px; 
+              padding-left: 10px;
             }
             i {
               line-height: 80px;
               width: 50px;
               font-size: 20px;
-              color:$font_color;
+              color: $font_color;
             }
           }
         }
@@ -239,4 +239,3 @@ body {
     }
   }
 }
-
