@@ -1,5 +1,32 @@
 .main-header
 
+.category
+  .category__contents
+    %ul
+      %li
+        %a{:href => "#"}
+          FURIMA
+      %li
+        >
+      %li
+        %a{:href => "#"}
+          メンズ
+      %li 
+        >
+      %li
+        %a{:href => "#"}
+          ジャケット/アウター
+      %li 
+        >
+      %li
+        %a{:href => "#"}
+          ノーカラージャケット
+      %li 
+        >
+      %li
+        商品名
+
+
 .main-contents
   .main-contents__show-main
     .main-contents__show-main__product
@@ -7,11 +34,11 @@
         商品名
       .main-contents__show-main__product__image
         %ul
-          %li= img{ alt: "product", width: "560", height: "350", src: "assets/material/pict/tese.png"}
+          %img{ width: "560", height: "350", src: "/assets/material/pict/test.png"}
           %ul
-            %li= img{ alt: "product", width:"140", height: "90", src: "assets/material/pic/test2.png"}
-            %li= img{ alt: "product", width:"140", height: "90", src: "assets/material/pic/test3.png"}
-            %li= img{ alt: "product", width:"140", height: "90", src: "assets/material/pic/test4.png"}
+            %img{ width:"140", height: "90", src: "/assets/material/pict/test2.png"}
+            %img{ width:"140", height: "90", src: "/assets/material/pict/test3.png"}
+            %img{ width:"140", height: "90", src: "/assets/material/pict/test4.png"}
 
       .main-contents__show-main__product__price
         ¥2,000
@@ -44,21 +71,40 @@
           %tr
             %th 発送元の地域
             %td 青森県
-              %a{ href: "#"}
           %tr
             %th 発送日の目安
             %td 1-2日で発送
       .main-contents__show-main__product__optionArea
         .main-contents__show-main__product__optionArea__likeBtn
-          = %button{ type: "button", class: "likeBtn"} do
-            = %i.fas.fa-star
+          = button_tag type: "button", class: "likeBtn"  do
+            = icon('fas','far-star')
             お気に入り
         .main-contents__show-main__product__optionArea__optional
           =link_to '#', class: "optional" do
-            =%i.fas.fa-flag
+            %i.fas.fa-flag
             不適切な商品の通報
       .main-contents__show-main__product__comment
         =form_for '#' do |f|
           .main-contents__show-main__product__comment__new
             = f.text_area :comment, class: "new"
-          .main-contents__show-main__product
+          .main-contents__show-main__product__comment__precautions
+            %p 相手のことを考え丁寧なコメントを心がけましょう。
+            %P 不快な言葉遣いなどは利用制限や退化処分となることがあります。
+          .main-contents__show-main__product__comment__commentBtn
+            = button_tag type: 'submit', class: 'commentBtn' do
+              %i.far.fa-comment
+              コメントする
+      .main-contents__show-main__product__change-page
+        .main-contents__show-main__product__change-page__back
+          =link_to '#', class:"backBtn" do
+            %i.fas.fa-angle-left
+              前の商品
+        .main-contents__show-main__product__change-page__next
+          =link_to '#', class:"nextBtn" do
+            %i.fas.fa-angle-raight
+              後ろの商品
+      .main-contents__show-main__product__relatedItems
+        =link_to '#' do
+          メンズをもっと見る
+      
+.footer
