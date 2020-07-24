@@ -55,12 +55,12 @@
       font-size: 14px;
       display: flex;
       margin-bottom: 10px;
-      ul.categorys {
+      .categorys {
         display: flex;
         height: 2rem;
-        z-index: 1;
-        li.category1 {
+        .category1 {
           width: 100px;
+          z-index: 1;
         }
         > li {
           width: 25%;
@@ -184,12 +184,12 @@
           }
         }
       }
-      ul.right-categorys {
+      .right-categorys {
         margin-left: auto;
         display: flex;
         height: 2rem;
         justify-items: right;
-        li.right-category {
+        .right-category {
           color: #333;
           line-height: 38px;
           padding: 0 0 0 16px;
