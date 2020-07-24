@@ -15,6 +15,8 @@
                 必須
             .upload-box
               %ul#preview
+              = f.fields_for :images do |i|
+                = i.file_field :src
                 %p.sell-upload-form__image--images-container
                   ドラッグアンドドロップして
                   %br
@@ -24,16 +26,16 @@
           .signup-form-container.registration-form__first-container.sell-container-all-padding.container-border-top
             .signup-form-container__title
               %p
-                = label :title, '商品名',class: 'signup-label'
+                = label :name, '商品名',class: 'signup-label'
                 %span.signup-form-container__span.span-need 必須
-            = f.text_field :title, placeholder: '商品名（必須40文字まで）', class: 'default-input sell-input'
+            = f.text_field :name, placeholder: '商品名（必須40文字まで）', class: 'default-input sell-input'
             .input-error#product_title_error
           .signup-form-container.registration-form__first-container.sell-container-side-padding
             .signup-form-container__title
               %p
-                = label :text, '商品の説明',class: 'signup-label'
+                = label :description, '商品の説明',class: 'signup-label'
                 %span.signup-form-container__span.span-need 必須
-            = f.text_area :text, placeholder: "商品の説明（必須1,000文字以内）（色、素材、重さ、定価、注意点など）例）　2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。 ", class: 'default-input sell-input-area'
+            = f.text_area :description, placeholder: "商品の説明（必須1,000文字以内）（色、素材、重さ、定価、注意点など）例）　2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。 ", class: 'default-input sell-input-area'
             .input-error#product_text_error
           -# 商品の明細
           .sell-container-all-padding.container-border-top.flex
@@ -41,26 +43,26 @@
               商品の詳細
             .sell-container-right
               %p
-                = label :fresh_status, 'カテゴリー',class: 'signup-label'
+                = label :fcategory, 'カテゴリー',class: 'signup-label'
                 %span.signup-form-container__span.span-need 必須
               .category_wrapper
                 .select-wrap.category_index_wrapper
-                  = f.text_field :title, placeholder: '選択してください', class: 'default-input sell-input'
+                  = f.text_field :category, placeholder: '選択してください', class: 'default-input sell-input'
                   %i.select-arrow.fas.fa-chevron-down
                 .input-error#product_category_index_id_error
               %p.margin-2rem
-                = label :fresh_status, 'ブランド',class: 'signup-label'
+                = label :brand, 'ブランド',class: 'signup-label'
                 %span.signup-form-container__span.span-need 必須
               .select-wrap
-                = f.text_field :title, placeholder: '入力して下さい', class: 'default-input sell-input'
+                = f.text_field :brand, placeholder: '入力して下さい', class: 'default-input sell-input'
                 %i.select-arrow.fas.fa-chevron-down
               .input-error#product_fresh_status_error
               -# ここにbigcategory,smallcategoryを挿入する
               %p.margin-2rem
-                = label :fresh_status, '商品の状態',class: 'signup-label'
+                = label :condition, '商品の状態',class: 'signup-label'
                 %span.signup-form-container__span.span-need 必須
               .select-wrap
-                = f.text_field :title, placeholder: '入力して下さい', class: 'default-input sell-input'
+                = f.text_field :condition, placeholder: '入力して下さい', class: 'default-input sell-input'
                 %i.select-arrow.fas.fa-chevron-down
               .input-error#product_fresh_status_error
           -# 配送について
@@ -72,24 +74,24 @@
                   %i.fas.fa-question-circle.link-space-reset
             .sell-container-right
               %p
-                = label :deliver_person, '配送料の負担',class: 'signup-label'
+                = label :shipping_charge, '配送料の負担',class: 'signup-label'
                 %span.signup-form-container__span.span-need 必須
               .select-wrap
-                = f.text_field :title, placeholder: '入力して下さい', class: 'default-input sell-input'
+                = f.text_field :shipping_charge, placeholder: '入力して下さい', class: 'default-input sell-input'
                 %i.select-arrow.fas.fa-chevron-down
               .input-error#product_deliver_person_error
               %p.margin-2rem
-                = label :from_area, '発送元の地域',class: 'signup-label'
+                = label :shipping_area, '発送元の地域',class: 'signup-label'
                 %span.signup-form-container__span.span-need 必須
               .select-wrap
-                = f.text_field :title, placeholder: '入力して下さい', class: 'default-input sell-input'
+                = f.text_field :shipping_area, placeholder: '入力して下さい', class: 'default-input sell-input'
                 %i.select-arrow.fas.fa-chevron-down
               .input-error#product_from_area_error
               %p.margin-2rem
-                = label :deliver_leadtime, '発送までの日数',class: 'signup-label'
+                = label :shipping_day, '発送までの日数',class: 'signup-label'
                 %span.signup-form-container__span.span-need 必須
               .select-wrap
-                = f.text_field :title, placeholder: '入力して下さい', class: 'default-input sell-input'
+                = f.text_field :shipping_day, placeholder: '入力して下さい', class: 'default-input sell-input'
                 %i.select-arrow.fas.fa-chevron-down
               .input-error#product_deliver_leadtime_error
           -# 販売価格
