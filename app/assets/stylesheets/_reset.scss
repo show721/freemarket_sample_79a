@@ -1,7 +1,17 @@
+<<<<<<< HEAD
+=======
+/*!
+ * YUI 3.5.0 - reset.css (http://developer.yahoo.com/yui/3/cssreset/)
+ * http://cssreset.com
+ * Copyright 2012 Yahoo! Inc. All rights reserved.
+ * http://yuilibrary.com/license/
+ */
+>>>>>>> master
 /*
     TODO will need to remove settings on HTML since we can't namespace it.
     TODO with the prefix, should I group by selector or property for weight savings?
 */
+<<<<<<< HEAD
 html{
     color:#000;
     background:#FFF;
@@ -12,6 +22,18 @@ html{
 /*
     TODO test putting a class on HEAD.
         - Fails on FF.
+=======
+html {
+  color: #000;
+  background: #fff;
+}
+/*
+  TODO remove settings on BODY since we can't namespace it.
+*/
+/*
+  TODO test putting a class on HEAD.
+      - Fails on FF.
+>>>>>>> master
 */
 body,
 div,
@@ -38,6 +60,7 @@ p,
 blockquote,
 th,
 td {
+<<<<<<< HEAD
     margin:0;
     padding:0;
 }
@@ -51,6 +74,21 @@ img {
 }
 /*
     TODO think about hanlding inheritence differently, maybe letting IE6 fail a bit...
+=======
+  margin: 0;
+  padding: 0;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+fieldset,
+img {
+  border: 0;
+}
+/*
+  TODO think about hanlding inheritence differently, maybe letting IE6 fail a bit...
+>>>>>>> master
 */
 address,
 caption,
@@ -61,18 +99,31 @@ em,
 strong,
 th,
 var {
+<<<<<<< HEAD
     font-style:normal;
     font-weight:normal;
+=======
+  font-style: normal;
+  font-weight: normal;
+>>>>>>> master
 }
 
 ol,
 ul {
+<<<<<<< HEAD
     list-style:none;
+=======
+  list-style: none;
+>>>>>>> master
 }
 
 caption,
 th {
+<<<<<<< HEAD
     text-align:left;
+=======
+  text-align: left;
+>>>>>>> master
 }
 h1,
 h2,
@@ -80,6 +131,7 @@ h3,
 h4,
 h5,
 h6 {
+<<<<<<< HEAD
     font-size:100%;
     font-weight:normal;
 }
@@ -98,10 +150,31 @@ sup {
 }
 sub {
     vertical-align:text-bottom;
+=======
+  font-size: 100%;
+  font-weight: normal;
+}
+q:before,
+q:after {
+  content: "";
+}
+abbr,
+acronym {
+  border: 0;
+  font-variant: normal;
+}
+/* to preserve line-height and selector appearance */
+sup {
+  vertical-align: text-top;
+}
+sub {
+  vertical-align: text-bottom;
+>>>>>>> master
 }
 input,
 textarea,
 select {
+<<<<<<< HEAD
     font-family:inherit;
     font-size:inherit;
     font-weight:inherit;
@@ -111,3 +184,23 @@ select {
 legend {
     color:#000;
 }
+=======
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+}
+/*to enable resizing for IE*/
+input,
+textarea,
+select {
+  *font-size: 100%;
+}
+/*because legend doesn't inherit in IE */
+legend {
+  color: #000;
+}
+/* YUI CSS Detection Stamp */
+#yui3-css-stamp.cssreset {
+  display: none;
+}
+>>>>>>> master

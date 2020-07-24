@@ -1,3 +1,4 @@
 Rails.application.routes.draw do
-  root 'toppages#index'
+  resources :products ,only: :index
+  root "toppages#index"
 end
