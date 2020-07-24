@@ -2,12 +2,17 @@
   height: 40px;
   width: 100vw;
   padding: 15px 0 5px 80px;
-  border: solid 1px white;
+  border: solid 1px #f8f8f8;
   box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.16);
+  position: relative;
   &__contents {
     height: 30px;
     font-size: 10px;
     line-height: 30px;
+    a {
+      text-decoration: none;
+      color: #333;
+    }
     li {
       display: inline-block;
     }
@@ -15,10 +20,10 @@
 }
 
 .main-contents {
-  background-color: #f4fcfc;
+  background-color: #f8f8f8;
   height: 600vh;
   width: 100%;
-  padding: 40px 0;
+  padding: 40px;
   &__show-main {
     height: 200vh;
     width: 700px;
