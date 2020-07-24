@@ -504,20 +504,22 @@ font-size: 27px;
 text-align: center;
 font-weight: bold;
 }
+
+
 h2.ProductHead {
   margin: 0 0 0 0;
   color: #3ccace;
   text-align: center;
   font-size: 24px;
   font-weight: bold;
+  text-decoration: none;
 
   a{
     color: #3ccace;
-    font-size: 24px;
     text-decoration: none;
-
   }
 }
+
 .ProductLists{
   display: flex;
   justify-content: center;
