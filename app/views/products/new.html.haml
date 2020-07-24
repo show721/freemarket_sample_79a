@@ -1,6 +1,7 @@
 .sell-container
   .signup-container
-    = render partial: ''
+    -# = render partial: ''
+    -binding.pry
     = form_with model: @product, html:{class: "sell-form"}, local: true do |f|
       .signup-top
         %h2.signup-header
