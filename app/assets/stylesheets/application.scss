@@ -1,4 +1,7 @@
-@import "modules/toppage.scss";
-@import "modules/product_sell.scss";
-@import "modules/product_details.scss";
-@import "reset.scss";
+@import "reset";
+@import "modules/toppage";
+@import "modules/product_sell";
+@import "modules/product_details";
+
+@import "font-awesome-sprockets";
+@import "font-awesome";

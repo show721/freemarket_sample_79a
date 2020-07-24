@@ -1,25 +1,26 @@
 .main-header
-
+  -# =render partial:
+  
 .category
   .category__contents
     %ul
       %li
-        %a{:href => "#"}
+        =link_to "#" do
           FURIMA
       %li
         >
       %li
-        %a{:href => "#"}
+        =link_to "#" do
           メンズ
       %li 
         >
       %li
-        %a{:href => "#"}
+        =link_to "#" do
           ジャケット/アウター
       %li 
         >
       %li
-        %a{:href => "#"}
+        =link_to "#" do
           ノーカラージャケット
       %li 
         >
@@ -33,13 +34,12 @@
       .main-contents__show-main__product__name
         商品名
       .main-contents__show-main__product__image
-        %ul
-          %img{ width: "560", height: "350", src: "/assets/material/pict/test.png"}
+        %ul1
+          = image_tag( "/assets/material/pict/test.png", size: "560x350")
           %ul
-            %img{ width:"140", height: "90", src: "/assets/material/pict/test2.png"}
-            %img{ width:"140", height: "90", src: "/assets/material/pict/test3.png"}
-            %img{ width:"140", height: "90", src: "/assets/material/pict/test4.png"}
-
+            %li= image_tag( "/assets/material/pict/test2.png", size: "140x90")
+            %li= image_tag( "/assets/material/pict/test3.png", size: "140x90")
+            %li= image_tag( "/assets/material/pict/test4.png", size: "140x90")
       .main-contents__show-main__product__price
         ¥2,000
         .main-contents__show-main__product__price__detail
@@ -60,13 +60,13 @@
           %tr
             %th カテゴリー
             %td 
-              %a{:href => "#"}
+              =link_to "#" do
                 メンズ
               %br
-              %a{:href => "#"}
+              =link_to "#" do
                 ジャケット/アウター
               %br
-              %a{:href => "#"}
+              =link_to "#" do
                 ノーカラージャケット
           %tr
             %th ブランド
@@ -83,7 +83,7 @@
           %tr
             %th 発送元の地域
             %td
-              %a{:href => "#"}
+              = link_to "#" do
                 青森県
           %tr
             %th 発送日の目安
@@ -91,7 +91,7 @@
       .main-contents__show-main__product__optionArea
         .main-contents__show-main__product__optionArea__likeBtn
           = button_tag type: "button", class: "likeBtn"  do
-            = icon('fas','far-star')
+            %i.fas.fa-star
             お気に入り
         .main-contents__show-main__product__optionArea__optional
           =link_to '#', class: "optional" do
@@ -115,10 +115,11 @@
               前の商品
         .main-contents__show-main__product__change-page__next
           =link_to '#', class:"nextBtn" do
-            %i.fas.fa-angle-raight
-              後ろの商品
+            後ろの商品
+            %i.fas.fa-angle-right
       .main-contents__show-main__product__relatedItems
         =link_to '#' do
           メンズをもっと見る
       
 .footer
+  -# = render partial:
