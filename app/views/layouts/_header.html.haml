@@ -1,18 +1,18 @@
-.header
-  .header__box
-    .header__box__main
-      .header__box__main__icon
+.home-header
+  .home-header__box
+    .home-header__box__main
+      .home-header__box__main__icon
         = image_tag("logo.png")
-      .header__box__main__search-box
+      .home-header__box__main__search-box
         = form_with(url: "#", local: true, method: :get, class: "form") do |form|
           = form.text_field :keyword, placeholder: "キーワードから探す", class: "searchbox-input"
         %button{type: "submit"}
           .search-btn
             = image_tag("icon-search1.png")
 
-    .header-nav
-      %ul.left-categorys
-        %li.left-category1
+    .nav
+      %ul.left-items
+        %li.left-item1
           %a{href: "", class: "category-btn"}カテゴリー
           %ul
             %li
@@ -2788,9 +2788,6 @@
                       %a{href: ""}その他
                 %li
                   %a{href: ""}その他
-        %li.left-category2
+        .left-item2
           = link_to "#" do
             ブランド
-      %ul.right-categorys
-        %li.right-category
-          %a{href: "#"}マイページ
