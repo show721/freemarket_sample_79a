@@ -51,16 +51,16 @@
       }
     }
 
-    .header-nav {
+    &__navi {
       font-size: 14px;
       display: flex;
       margin-bottom: 10px;
       .left-categorys {
         display: flex;
         height: 2rem;
+        z-index: 1;
         .left-category1 {
           width: 100px;
-          z-index: 1;
         }
         > li {
           width: 25%;
@@ -76,6 +76,7 @@
             height: 2rem;
             line-height: 2rem;
             text-decoration: none;
+            width: 100%;
             &:hover{
               color: #ffd340;
             }
@@ -167,7 +168,7 @@
           top: 1rem;
           transform: translateY(-40%);
         }
-      }
+      
 
         .left-category2 {
           display: flex;
@@ -183,6 +184,7 @@
             text-decoration: none;
           }
         }
+      }
       ul.right-categorys {
         margin-left: auto;
         display: flex;
