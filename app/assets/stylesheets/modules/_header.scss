@@ -1,4 +1,4 @@
-.home-header {
+.header {
   padding: 0 60px;
   &__box {
     max-width: 1040px;
@@ -51,6 +51,7 @@
       }
     }
 
+<<<<<<< HEAD
     .nav {
       font-size: 14px;
       display: flex;
@@ -59,6 +60,16 @@
         display: flex;
         height: 2rem;
         .category1 {
+=======
+    .header-nav {
+      font-size: 14px;
+      display: flex;
+      margin-bottom: 10px;
+      .left-categorys {
+        display: flex;
+        height: 2rem;
+        .left-category1 {
+>>>>>>> parent of 11a20db... 微調整
           width: 100px;
           z-index: 1;
         }
@@ -76,8 +87,12 @@
             height: 2rem;
             line-height: 2rem;
             text-decoration: none;
+<<<<<<< HEAD
             width: 100%;
             &:hover {
+=======
+            &:hover{
+>>>>>>> parent of 11a20db... 微調整
               color: #ffd340;
             }
           }
@@ -168,8 +183,14 @@
           top: 1rem;
           transform: translateY(-40%);
         }
+<<<<<<< HEAD
 
         li.category2 {
+=======
+      }
+
+        .left-category2 {
+>>>>>>> parent of 11a20db... 微調整
           display: flex;
           line-height: 38px;
           padding: 0 0 0 16px;
@@ -183,8 +204,12 @@
             text-decoration: none;
           }
         }
+<<<<<<< HEAD
       }
       .right-categorys {
+=======
+      ul.right-categorys {
+>>>>>>> parent of 11a20db... 微調整
         margin-left: auto;
         display: flex;
         height: 2rem;
@@ -204,4 +229,8 @@
       }
     }
   }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> parent of 11a20db... 微調整

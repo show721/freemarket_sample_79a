@@ -1,18 +1,24 @@
-.home-header
-  .home-header__box
-    .home-header__box__main
-      .home-header__box__main__icon
+.header
+  .header__box
+    .header__box__main
+      .header__box__main__icon
         = image_tag("logo.png")
-      .home-header__box__main__search-box
+      .header__box__main__search-box
         = form_with(url: "#", local: true, method: :get, class: "form") do |form|
           = form.text_field :keyword, placeholder: "キーワードから探す", class: "searchbox-input"
         %button{type: "submit"}
           .search-btn
             = image_tag("icon-search1.png")
 
+<<<<<<< HEAD
     .nav
       %ul.categorys
         %li.category1
+=======
+    .header-nav
+      %ul.left-categorys
+        %li.left-category1
+>>>>>>> parent of 11a20db... 微調整
           %a{href: "", class: "category-btn"}カテゴリー
           %ul
             %li
