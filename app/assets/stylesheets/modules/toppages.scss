@@ -239,6 +239,10 @@ html {
   text-shadow: 0 0 5px rgba(0,0,0,0.4);
   font-size: 60px;
 
+  img{
+    border-radius:6px;
+    }
+
   }
 
 
@@ -408,6 +412,10 @@ margin: 16px 0 0;
   background-size: cover;
   background-position: bottom center;
   padding: 100px 30px 30px 180px;
+
+  img{
+    border-radius:6px;
+    }
 }
 
 h2.subtitle{
@@ -594,6 +602,9 @@ p.inner__text{
 .Inner__btn{
   display: flex;
   justify-content: center;
+  img{
+    border-radius:6px;
+    }
 
 }
 
