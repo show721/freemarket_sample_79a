@@ -59,9 +59,10 @@
       .left-categorys {
         display: flex;
         height: 2rem;
+        z-index: 1;
+
         .left-category1 {
           width: 100px;
-          z-index: 10;
         }
         > li {
           width: 25%;
