@@ -35,11 +35,11 @@
         商品名
       .main-contents__show-main__product__image
         %ul1
-          = image_tag( "/assets/material/pict/test.png", size: "560x350")
+          = image_tag asset_path( "test.png"), size: "560x350"
           %ul
-            %li= image_tag( "/assets/material/pict/test2.png", size: "140x90")
-            %li= image_tag( "/assets/material/pict/test3.png", size: "140x90")
-            %li= image_tag( "/assets/material/pict/test4.png", size: "140x90")
+            %li= image_tag asset_path( "test2.png"), size: "140x90"
+            %li= image_tag asset_path( "test3.png"), size: "140x90"
+            %li= image_tag asset_path("test4.png"), size: "140x90"
       .main-contents__show-main__product__price
         ¥2,000
         .main-contents__show-main__product__price__detail
