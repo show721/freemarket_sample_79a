@@ -40,4 +40,7 @@ class ProductsController < ApplicationController
                                     :shipping_day,
                                     images_attributes: [:image])
   end
+
+  def show
+  end
 end
