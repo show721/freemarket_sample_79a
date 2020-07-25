@@ -66,7 +66,6 @@
 | category        | integer    | null: false                    |
 | brand           | string     | null: false                    |
 | price           | integer    | null: false                    |
-| brand           | string     | null: false                    |
 | condition       | string     | null: false                    |
 | shipping_charge | integer    | null: false                    |
 | shipping_area   | string     | null: false                    |
