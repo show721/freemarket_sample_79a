@@ -10,6 +10,10 @@
   padding: 2px;
   font-size: 14px;
 }
+.sell-title {
+  text-align: left;
+  font-weight: bold;
+}
 .sell-container {
   background-color: #f5f5f5;
   .simple-header {
@@ -22,8 +26,10 @@
     .signup-top {
       height: 48px;
       width: 100%;
+      padding: 40px 0;
       .signup-header {
         font-size: 36px;
+        text-align: center;
       }
     }
     .signup-body {
@@ -33,6 +39,7 @@
       background-color: #ffffff;
       .sell-upload-form {
         color: #333333;
+        margin-top: 40px;
         .sell-container-all-padding {
           padding: 40px;
         }
@@ -88,6 +95,9 @@
           font-size: 14px;
           color: #888888;
           font-weight: bold;
+          p {
+            text-align: left;
+          }
           span {
             font-weight: 550;
           }

@@ -9,7 +9,7 @@
         .sell-upload-form
           -# 画像アップロード
           .sell-upload-form__image.sell-container-all-padding.container-border-top
-            %p
+            %p.sell-title
               = label :image, '出品画像',class: 'sell-upload-label'
               %span.signup-form-container__span.span-need
                 必須
@@ -25,14 +25,14 @@
           -# 商品名、商品の説明
           .signup-form-container.registration-form__first-container.sell-container-all-padding.container-border-top
             .signup-form-container__title
-              %p
+              %p.sell-title
                 = label :name, '商品名',class: 'signup-label'
                 %span.signup-form-container__span.span-need 必須
             = f.text_field :name, placeholder: '商品名（必須40文字まで）', class: 'default-input sell-input'
             .input-error#product_title_error
           .signup-form-container.registration-form__first-container.sell-container-side-padding
             .signup-form-container__title
-              %p
+              %p.sell-title
                 = label :description, '商品の説明',class: 'signup-label'
                 %span.signup-form-container__span.span-need 必須
             = f.text_area :description, placeholder: "商品の説明（必須1,000文字以内）（色、素材、重さ、定価、注意点など）例）　2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。 ", class: 'default-input sell-input-area'
@@ -42,7 +42,7 @@
             .sell-container-left
               商品の詳細
             .sell-container-right
-              %p
+              %p.sell-title
                 = label :category, 'カテゴリー',class: 'signup-label'
                 %span.signup-form-container__span.span-need 必須
               .category_wrapper
@@ -50,7 +50,7 @@
                   = f.text_field :category, placeholder: '選択してください', class: 'default-input sell-input'
                   %i.select-arrow.fas.fa-chevron-down
                 .input-error#product_category_index_id_error
-              %p.margin-2rem
+              %p.margin-2rem.sell-title
                 = label :brand, 'ブランド',class: 'signup-label'
                 %span.signup-form-container__span.span-need 必須
               .select-wrap
@@ -58,7 +58,7 @@
                 %i.select-arrow.fas.fa-chevron-down
               .input-error#product_fresh_status_error
               -# ここにbigcategory,smallcategoryを挿入する
-              %p.margin-2rem
+              %p.margin-2rem.sell-title
                 = label :condition, '商品の状態',class: 'signup-label'
                 %span.signup-form-container__span.span-need 必須
               .select-wrap
@@ -73,21 +73,21 @@
                 = link_to "" do
                   %i.fas.fa-question-circle.link-space-reset
             .sell-container-right
-              %p
+              %p.sell-title
                 = label :shipping_charge, '配送料の負担',class: 'signup-label'
                 %span.signup-form-container__span.span-need 必須
               .select-wrap
                 = f.text_field :shipping_charge, placeholder: '入力して下さい', class: 'default-input sell-input'
                 %i.select-arrow.fas.fa-chevron-down
               .input-error#product_deliver_person_error
-              %p.margin-2rem
+              %p.margin-2rem.sell-title
                 = label :shipping_area, '発送元の地域',class: 'signup-label'
                 %span.signup-form-container__span.span-need 必須
               .select-wrap
                 = f.text_field :shipping_area, placeholder: '入力して下さい', class: 'default-input sell-input'
                 %i.select-arrow.fas.fa-chevron-down
               .input-error#product_from_area_error
-              %p.margin-2rem
+              %p.margin-2rem.sell-title
                 = label :shipping_day, '発送までの日数',class: 'signup-label'
                 %span.signup-form-container__span.span-need 必須
               .select-wrap
@@ -104,7 +104,7 @@
                   %i.fas.fa-question-circle
             .sell-container-right
               .sell-container-right__price-wrapper
-                %p
+                %p.sell-title
                   = label :price, '価格',class: 'signup-label' do
                     価格
                     %span.signup-form-container__span.span-need 必須
