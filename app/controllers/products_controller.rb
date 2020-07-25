@@ -5,16 +5,15 @@ class ProductsController < ApplicationController
 
   def new
     @product = Product.new
-    @product.images.new
+    @product.images.build
   end
 
   def create
-    binding.pry
     @product = Product.new(product_params)
     if @product.save
       redirect_to root_path
     else
-      redirect_to products_path
+      render :new
     end
   end
 
@@ -30,6 +29,15 @@ class ProductsController < ApplicationController
   private
 
   def product_params
-    params.require(:product).permit(:name, :description , :category , :brand ,:price ,:condition , :shipping_charge ,:shipping_area ,:shipping_day ,images_attributes: [:image])
+    params.require(:product).permit(:name, 
+                                    :description, 
+                                    :category, 
+                                    :brand,
+                                    :price,
+                                    :condition, 
+                                    :shipping_charge,
+                                    :shipping_area,
+                                    :shipping_day,
+                                    images_attributes: [:image])
   end
 end

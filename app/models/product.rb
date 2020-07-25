@@ -1,5 +1,5 @@
 class Product < ApplicationRecord
-  has_many :images
+  has_many :images, dependent: :destroy
   
   validates :name, :description, :category, :brand, :price, :condition, :shipping_charge, :shipping_area, :shipping_day, presence: true
   validates :price, length: { minimum: 3 }
