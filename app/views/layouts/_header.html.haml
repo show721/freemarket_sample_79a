@@ -2,13 +2,13 @@
   .home-header__box
     .home-header__box__main
       .home-header__box__main__icon
-        = image_tag("logo.png")
+        = image_tag asset_path("logo.png")
       .home-header__box__main__search-box
         = form_with(url: "#", local: true, method: :get, class: "form") do |form|
           = form.text_field :keyword, placeholder: "キーワードから探す", class: "searchbox-input"
         %button{type: "submit"}
           .search-btn
-            = image_tag("icon-search1.png")
+            = image_tag asset_path("icon-search1.png")
 
     .header-nav
       %ul.left-categorys
