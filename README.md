@@ -1,126 +1,129 @@
 # README
 
-#ER図
-![データベース ER 図 (IE記法) (4)](https://user-images.githubusercontent.com/67144675/88154131-50dfb480-cc41-11ea-9996-05373d0a0462.png)
+#ER 図
+![データベース ER 図 (IE記法) (5)](https://user-images.githubusercontent.com/67144675/88505550-bc939a00-d012-11ea-868a-7def878575df.png)
 
+# DB 設計
 
-# DB設計
-## usersテーブル
-|Column|Type|Options|
-|------|----|-------|
-|nickname|string|null: false|
-|last_name_kanji|string|null: false|
-|first_name_kanji|string|null: false|
-|last_name_kana|string|null: false|
-|first_name_kana|string|null: false|
-|birthday|integer|null: false|
-|phone_number|integer|null: false|
-|email|string|null: false|
-|password|string|null: false|
+## users テーブル
+
+| Column           | Type    | Options     |
+| ---------------- | ------- | ----------- |
+| nickname         | string  | null: false |
+| last_name_kanji  | string  | null: false |
+| first_name_kanji | string  | null: false |
+| last_name_kana   | string  | null: false |
+| first_name_kana  | string  | null: false |
+| birthday         | date    | null: false |
+| phone_number     | integer | null: false |
+| email            | string  | null: false |
+| password         | string  | null: false |
+
 ### Association
+
 - has_many :products
 - has_many :comments
 - has_many :likes
 
+## addresses テーブル
 
-## addressesテーブル
-|Column|Type|Options|
-|------|----|-------|
-|zip_code|integer|
-|prefecture|string|
-|zip_code|string|null: false|
-|city|string|null: false|
-|street|string|null: false|
-|building_name|string|
-|user_id|references|null: false, foreign_key: true|
+| Column        | Type       | Options                        |
+| ------------- | ---------- | ------------------------------ |
+| zip_code      | integer    |
+| prefecture    | string     |
+| zip_code      | string     | null: false                    |
+| city          | string     | null: false                    |
+| street        | string     | null: false                    |
+| building_name | string     |
+| user_id       | references | null: false, foreign_key: true |
+
 ### Association
+
 - belongs_to :user
 
+## cards テーブル
 
-## cardsテーブル
-|Column|Type|Options|
-|------|----|-------|
-|number|integer|null: false|
-|month|integer|null: false|
-|year|integer|null: false|
-|security_code|integer|null: false|
-|user_id|references|null: false, foreign_key: true|
+| Column        | Type       | Options                        |
+| ------------- | ---------- | ------------------------------ |
+| number        | integer    | null: false                    |
+| month         | integer    | null: false                    |
+| year          | integer    | null: false                    |
+| security_code | integer    | null: false                    |
+| user_id       | references | null: false, foreign_key: true |
+| token         | text       |
+
 ### Association
+
 - belongs_to :user
 
+## products テーブル
 
-## productsテーブル
-|Column|Type|Options|
-|------|----|-------|
-|name|string|null: false|
-|description|text|null: false|
-|category|integer|null: false|
-|brand|string|null: false|
-|price|integer|null: false|
-|brand|string|null: false|
-|condition|string|null: false|
-|shipping_charge|integer|null: false|
-|shipping_area|string|null: false|
-|shipping_day|integer|null: false|
-|user_id|references|null: false, foreign_key: true|
+| Column          | Type       | Options                        |
+| --------------- | ---------- | ------------------------------ |
+| name            | string     | null: false                    |
+| description     | text       | null: false                    |
+| category        | integer    | null: false                    |
+| brand           | string     | null: false                    |
+| price           | integer    | null: false                    |
+| brand           | string     |
+| condition       | string     | null: false                    |
+| shipping_charge | integer    | null: false                    |
+| shipping_area   | string     | null: false                    |
+| shipping_day    | integer    | null: false                    |
+| user_id         | references | null: false, foreign_key: true |
+
 ### Association
+
 - belongs_to :user
 - has_many :comments
 - has_many :likes
 - has_many :images
-- has_many :main_categories
+- has_many :categories
 
+## comments テーブル
 
-## commentsテーブル
-|Column|Type|Options|
-|------|----|-------|
-|comment|text|null: false|
-|user_id|references|null: false, foreign_key: true|
-|product_id|references|null: false, foreign_key: true|
+| Column     | Type       | Options                        |
+| ---------- | ---------- | ------------------------------ |
+| comment    | text       | null: false                    |
+| user_id    | references | null: false, foreign_key: true |
+| product_id | references | null: false, foreign_key: true |
+
 ### Association
+
 - belongs_to :user
 - belongs_to :product
 
+## likes テーブル
 
-## likesテーブル
-|Column|Type|Options|
-|------|----|-------|
-|nickname|string|null: false|
-|user_id|references|null: false, foreign_key: true|
-|product_id|references|null: false, foreign_key: true|
+| Column     | Type       | Options                        |
+| ---------- | ---------- | ------------------------------ |
+| nickname   | string     | null: false                    |
+| user_id    | references | null: false, foreign_key: true |
+| product_id | references | null: false, foreign_key: true |
+
 ### Association
+
 - belongs_to :user
 - belongs_to :product
 
+## images テーブル
 
-## imagesテーブル
-|Column|Type|Options|
-|------|----|-------|
-|image|string|null: false|
-|product_id|references|null: false, foreign_key: true|
+| Column     | Type       | Options                        |
+| ---------- | ---------- | ------------------------------ |
+| image      | string     | null: false                    |
+| product_id | references | null: false, foreign_key: true |
+
 ### Association
+
 - belongs_to :product
 
+## categories テーブル
 
-# main_categoriesテーブル
-|Column|Type|Options|
-|------|----|-------|
-|category|string|null: false|
+| Column   | Type   | Options     |
+| -------- | ------ | ----------- |
+| category | string | null: false |
+| ancestry | string |
+
 ### Association
+
 - belongs_to :product
-- has_many :sub_categories
-
-## sub_categoriesテーブル
-|Column|Type|Options|
-|------|----|-------|
-|category|string|null: false|
-### Association
-- has_many :sub2_categories
-
-
-## sub2_categoriesテーブル
-|Column|Type|Options|
-|------|----|-------|
-|category|string|null: false|
-### Association
-- belongs_to :sub-categories
