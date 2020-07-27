@@ -27,14 +27,14 @@
 
 ## addresses テーブル
 
-| Column | Type | Options |
-| ------------- | ---------- | ------------------------------ |city
-| prefecture | string |
-| zip_code | string | null: false |
-| city | string | null: false |
-| street | string | null: false |
-| building_name | string |
-| user_id | references | null: false, foreign_key: true |
+| Column        | Type       | Options                        |
+| ------------- | ---------- | ------------------------------ |
+| prefecture    | string     |
+| zip_code      | string     | null: false                    |
+| city          | string     | null: false                    |
+| street        | string     | null: false                    |
+| building_name | string     |
+| user_id       | references | null: false, foreign_key: true |
 
 ### Association
 
