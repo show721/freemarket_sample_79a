@@ -1,7 +1,7 @@
 # README
 
 #ER 図
-![データベース ER 図 (IE記法) (5)](https://user-images.githubusercontent.com/67144675/88505550-bc939a00-d012-11ea-868a-7def878575df.png)
+![データベース ER 図 (IE記法) (6)](https://user-images.githubusercontent.com/67144675/88506341-adade700-d014-11ea-8a69-b1ab20eab66a.png)
 
 # DB 設計
 
@@ -27,15 +27,14 @@
 
 ## addresses テーブル
 
-| Column        | Type       | Options                        |
-| ------------- | ---------- | ------------------------------ |
-| zip_code      | integer    |
-| prefecture    | string     |
-| zip_code      | string     | null: false                    |
-| city          | string     | null: false                    |
-| street        | string     | null: false                    |
-| building_name | string     |
-| user_id       | references | null: false, foreign_key: true |
+| Column | Type | Options |
+| ------------- | ---------- | ------------------------------ |city
+| prefecture | string |
+| zip_code | string | null: false |
+| city | string | null: false |
+| street | string | null: false |
+| building_name | string |
+| user_id | references | null: false, foreign_key: true |
 
 ### Association
 
@@ -62,8 +61,7 @@
 | --------------- | ---------- | ------------------------------ |
 | name            | string     | null: false                    |
 | description     | text       | null: false                    |
-| category        | integer    | null: false                    |
-| brand           | string     | null: false                    |
+| category        | integer    | null: false                    | conc |
 | price           | integer    | null: false                    |
 | brand           | string     |
 | condition       | string     | null: false                    |
@@ -71,6 +69,8 @@
 | shipping_area   | string     | null: false                    |
 | shipping_day    | integer    | null: false                    |
 | user_id         | references | null: false, foreign_key: true |
+| seller_id       | integer    | null: false                    |
+| buyer_id        | integer    | null: false                    |
 
 ### Association
 
