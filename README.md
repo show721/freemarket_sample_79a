@@ -64,7 +64,7 @@
 | name            | string     | null: false                    |
 | description     | text       | null: false                    |
 | category        | integer    | null: false                    |
-| brand           | string     | null: false                    |
+| brand           | string     |                                |
 | price           | integer    | null: false                    |
 | condition       | string     | null: false                    |
 | shipping_charge | integer    | null: false                    |
