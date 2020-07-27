@@ -38,7 +38,7 @@ class ProductsController < ApplicationController
                                     :shipping_charge,
                                     :shipping_area,
                                     :shipping_day,
-                                    images_attributes: [:image])
+                                    images_attributes: [:image, :_destroy, :id])
   end
 
   def show
