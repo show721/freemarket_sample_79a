@@ -21,11 +21,11 @@
 
 .main-contents {
   background-color: #f8f8f8;
-  height: 380vh;
+  height: 350vh;
   width: 100%;
-  padding: 40px;
+  padding: 40px 0;
   &__show-main {
-    height: 200vh;
+    height: 250vh;
     width: 700px;
     margin: 0 auto;
     &__product {
@@ -176,7 +176,7 @@
         }
       }
       &__relatedItems {
-        height: 150px;
+        height: 100px;
         width: 100%;
         a {
           color: #3ccace;
