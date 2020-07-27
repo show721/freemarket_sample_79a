@@ -20,6 +20,9 @@ class ProductsController < ApplicationController
   def edit
   end
 
+  def show
+  end
+
   def update
   end
 
@@ -41,6 +44,4 @@ class ProductsController < ApplicationController
                                     images_attributes: [:image, :_destroy, :id])
   end
 
-  def show
-  end
 end
