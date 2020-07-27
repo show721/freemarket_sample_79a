@@ -41,6 +41,9 @@ class ProductsController < ApplicationController
                                     images_attributes: [:image])
   end
 
+  def buy
+  end
+  
   def show
   end
 end
