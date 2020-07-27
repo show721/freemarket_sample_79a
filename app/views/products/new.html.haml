@@ -1,7 +1,7 @@
 .sell-container
   .signup-container
     -# = render partial: ''
-    = form_with model: @product, html:{class: "sell-form"}, local: true do |f|
+    = form_with model: @product, class: "form", id: "product-form" do |f|
       .signup-top
         %h2.signup-header
           出品ページ
@@ -14,13 +14,20 @@
               %span.signup-form-container__span.span-need
                 必須
             .upload-box
+              最大画像５枚までアップロードできます。
               #image-box-1        
                 .item-num-0#image-box__container
-                  = f.fields_for :images do |i|
-                    .input-area
-                      = i.file_field :image, type: 'file', name: "item[images_attributes][][image_url]", value:"", style: "display:none", id:"img-file"
-                      %label{for: "img-file"}
-                        %i.fas.fa-camera
+                  = f.fields_for :images do |image|
+                    .clearfix
+                      // 写真のプレビューとインプットボタンのul
+                      %ul#previews
+                        %li.input
+                          // 画像を取り込むインプットボタン
+                          %label.upload-label
+                            .upload-label__text
+                              クリックしてファイルをアップロード
+                              .input-area
+                                = image.file_field :image, class: "hidden image_upload"             
             .input-error#product_image_error
           -# 商品名、商品の説明
           .signup-form-container.registration-form__first-container.sell-container-all-padding.container-border-top
