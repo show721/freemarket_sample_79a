@@ -63,7 +63,7 @@ describe Product do
 
     # 8. nameが41文字以上であれば登録できないこと
     it "is invalid with a name that has more than 41 characters " do
-      product = build(:product, name: "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
+      product = build(:product, name: "aaaaaaaaabaaaaaaaaabaaaaaaaaabaaaaaaaaaba")
       product.valid?
       expect(product.errors[:name]).to include("is too long (maximum is 40 characters)")
     end
