@@ -292,6 +292,7 @@ html {
   right: 32px;
   position: fixed;
   line-height: 30px;
+  z-index: 100;
 
   &__text {
     font-size: 18px;

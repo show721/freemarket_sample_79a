@@ -20,10 +20,16 @@ class ProductsController < ApplicationController
   def edit
   end
 
+  def show
+  end
+
   def update
   end
 
   def destroy
+  end
+  
+  def buy
   end
 
   private
@@ -38,12 +44,7 @@ class ProductsController < ApplicationController
                                     :shipping_charge,
                                     :shipping_area,
                                     :shipping_day,
-                                    images_attributes: [:image])
+                                    images_attributes: [:image, :_destroy, :id])
   end
 
-  def buy
-  end
-  
-  def show
-  end
 end
