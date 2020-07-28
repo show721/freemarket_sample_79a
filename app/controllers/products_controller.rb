@@ -28,6 +28,9 @@ class ProductsController < ApplicationController
 
   def destroy
   end
+  
+  def buy
+  end
 
   private
 
