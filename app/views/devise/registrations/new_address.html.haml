@@ -1,8 +1,8 @@
 .single-container
   %header.single-header
     %h1.single-header__logo
-      = link_to root path do
-        -# = image_tag("#")
+      = link_to "#" do
+        =image_tag ("logo.png")
     %nav.single-header__progress
       %ol
         %li.single-header__progress__text{ id: "first" }
@@ -67,5 +67,5 @@
             %br/
             = f.text_field :building_name, autofocus: true, placeholder: "例）柳ビル103", class: 'form-group__input'
           .form-group
-            = f.submit '次へ進む', class: "btn-default btn-red", url: "#"
+            = f.submit '次へ進む', class: "btn-default btn-red", url: "root_path", method: :post
     = render "registration_footer"         

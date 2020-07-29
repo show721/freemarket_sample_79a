@@ -1,5 +1,5 @@
 class Address < ApplicationRecord
-  belongs_to :user
+  belongs_to :user, optional: true
 
   validates :prefecture, presence: true
   validates :zip_code, presence: true
@@ -7,7 +7,7 @@ class Address < ApplicationRecord
   validates :street, presence: true
   # validates :building_name, presence: true
   # validates :room_number, presence: true
-  validates :user_id, presence: true
+  # validates :user_id, presence: true
   # validates :phone_number, presence:true
   validates :first_name_kanji, presence: true
   validates :last_name_kanji, presence: true
