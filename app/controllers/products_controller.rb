@@ -12,19 +12,30 @@ class ProductsController < ApplicationController
   def create
     @product = Product.new(product_params)
     if @product.save
+      flash[:success] = "登録されました"
       redirect_to root_path
     else
+      flash[:faile] = "登録できませんでした"
       render :new
     end
   end
 
   def edit
-  end
-
-  def show
+    @product = Product.find_by(id: params[:id])
   end
 
   def update
+    @product = Product.find_by(id: params[:id])
+    if @product.update_attributes(product_params)
+      flash[:success] = "更新されました"
+      render :edit
+    else
+      flash[:faile] = "更新できませんでした"
+      render :edit
+    end 
+  end
+
+  def show
   end
 
   def destroy
