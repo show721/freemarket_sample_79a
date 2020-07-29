@@ -8,4 +8,11 @@ Rails.application.routes.draw do
     get 'addresses', to: 'users/registrations#new_address'
     post 'addresses', to: 'users/registrations#create_address'
   end
+  # root "toppages#index"
+  resources :products do
+    collection do
+      get 'buy'
+    end
+  end 
+  resources :users, only: [:index, :new, :edit]
 end

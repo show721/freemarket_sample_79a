@@ -1,29 +1,42 @@
 # README
 
 #ER 図
+<<<<<<< HEAD
 ![データベース ER 図 (IE記法) (6)](https://user-images.githubusercontent.com/67144675/88506341-adade700-d014-11ea-8a69-b1ab20eab66a.png)
+=======
+![データベース ER 図 (IE記法) (4)](https://user-images.githubusercontent.com/67144675/88154131-50dfb480-cc41-11ea-9996-05373d0a0462.png)
+
+> > > > > > > master
 
 # DB 設計
 
 ## users テーブル
 
-| Column           | Type    | Options     |
-| ---------------- | ------- | ----------- |
-| nickname         | string  | null: false |
-| last_name_kanji  | string  | null: false |
-| first_name_kanji | string  | null: false |
-| last_name_kana   | string  | null: false |
-| first_name_kana  | string  | null: false |
-| birthday         | date    | null: false |
-| phone_number     | integer | null: false |
-| email            | string  | null: false |
-| password         | string  | null: false |
+| Column           | Type   | Options     |
+| ---------------- | ------ | ----------- |
+| nickname         | string | null: false |
+| last_name_kanji  | string | null: false |
+| first_name_kanji | string | null: false |
+| last_name_kana   | string | null: false |
+| first_name_kana  | string | null: false |
+
+<<<<<<< HEAD
+| birthday | date | null: false |
+=======
+| birthday | integer | null: false |
+
+> > > > > > > master
+> > > > > > > | phone_number | integer | null: false |
+> > > > > > > | email | string | null: false |
+> > > > > > > | password | string | null: false |
 
 ### Association
 
 - has_many :products
 - has_many :comments
 - has_many :likes
+- has_one :address dependent: :destroy
+- has_one :card dependent: :destroy
 
 ## addresses テーブル
 
@@ -34,6 +47,7 @@
 | city          | string     | null: false                    |
 | street        | string     | null: false                    |
 | building_name | string     |
+| room_number   | string     |
 | user_id       | references | null: false, foreign_key: true |
 
 ### Association

@@ -57,4 +57,26 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'devise'
 gem 'sqlite3', '~> 1.3.6'
-gem 'haml-rails'
+group :production do
+  gem 'unicorn', '5.4.1'
+end
+
+# 既にあるグループ内に追記
+group :development, :test do
+  gem 'pry-rails'
+  gem 'capistrano'
+  gem 'capistrano-rbenv'
+  gem 'capistrano-bundler'
+  gem 'capistrano-rails'
+  gem 'capistrano3-unicorn'
+  gem 'capistrano-rails-console'
+end
+
+
+gem "haml-rails", ">= 1.0", '<= 2.0.1'
+gem "font-awesome-sass"
+gem 'carrierwave'
+gem 'mini_magick'
+gem 'jquery-rails'
+gem 'fog-aws'
+
