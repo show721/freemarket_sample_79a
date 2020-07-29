@@ -2882,42 +2882,19 @@
     .ProductBox
       %h2.ProductHead= link_to '新規投稿','/'
       .ProductLists
-        .ProductList
-          .ProductList__img
-            = image_tag asset_path("m19406876484_1.jpg"), size: "220x150"
-          .ProductList__Body
-            %h3.name ee
-            %ul.PriceLike
-              %li.price 1000円
-              %li.star 0
-            %p.tax (税込)
-        .ProductList
-          .ProductList__img
-            = image_tag asset_path("m43330203980_1.jpg"), size: "220x150"
-          .ProductList__Body
-            %h3.name product3
-            %ul.PriceLike
-              %li.price 1000円
-              %li.star 0
-            %p.tax (税込)
-        .ProductList
-          .ProductList__img
-            = image_tag asset_path("m79202519302_1.jpg"), size: "220x150"
-          .ProductList__Body
-            %h3.name product2
-            %ul.PriceLike
-              %li.price 1000円
-              %li.star 0
-            %p.tax (税込)
-        .ProductList
-          .ProductList__img
-            = image_tag asset_path("m89607179397_1.jpg"), size: "220x150"
-          .ProductList__Body
-            %h3.name product1
-            %ul.PriceLike
-              %li.price 1000円
-              %li.star 1
-            %p.tax (税込)
+        - @products.each do |product|
+          .ProductList
+            .ProductList__img
+              - product.images.each do |image|
+                = image_tag asset_path("#{image.image}"), class: 'image-category'
+            .ProductList__Body
+              %h3.name
+                = product.name
+              %ul.PriceLike
+                %li.price
+                = "#{product.price}円"
+                %li.star 0
+              %p.tax (税込)
   .PickupContent
     %h2.head ピックアップブランド
     %h2.ProductHead= link_to 'アーカイバ','/'

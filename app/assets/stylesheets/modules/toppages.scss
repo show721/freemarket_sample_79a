@@ -513,6 +513,7 @@ h2.ProductHead {
   justify-content: center;
   margin-top: 20px;
 }
+
 .ProductList__Body {
   background-color: white;
   height: 110px;
@@ -521,6 +522,12 @@ h2.ProductHead {
 .ProductList__img {
   height: 150px;
   width: 220px;
+  .image-category {
+    width: 100%;
+    z-index: auto;
+    height: 150px;
+    object-fit: cover;
+  }
 }
 
 ul.Detail {
@@ -532,8 +539,6 @@ li {
 }
 
 ul.PriceLike {
-  display: flex;
-  justify-content: space-between;
 }
 li.price {
   margin: 0;
