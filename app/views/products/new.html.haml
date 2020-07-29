@@ -42,29 +42,31 @@
             .sell-container-left
               商品の詳細
             .sell-container-right
-              %p.sell-title
-                = label :category, 'カテゴリー',class: 'signup-label'
-                %span.signup-form-container__span.span-need 必須
-              .category_wrapper
-                .select-wrap.category_index_wrapper
-                  = f.text_field :category, placeholder: '選択してください', class: 'default-input sell-input'
+              .listing-product-detail__category
+                %p.sell-title
+                  = label :category, 'カテゴリー',class: 'signup-label'
+                  %span.signup-form-container__span.span-need 必須
+                .category_wrapper
+                  .select-wrap.category_index_wrapper
+                    = f.select :category, @category_parent_array, placeholder: '選択してください', class: 'default-input sell-input'
+                    //%i.select-arrow.fas.fa-chevron-down
+                  .input-error#product_category_index_id_error
+              .listing-brand-conditon
+                %p.margin-2rem.sell-title
+                  = label :brand, 'ブランド',class: 'signup-label'
+                  %span.signup-form-container__span.span-need 必須
+                .select-wrap
+                  = f.text_field :brand, placeholder: '入力して下さい', class: 'default-input sell-input'
                   %i.select-arrow.fas.fa-chevron-down
-                .input-error#product_category_index_id_error
-              %p.margin-2rem.sell-title
-                = label :brand, 'ブランド',class: 'signup-label'
-                %span.signup-form-container__span.span-need 必須
-              .select-wrap
-                = f.text_field :brand, placeholder: '入力して下さい', class: 'default-input sell-input'
-                %i.select-arrow.fas.fa-chevron-down
-              .input-error#product_fresh_status_error
-              -# ここにbigcategory,smallcategoryを挿入する
-              %p.margin-2rem.sell-title
-                = label :condition, '商品の状態',class: 'signup-label'
-                %span.signup-form-container__span.span-need 必須
-              .select-wrap
-                = f.text_field :condition, placeholder: '入力して下さい', class: 'default-input sell-input'
-                %i.select-arrow.fas.fa-chevron-down
-              .input-error#product_fresh_status_error
+                .input-error#product_fresh_status_error
+                -# ここにbigcategory,smallcategoryを挿入する
+                %p.margin-2rem.sell-title
+                  = label :condition, '商品の状態',class: 'signup-label'
+                  %span.signup-form-container__span.span-need 必須
+                .select-wrap
+                  = f.text_field :condition, placeholder: '入力して下さい', class: 'default-input sell-input'
+                  %i.select-arrow.fas.fa-chevron-down
+                .input-error#product_fresh_status_error
           -# 配送について
           .sell-container-all-padding.container-border-top.flex
             .sell-container-left

@@ -6,7 +6,20 @@ class ProductsController < ApplicationController
   def new
     @product = Product.new
     @product.images.build
+
+    @category_parent_array = ["選択してください"]
+    Category.where(ancestry: nil).each do |parent|
+      @category_parent_array << parent.category
+    end
   end
+
+   def get_category_children
+    @category_children = Category.find_by(category: "#{params[:product_category]}", ancestry: nil).children
+   end
+
+   def get_category_grandchildren
+    @category_grandchildren = Category.find("#{params[:child_id]}").children
+   end
 
   def create
     @product = Product.new(product_params)
@@ -20,10 +33,16 @@ class ProductsController < ApplicationController
   def edit
   end
 
+  def show
+  end
+
   def update
   end
 
   def destroy
+  end
+  
+  def buy
   end
 
   private
@@ -38,9 +57,14 @@ class ProductsController < ApplicationController
                                     :shipping_charge,
                                     :shipping_area,
                                     :shipping_day,
-                                    images_attributes: [:image])
+                                    images_attributes: [:image, :_destroy, :id])
   end
 
-  def show
+  def show_all_instance
+
+    @category_id = @product.category_id
+    @category_parent = Category.find(@category_id).parent.parent
+    @category_child = Category.find(@category_id).parent
+    @category_grandchild = Category.find(@category_id)
   end
 end
