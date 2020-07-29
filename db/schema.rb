@@ -19,7 +19,12 @@ ActiveRecord::Schema.define(version: 2020_07_24_071256) do
     t.string "street"
     t.string "building_name"
     t.string "room_number"
+    t.string "phone_number"
     t.bigint "user_id"
+    t.string "last_name_kanji"
+    t.string "first_name_kanji"
+    t.string "last_name_kana"
+    t.string "first_name_kana"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_addresses_on_user_id"
@@ -38,8 +43,7 @@ ActiveRecord::Schema.define(version: 2020_07_24_071256) do
     t.string "first_name_kanji", null: false
     t.string "last_name_kana", null: false
     t.string "first_name_kana", null: false
-    t.integer "birthday", null: false
-    t.string "phone_number", null: false
+    t.date "birthday", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

@@ -42,14 +42,11 @@
 
 ## cards テーブル
 
-| Column        | Type       | Options                        |
-| ------------- | ---------- | ------------------------------ |
-| number        | integer    | null: false                    |
-| month         | integer    | null: false                    |
-| year          | integer    | null: false                    |
-| security_code | integer    | null: false                    |
-| user_id       | references | null: false, foreign_key: true |
-| token         | text       |
+| Column       | Type       | Options                        |
+| ------------ | ---------- | ------------------------------ |
+| user_id      | references | null: false, foreign_key: true |
+| card_token   | string     | null: false                    |
+| client_token | string     | null: false                    |
 
 ### Association
 
@@ -57,20 +54,19 @@
 
 ## products テーブル
 
-| Column          | Type       | Options                        |
-| --------------- | ---------- | ------------------------------ |
-| name            | string     | null: false                    |
-| description     | text       | null: false                    |
-| category        | integer    | null: false                    | conc |
-| price           | integer    | null: false                    |
-| brand           | string     |
-| condition       | string     | null: false                    |
-| shipping_charge | integer    | null: false                    |
-| shipping_area   | string     | null: false                    |
-| shipping_day    | integer    | null: false                    |
-| user_id         | references | null: false, foreign_key: true |
-| seller_id       | integer    | null: false                    |
-| buyer_id        | integer    | null: false                    |
+| Column          | Type    | Options     |
+| --------------- | ------- | ----------- |
+| name            | string  | null: false |
+| description     | text    | null: false |
+| category        | integer | null: false |
+| price           | integer | null: false |
+| brand           | string  |
+| condition       | string  | null: false |
+| shipping_charge | integer | null: false |
+| shipping_area   | string  | null: false |
+| shipping_day    | integer | null: false |
+| seller_id       | integer | null: false |
+| buyer_id        | integer | null: false |
 
 ### Association
 
