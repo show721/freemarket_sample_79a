@@ -18,6 +18,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     end
     session["devise.regist_data"] = {user: @user.attributes}
     session["devise.regist_data"][:user]["password"] = params[:user][:password]
+    session["devise.regist_data"][:user]["password_confirmation"] = params[:user][:password]
     @address = Address.new
     render :new_address
   end
@@ -30,9 +31,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
       render :new_address and return
     end
     @user.build_address(@address.attributes)
-    @user.save
+    @user.save!
     session["devise.regist_data"]["user"].clear
     sign_in(:user, @user)
+    redirect_to root_path
   end
 
   protected
