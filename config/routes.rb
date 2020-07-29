@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :users, controllers: {
     registrations: 'users/registrations',
   }
-  root to: "home#index"
+  root "toppages#index"
 
   devise_scope :user do
     get 'addresses', to: 'users/registrations#new_address'
