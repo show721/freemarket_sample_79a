@@ -1,6 +1,5 @@
 # README
 
-test
 #ER 図
 ![データベース ER 図 (IE記法) (4)](https://user-images.githubusercontent.com/67144675/88154131-50dfb480-cc41-11ea-9996-05373d0a0462.png)
 
