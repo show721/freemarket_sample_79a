@@ -2880,19 +2880,19 @@
     .ProductBox
       %h2.ProductHead= link_to '新規投稿','/'
       .ProductLists
-        .ProductList
         - @products.each do |product|
-          .ProductList__img
-            - product.images.each do |image|
-              = image_tag asset_path("#{image.image}", size: "180×180")
-          .ProductList__Body
-            %h3.name
-            = product.name
-            %ul.PriceLike
-              %li.price
-              = product.price
-              %li.star 0
-            %p.tax (税込)
+          .ProductList
+            .ProductList__img
+              - product.images.each do |image|
+                = image_tag asset_path("#{image.image}"), class: 'image-category'
+            .ProductList__Body
+              %h3.name
+                = product.name
+              %ul.PriceLike
+                %li.price
+                = "#{product.price}円"
+                %li.star 0
+              %p.tax (税込)
   .PickupContent
     %h2.head ピックアップブランド
     %h2.ProductHead= link_to 'アーカイバ','/'
