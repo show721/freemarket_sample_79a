@@ -115,6 +115,21 @@
             cursor: pointer;
           }
         }
+        &__deleteBtn {
+          height: 20px;
+          width: 130px;
+          font-size: 15px;
+          text-align: center;
+          text-decoration: none;
+          border-radius: 40px;
+          background-color: #3ccace;
+          // .deleteBtn {
+          //   width: 100%;
+          //   font-size: 15px;
+          //   text-decoration: none;
+          //   background-color: #3ccace;
+          // }
+        }
         .optional {
           font-size: 13px;
           padding: 6px 10px;

@@ -21,12 +21,16 @@ class ProductsController < ApplicationController
   end
 
   def show
+    @product = Product.find(params[:id])
   end
 
   def update
   end
 
   def destroy
+    @products = Product.find(params[:id])
+    @products.destroy
+    redirect_to root_path
   end
   
   def buy
@@ -44,6 +48,7 @@ class ProductsController < ApplicationController
                                     :shipping_charge,
                                     :shipping_area,
                                     :shipping_day,
+                                    :text,
                                     images_attributes: [:image, :_destroy, :id])
   end
 
