@@ -1,12 +1,9 @@
 # README
 
 #ER 図
-<<<<<<< HEAD
 ![データベース ER 図 (IE記法) (6)](https://user-images.githubusercontent.com/67144675/88506341-adade700-d014-11ea-8a69-b1ab20eab66a.png)
 =======
 ![データベース ER 図 (IE記法) (4)](https://user-images.githubusercontent.com/67144675/88154131-50dfb480-cc41-11ea-9996-05373d0a0462.png)
-
-> > > > > > > master
 
 # DB 設計
 
@@ -19,16 +16,8 @@
 | first_name_kanji | string | null: false |
 | last_name_kana   | string | null: false |
 | first_name_kana  | string | null: false |
+| birthday         | date   | null: false |
 
-<<<<<<< HEAD
-| birthday | date | null: false |
-=======
-| birthday | integer | null: false |
-
-> > > > > > > master
-> > > > > > > | phone_number | integer | null: false |
-> > > > > > > | email | string | null: false |
-> > > > > > > | password | string | null: false |
 
 ### Association
 
