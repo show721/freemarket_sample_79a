@@ -76,7 +76,7 @@
 - belongs_to :user
 - has_many :comments
 - has_many :likes
-- has_many :images
+- has_many :images dependent: :destroy
 - has_many :categories
 
 ## comments テーブル

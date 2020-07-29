@@ -1,4 +1,5 @@
 class Product < ApplicationRecord
+  belongs_to :user
   has_many :images, dependent: :destroy
   
   validates :name, :description, :category, :price, :condition, :shipping_charge, :shipping_area, :shipping_day, presence: true
