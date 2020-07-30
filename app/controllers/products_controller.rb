@@ -57,7 +57,6 @@ class ProductsController < ApplicationController
                                     :shipping_charge,
                                     :shipping_area,
                                     :shipping_day,
-                                    :text,
                                     images_attributes: [:image, :_destroy, :id])
   end
 
