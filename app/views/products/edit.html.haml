@@ -19,15 +19,15 @@
               #image-box-1        
                 .item-num-0#image-box__container
                   = f.fields_for :images do |image|
-                    .clearfix
+                    .clearfix__edit
                       // 写真のプレビューとインプットボタンのul
-                      %ul#previews
-                        %li.input
+                      %ul#previews__edit
+                        %li.input__edit
                           // 画像を取り込むインプットボタン
-                          %label.upload-label
-                            .upload-label__text
+                          %label.upload-label__edit
+                            .upload-label__text__edit
                               クリックしてファイルをアップロード
-                              .input-area
+                              .input-area__edit
                                 = image.file_field :image, class: "hidden image_upload"             
             .input-error#product_image_error
           -# 商品名、商品の説明
