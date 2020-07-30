@@ -522,34 +522,35 @@ h2.ProductHead {
 .ProductList__img {
   height: 150px;
   width: 220px;
+  position: relative;
   .image-category {
     width: 100%;
     z-index: auto;
     height: 150px;
     object-fit: cover;
-    &__product-sold {
-      width: 0;
-      height: 0;
-      border-width: 100px 100px 0 0;
-      border-color: #ea352d transparent transparent transparent transparent;
-      display: block;
-      position: absolute;
-      top: 0;
-      left: 0;
-      z-index: 1;
-      border-style: solid;
-      &__inner {
-        top: -80px;
-        font-size: 20px;
-        position: absolute;
-        left: 0;
-        z-index: 2;
-        color: #fff;
-        transform: rotate(-45deg);
-        letter-spacing: 2px;
-        font-weight: 600;
-      }
-    }
+  }
+}
+.products-sold {
+  width: 0;
+  height: 0;
+  border-width: 100px 100px 0 0;
+  border-color: #ea352d transparent transparent transparent;
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  border-style: solid;
+  &__inner {
+    top: -80px;
+    font-size: 20px;
+    position: absolute;
+    left: 0;
+    z-index: 2;
+    color: #fff;
+    transform: rotate(-45deg);
+    letter-spacing: 2px;
+    font-weight: 600;
   }
 }
 ul.Detail {

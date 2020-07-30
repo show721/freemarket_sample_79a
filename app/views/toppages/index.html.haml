@@ -2895,8 +2895,8 @@
               - product.images.each do |image|
                 = image_tag asset_path("#{image.image}"), class: 'image-category'
                   -if product.buyer_id.present?
-                  .productList__img__products-sold
-                    .productList__img__products-sold__inner
+                  .products-sold
+                    .products-sold__inner
                       SOLD
             .ProductList__Body
               %h3.name
