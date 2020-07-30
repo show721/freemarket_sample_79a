@@ -1,12 +1,7 @@
 # README
 
 #ER 図
-<<<<<<< HEAD
-![データベース ER 図 (IE記法) (6)](https://user-images.githubusercontent.com/67144675/88506341-adade700-d014-11ea-8a69-b1ab20eab66a.png)
-=======
-![データベース ER 図 (IE記法) (4)](https://user-images.githubusercontent.com/67144675/88154131-50dfb480-cc41-11ea-9996-05373d0a0462.png)
-
-> > > > > > > master
+![データベース ER 図 (IE記法) (7)](https://user-images.githubusercontent.com/67144675/88907710-ead3dc80-d293-11ea-90a7-b510077bca36.png)
 
 # DB 設計
 
@@ -37,6 +32,7 @@
 - has_many :likes
 - has_one :address dependent: :destroy
 - has_one :card dependent: :destroy
+- has_many :sns_credentials
 
 ## addresses テーブル
 
@@ -137,3 +133,15 @@
 ### Association
 
 - belongs_to :product
+
+## sns_credential テーブル
+
+| Column   | Type       | Options     |
+| -------- | ---------- | ----------- |
+| provider | string     | null: false |
+| uid      | string     | null: false |
+| user_id  | references | null: false |
+
+### Association
+
+- belongs_to :user
