@@ -1,5 +1,6 @@
 # README
 
+test
 #ER 図
 ![データベース ER 図 (IE記法) (6)](https://user-images.githubusercontent.com/67144675/88506341-adade700-d014-11ea-8a69-b1ab20eab66a.png)
 =======
@@ -17,7 +18,6 @@
 | last_name_kana   | string | null: false |
 | first_name_kana  | string | null: false |
 | birthday         | date   | null: false |
-
 
 ### Association
 
