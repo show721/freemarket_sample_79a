@@ -30,6 +30,9 @@
     width: 100%;
   }
   .signup-container {
+    .hidden--field {
+      display: none;
+    }
     .signup-top {
       height: 48px;
       width: 100%;
