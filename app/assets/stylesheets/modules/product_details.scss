@@ -21,7 +21,7 @@
 
 .main-contents {
   background-color: #f8f8f8;
-  height: 350vh;
+  height: 1900px;
   width: 100%;
   padding: 40px 0;
   &__show-main {
@@ -116,19 +116,17 @@
           }
         }
         &__deleteBtn {
-          height: 20px;
+          height: 30px;
           width: 130px;
-          font-size: 15px;
           text-align: center;
-          text-decoration: none;
           border-radius: 40px;
           background-color: #3ccace;
-          // .deleteBtn {
-          //   width: 100%;
-          //   font-size: 15px;
-          //   text-decoration: none;
-          //   background-color: #3ccace;
-          // }
+          a {
+            color: #f4fcfc;
+            font-size: 15px;
+            text-decoration: none;
+            font-weight: bold;
+          }
         }
         .optional {
           font-size: 13px;
