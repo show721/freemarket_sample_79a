@@ -118,14 +118,15 @@
         &__deleteBtn {
           height: 30px;
           width: 130px;
-          text-align: center;
-          border-radius: 40px;
-          background-color: #3ccace;
-          a {
+          .deleteBtn {
+            width: 100%;
             color: #f4fcfc;
+            background-color: #3ccace;
+            padding: 6px 10px;
             font-size: 15px;
             text-decoration: none;
             font-weight: bold;
+            border-radius: 40px;
           }
         }
         .optional {
