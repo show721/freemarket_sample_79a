@@ -93,6 +93,8 @@
           = button_tag type: "button", class: "likeBtn"  do
             %i.fas.fa-star
             お気に入り
+        .main-contents__show-main__product__optionArea__deleteBtn
+          = link_to"商品を削除する",product_path(@product.id), method: :delete
         .main-contents__show-main__product__optionArea__optional
           =link_to '#', class: "optional" do
             %i.fas.fa-flag
