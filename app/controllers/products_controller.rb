@@ -1,7 +1,7 @@
 class ProductsController < ApplicationController
   def index
     @products = Product.includes(:images).order('created_at DESC')
-    @images = Image.all.order("created_at DESC").limit(4)
+    @images = Image.all.order("created_at DESC").limit(8)
   end
 
   def new

@@ -1,6 +1,6 @@
 class ToppagesController < ApplicationController
   def index
-    @products = Product.all.order("created_at DESC").limit(4)
+    @products = Product.all.order("created_at DESC").limit(8)
   end
 
   def show
