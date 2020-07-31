@@ -1,4 +1,5 @@
 class ProductsController < ApplicationController
+  before_action :set_category, only: [:new, :edit, :show]
   def index
     @products = Product.includes(:images).order('created_at DESC')
     @images = Image.all.order("created_at DESC").limit(8)
@@ -7,11 +8,6 @@ class ProductsController < ApplicationController
   def new
     @product = Product.new
     @product.images.build
-
-    @category_parent_array = ["選択してください"]
-    Category.where(ancestry: nil).each do |parent|
-      @category_parent_array << parent.category
-    end
   end
 
   def get_category_children
@@ -71,7 +67,10 @@ class ProductsController < ApplicationController
   end
 
   def set_category
-    
+    @category_parent_array = ["選択してください"]
+    Category.where(ancestry: nil).each do |parent|
+      @category_parent_array << parent.category
+    end
   end
 
 
