@@ -4,6 +4,7 @@ class Product < ApplicationRecord
   
   validates :name, :description, :category, :price, :condition, :shipping_charge, :shipping_area, :shipping_day, presence: true
   validates :name, length: { maximum: 40 }
-  validates :price, length: { minimum: 3 }, numericality: {only_integer: true, greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999}
+  validates :price, numericality: {greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999}
+  
   accepts_nested_attributes_for :images, allow_destroy: true
 end
