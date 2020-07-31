@@ -2892,7 +2892,7 @@
         - @products.each do |product|
           .ProductList
             .ProductList__img
-              - product.images.each do |image|
+              - product.images.first(1).each do |image|
                 = image_tag asset_path("#{image.image}"), class: 'image-category'
                   -if product.buyer_id.present?
                   .products-sold
