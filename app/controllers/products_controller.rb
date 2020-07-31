@@ -26,7 +26,7 @@ class ProductsController < ApplicationController
   def update
     @product = Product.find_by(id: params[:id])
     if @product.update_attributes(product_params)
-      render :edit
+      redirect_to root_path
     else
       render :edit
     end 
