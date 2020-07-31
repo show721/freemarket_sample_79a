@@ -31,7 +31,7 @@
 .main-contents
   .main-contents__show-main
     .main-contents__show-main__product
-      - if current_user.id == @product.seller_id
+      - if user_signed_in?
         = link_to "編集する","/products/#{params[:id]}/edit"
       .main-contents__show-main__product__name
         商品名

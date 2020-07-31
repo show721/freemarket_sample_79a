@@ -1,5 +1,7 @@
 class ProductsController < ApplicationController
-  before_action :set_category, only: [:new, :edit, :show]
+  before_action :set_category, only: [:new, :edit, :show, :create]
+  before_action :correct_user, only: [:edit, :update]
+
   def index
     @products = Product.includes(:images).order('created_at DESC')
     @images = Image.all.order("created_at DESC").limit(8)
@@ -8,14 +10,6 @@ class ProductsController < ApplicationController
   def new
     @product = Product.new
     @product.images.build
-  end
-
-  def get_category_children
-   @category_children = Category.find_by(category: "#{params[:product_category]}", ancestry: nil).children
-  end
-
-  def get_category_grandchildren
-   @category_grandchildren = Category.find("#{params[:child_id]}").children
   end
 
   def create
@@ -51,6 +45,14 @@ class ProductsController < ApplicationController
   def buy
   end
 
+  def get_category_children
+   @category_children = Category.find_by(category: "#{params[:product_category]}", ancestry: nil).children
+  end
+
+  def get_category_grandchildren
+   @category_grandchildren = Category.find("#{params[:child_id]}").children
+  end
+
   private
 
   def product_params
@@ -70,6 +72,13 @@ class ProductsController < ApplicationController
     @category_parent_array = ["選択してください"]
     Category.where(ancestry: nil).each do |parent|
       @category_parent_array << parent.category
+    end
+  end
+
+  def correct_user
+    product = Product.find_by(id: params[:id])
+    unless current_user.id == product.seller_id
+      redirect_to root_path
     end
   end
 
