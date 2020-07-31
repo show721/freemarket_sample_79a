@@ -78,12 +78,6 @@ $(document).on("turbolinks:load", function () {
         $("#previews li:last-child").css({
           width: `calc(100% - (20% * ${$lis.length}))`,
         });
-        $(".upload-label__text").css({
-          display: `none`,
-        });
-        $(".input").css({
-          display: `block`,
-        });
       } else if (($lis.length = 5)) {
         $li.addClass("image-preview");
         $ul.append(append_input);
