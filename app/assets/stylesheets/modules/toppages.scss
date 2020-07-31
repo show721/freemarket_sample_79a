@@ -292,6 +292,7 @@ html {
   right: 32px;
   position: fixed;
   line-height: 30px;
+  z-index: 100;
 
   &__text {
     font-size: 18px;
@@ -509,9 +510,13 @@ h2.ProductHead {
 
 .ProductLists {
   display: flex;
-  justify-content: center;
+
   margin-top: 20px;
+  overflow-x: scroll;
+  margin: 26px auto;
+  width: 880px;
 }
+
 .ProductList__Body {
   background-color: white;
   height: 110px;
@@ -520,8 +525,37 @@ h2.ProductHead {
 .ProductList__img {
   height: 150px;
   width: 220px;
+  position: relative;
+  .image-category {
+    width: 100%;
+    z-index: auto;
+    height: 150px;
+    object-fit: cover;
+  }
 }
-
+.products-sold {
+  width: 0;
+  height: 0;
+  border-width: 100px 100px 0 0;
+  border-color: #ea352d transparent transparent transparent;
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  border-style: solid;
+  &__inner {
+    top: -80px;
+    font-size: 20px;
+    position: absolute;
+    left: 0;
+    z-index: 2;
+    color: #fff;
+    transform: rotate(-45deg);
+    letter-spacing: 2px;
+    font-weight: 600;
+  }
+}
 ul.Detail {
   padding: 0px;
   margin-left: 10px;
@@ -531,8 +565,6 @@ li {
 }
 
 ul.PriceLike {
-  display: flex;
-  justify-content: space-between;
 }
 li.price {
   margin: 0;

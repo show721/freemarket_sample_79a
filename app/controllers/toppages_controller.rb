@@ -1,8 +1,15 @@
 class ToppagesController < ApplicationController
-def index
-  
-end
 
-def show
-end
+  def index
+    @products = Product.all.order("created_at DESC").limit(8)
+  end
+
+  def show
+    @product = Product.find(params[:id])
+  end
+
+  def post_params
+    params.require(:images).permit(:image)
+    params.require(:products).permit(:product_name, :price)
+  end
 end
