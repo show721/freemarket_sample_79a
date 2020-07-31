@@ -35,10 +35,7 @@ class ProductsController < ApplicationController
   def edit
     @product = Product.find_by(id: params[:id])
   end
-
-  def show
-  end
-
+  
   def update
     @product = Product.find_by(id: params[:id])
     if @product.update_attributes(product_params)
@@ -49,6 +46,7 @@ class ProductsController < ApplicationController
   end
 
   def show
+    @product = Product.find_by(id: params[:id])
   end
 
   def destroy
