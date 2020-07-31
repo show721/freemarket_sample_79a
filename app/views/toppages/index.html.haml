@@ -2797,6 +2797,7 @@
         %p
           ログインしています
         =link_to "ログアウト", destroy_user_session_path, method: :delete
+        =link_to "マイページ", users_path
       - else
         %p
         ログインしていません
@@ -2900,7 +2901,8 @@
                       SOLD
             .ProductList__Body
               %h3.name
-                = product.name
+                = link_to product.name, "/products/#{product.id}"
+                -# = product.name
               %ul.PriceLike
                 %li.price
                 = "#{product.price}円"
