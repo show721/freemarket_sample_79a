@@ -510,8 +510,11 @@ h2.ProductHead {
 
 .ProductLists {
   display: flex;
-  justify-content: center;
+
   margin-top: 20px;
+  overflow-x: scroll;
+  margin: 26px auto;
+  width: 880px;
 }
 
 .ProductList__Body {
