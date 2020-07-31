@@ -59,14 +59,5 @@ class ProductsController < ApplicationController
                                     :shipping_day,
                                     images_attributes: [:image, :_destroy, :id])
   end
-
-  def show_all_instance
-
-    @category_id = @product.category_id
-    @category_parent = Category.find(@category_id).parent.parent
-    @category_child = Category.find(@category_id).parent
-    @category_grandchild = Category.find(@category_id)
-  end
-
   
 end
