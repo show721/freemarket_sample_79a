@@ -1,7 +1,8 @@
+
 $(function(){
   // カテゴリーセレクトボックスのオプションを作成
   function appendOption(category){
-    var html = `<option value="${category.category}" data-category="${category.id}">${category.category}</option>`;
+    var html = `<option value=${category.id} data-category="${category.id}">${category.category}</option>`;
     return html;
   }
   // 子カテゴリーの表示作成
@@ -9,8 +10,8 @@ $(function(){
     var childSelectHtml = '';
     childSelectHtml = `<div class='listing-select-wrapper__added' id= 'children_wrapper'>
                         <div class='listing-select-wrapper__box'>
-                          <select class="listing-select-wrapper__box--select" id="child_category" name="category_id">
-                            <option value="---" data-category="---">選択してください</option>
+                          <select class="listing-select-wrapper__box--select" id="child_category" category="category_id">
+                            <option name ="---" data-category="---">選択してください</option>
                             ${insertHTML}
                           <select>
                           <i class='listing-select-wrapper__box--arrow-down'></i>
@@ -23,7 +24,7 @@ $(function(){
     var grandchildSelectHtml = '';
     grandchildSelectHtml = `<div class='listing-select-wrapper__added' id= 'grandchildren_wrapper'>
                               <div class='listing-select-wrapper__box'>
-                                <select class="listing-select-wrapper__box--select" id="grandchild_category" name="category_id">
+                                <select name = product[category_id] class="listing-select-wrapper__box--select" id="grandchild_category" category="category_id">
                                   <option value="---" data-category="---">選択してください</option>
                                   ${insertHTML}
                                 <select>
