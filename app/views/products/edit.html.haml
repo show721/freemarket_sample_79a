@@ -15,20 +15,26 @@
               %span.signup-form-container__span.span-need
                 必須
             .upload-box
-              最大画像５枚までアップロードできます。
+              投稿分を変更更新できます
               #image-box-1        
-                .item-num-0#image-box__container
-                  = f.fields_for :images do |image|
+                .item-num-0__edit#image-box__container
+                  - @product.images.each do |image|
                     .clearfix__edit
                       // 写真のプレビューとインプットボタンのul
-                      %ul#previews__edit
-                        %li.input__edit
-                          // 画像を取り込むインプットボタン
-                          %label.upload-label__edit
-                            .upload-label__text__edit
-                              クリックしてファイルをアップロード
-                              .input-area__edit
-                                = image.file_field :image, class: "hidden image_upload"             
+                      .previews__edit
+                        %ul#previews__edit
+                          %li.input__edit
+                            = image_tag image.image.url, width: "114", height: "114", alt: "preview"
+                    
+            .update__edit--box                                   
+              = f.fields_for :images do |image|
+                .update__edit--message
+                  %label.update__edit--update
+                    ファイル更新
+                    = image.file_field :image, class: "hidden" 
+                  .update__edit--delete
+                    削除
+                    = image.check_box:_destroy
             .input-error#product_image_error
           -# 商品名、商品の説明
           .signup-form-container.registration-form__first-container.sell-container-all-padding.container-border-top
