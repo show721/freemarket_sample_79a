@@ -33,8 +33,11 @@
                     ファイル更新
                     = image.file_field :image, class: "hidden" 
                   .update__edit--delete
-                    削除
-                    = image.check_box:_destroy
+                    - if image.index == 0
+                      削除できません
+                    - else
+                      削除
+                      = image.check_box:_destroy
             .input-error#product_image_error
           -# 商品名、商品の説明
           .signup-form-container.registration-form__first-container.sell-container-all-padding.container-border-top
