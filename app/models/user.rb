@@ -6,7 +6,7 @@ class User < ApplicationRecord
 
   has_many :products
   has_one :address, dependent: :destroy
-  has_one :card dependent: :destroy
+  has_one :card, dependent: :destroy
   
   validates :nickname, presence: true
   validates :first_name_kanji, presence: true
