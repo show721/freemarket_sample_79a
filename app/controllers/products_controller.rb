@@ -48,10 +48,6 @@ class ProductsController < ApplicationController
   def buy
   end
 
-  def set_products
-    @product = Product.find(params[:id])
-  end
-
   private
 
   def set_products
