@@ -1,9 +1,11 @@
 class ProductsController < ApplicationController
   before_action :set_products, only: [:show, :destroy]
-  
+  before_action :set_category, only: [:new, :edit, :show, :create]
+  before_action :correct_user, only: [:edit, :update]
+
   def index
     @products = Product.includes(:images).order('created_at DESC')
-    @images = Image.all.order("created_at DESC").limit(4)
+    @images = Image.all.order("created_at DESC").limit(8)
   end
 
   def new
@@ -24,17 +26,18 @@ class ProductsController < ApplicationController
   def edit
     @product = Product.find_by(id: params[:id])
   end
-
+  
   def update
     @product = Product.find_by(id: params[:id])
     if @product.update_attributes(product_params)
-      render :edit
+      redirect_to root_path
     else
-      render :edit
+      render :new
     end 
   end
 
   def show
+    @product = Product.find_by(id: params[:id])
   end
 
   def destroy
@@ -48,6 +51,14 @@ class ProductsController < ApplicationController
   def buy
   end
 
+  def get_category_children
+   @category_children = Category.find_by(category: "#{params[:product_category]}", ancestry: nil).children
+  end
+
+  def get_category_grandchildren
+   @category_grandchildren = Category.find("#{params[:child_id]}").children
+  end
+
   private
 
   def set_products
@@ -57,7 +68,7 @@ class ProductsController < ApplicationController
   def product_params
     params.require(:product).permit(:name, 
                                     :description, 
-                                    :category, 
+                                    :category_id,
                                     :brand,
                                     :price,
                                     :condition, 
@@ -67,4 +78,20 @@ class ProductsController < ApplicationController
                                     images_attributes: [:image, :_destroy, :id])
   end
 
+  def set_category
+    @category_parent_array = ["選択してください"]
+    Category.where(ancestry: nil).each do |parent|
+      @category_parent_array << parent.category
+    end
+  end
+
+  def correct_user
+    product = Product.find_by(id: params[:id])
+    unless current_user.id == product.seller_id
+      redirect_to root_path
+    end
+  end
+
+
 end
+
