@@ -1,4 +1,6 @@
 class ProductsController < ApplicationController
+  before_action :set_products, only: [:show, :destroy]
+  
   def index
     @products = Product.includes(:images).order('created_at DESC')
     @images = Image.all.order("created_at DESC").limit(4)
@@ -33,21 +35,28 @@ class ProductsController < ApplicationController
   end
 
   def show
-    @product = Product.find(params[:id])
   end
 
   def destroy
-    @products = Product.find(params[:id])
-    if @products.destroy
+    if @product.destroy
       redirect_to root_path
     else
       render :show
+    end
   end
   
   def buy
   end
 
+  def set_products
+    @product = Product.find(params[:id])
+  end
+
   private
+
+  def set_products
+    @product = Product.find(params[:id])
+  end
 
   def product_params
     params.require(:product).permit(:name, 
