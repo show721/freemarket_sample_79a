@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   resources :products do
     resources :cards, only: [:index, :update]
     collection do
+      get 'purchase'
       get 'buy'
     end
 
