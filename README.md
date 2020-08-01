@@ -68,7 +68,7 @@
 | shipping_area   | string  | null: false |
 | shipping_day    | integer | null: false |
 | seller_id       | integer | null: false |
-| buyer_id        | integer | null: false |
+| buyer_id        | integer |             |
 
 ### Association
 
