@@ -1,9 +1,11 @@
 class CardsController < ApplicationController
 
-  def index
-  end
 
   def update
+  end
+
+  def new
+    @card = Card.new
   end
 
   def create
@@ -12,7 +14,7 @@ class CardsController < ApplicationController
       card: params[:card_token],
       metadata: {user_id: current_user.id}
     )
-    
+    binding.pry
     @card = Card.new(
       user_id: current_user.id,
       client_token: customer.id,
