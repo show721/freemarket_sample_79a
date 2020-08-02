@@ -47,6 +47,14 @@ class ProductsController < ApplicationController
       render :show
     end
   end
+
+  def search
+    @products = Product.search(params[:keyword])
+    respond_to do |format|
+      format.html
+      format.json
+    end
+  end
   
   def buy
   end
