@@ -47,9 +47,9 @@ class ProductsController < ApplicationController
 
   def purchase
     @product = Product.find_by(id: params[:id])
-    Payjp.api_key = "sk_test_1ee9f98aced809068f165afd"
+    Payjp.api_key = Rails.application.credentials[:payjp][:secret_key]
     Payjp::Charge.create(
-      amount: @product.price, # 決済する値段
+      amount: 123, # 決済する値段
       card: params['payjp-token'], # フォームを送信すると作成・送信されてくるトークン
       currency: 'jpy'
     )
