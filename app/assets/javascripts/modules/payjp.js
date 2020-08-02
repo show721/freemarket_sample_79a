@@ -1,10 +1,10 @@
 $(function () {
   if (!$("#regist_card")[0]) return false;
 
-  Payjp.setPublicKey("テスト用の公開鍵");
-
+  Payjp.setPublicKey("pk_test_07db780e7718d3fb4bd5d472");
   $("#regist_card").on("click", function (e) {
     e.preventDefault();
+
     var card = {
       number: $("#card_number_form").val(),
       exp_month: $("#exp_month_form").val(),

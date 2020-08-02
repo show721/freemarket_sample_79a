@@ -8,9 +8,10 @@ Rails.application.routes.draw do
     post 'addresses', to: 'users/registrations#create_address'
   end
 
-  resources :cards, only: [:index, :update, :create]
-  
+  resources :cards, only: [:index, :update, :create] 
+
   resources :products do   
+
     collection do
       get 'purchase'
       get 'buy'
@@ -23,5 +24,6 @@ Rails.application.routes.draw do
     end
 
   end 
-  resources :users, only: [:index, :new, :edit]
+  resources :users, only: [:index, :new, :edit] do
+  end
 end

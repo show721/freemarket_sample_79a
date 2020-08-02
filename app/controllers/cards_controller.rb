@@ -14,9 +14,9 @@ class CardsController < ApplicationController
     )
     
     @card = Card.new(
-      user_id: current_user.id
-      card_token: customer.default_card,
+      user_id: current_user.id,
       client_token: customer.id,
+      card_token: customer.default_card
       
     )
     @card.save
