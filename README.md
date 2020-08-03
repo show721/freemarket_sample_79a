@@ -47,7 +47,7 @@
 | Column       | Type       | Options                        |
 | ------------ | ---------- | ------------------------------ |
 | user_id      | references | null: false, foreign_key: true |
-| card_token   | string     | null: false                    |
+| card_token   | string     |                                |
 | client_token | string     | null: false                    |
 
 ### Association
