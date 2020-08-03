@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  before_action :set_product, only: [:show, :destroy, :edit ,:update]
+  before_action :set_product, only: [:show, :destroy, :edit, :update]
   before_action :set_category, only: [:new, :edit, :show, :create]
   before_action :correct_user, only: [:edit, :update]
 
@@ -49,6 +49,7 @@ class ProductsController < ApplicationController
   end
   
   def buy
+    @product = Product.find_by(id: params[:format])
   end
 
   def purchase
