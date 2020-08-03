@@ -47,17 +47,10 @@
           (税込)送料込み
 
       .main-contents__show-main__product__detail
-        ここに商品の説明文が入ります。
-        ここに商品の説明文が入ります。
-        ここに商品の説明文が入ります。
-        ここに商品の説明文が入ります。
-        ここに商品の説明文が入ります。
+        = @product.description
 
       .main-contents__show-main__product__table
         %table
-          %tr
-            %th 出品者
-            %td name
           %tr
             %th カテゴリー
             %td 
@@ -89,6 +82,11 @@
             %th 発送日の目安
             %td 
               = @product.shipping_day
+      .main-contents__show-main__product__buyArea
+        - if user_signed_in? && current_user.id == @product.seller_id
+        - else
+          =link_to"#" , class: "buyBtn" do
+            商品を購入する
       .main-contents__show-main__product__optionArea
         .main-contents__show-main__product__optionArea__likeBtn
           = button_tag type: "button", class: "likeBtn"  do
@@ -105,9 +103,6 @@
           =link_to '#', class: "optional" do
             %i.fas.fa-flag
             不適切な商品の通報
-      .main-contents__show-mein__product__buyArea
-        - if user_signed_in? && current_user.id == @product.buyer_id
-          = link_to
       .main-contents__show-main__product__comment
         =form_for '#' do |f|
           .main-contents__show-main__product__comment__new
