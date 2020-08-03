@@ -31,70 +31,68 @@
 .main-contents
   .main-contents__show-main
     .main-contents__show-main__product
-      - if user_signed_in?
-        = link_to "編集する","/products/#{params[:id]}/edit"
       .main-contents__show-main__product__name
-        商品名
+        = @product.name
       .main-contents__show-main__product__image
         %ul1
-          = image_tag asset_path( "test.png"), size: "560x350"
+          - @product.images.first(1).each do |image|
+            = image_tag asset_path("#{image.image}"),size: "560x350"
           %ul
-            %li= image_tag asset_path( "test2.png"), size: "140x90"
-            %li= image_tag asset_path( "test3.png"), size: "140x90"
-            %li= image_tag asset_path("test4.png"), size: "140x90"
+            - @product.images.first(4).each do |image|
+              = image_tag asset_path("#{image.image}"),size: "140x90"
+      
       .main-contents__show-main__product__price
-        ¥2,000
+        = "#{@product.price}円"
         .main-contents__show-main__product__price__detail
-          (税込)送料込み
+          (税込)
 
       .main-contents__show-main__product__detail
-        ここに商品の説明文が入ります。
-        ここに商品の説明文が入ります。
-        ここに商品の説明文が入ります。
-        ここに商品の説明文が入ります。
-        ここに商品の説明文が入ります。
+        = @product.description
 
       .main-contents__show-main__product__table
         %table
           %tr
-            %th 出品者
-            %td name
-          %tr
             %th カテゴリー
             %td 
-              =link_to "#" do
-                メンズ
+              = @parent.category
               %br
-              =link_to "#" do
-                ジャケット/アウター
+              = @child.category
               %br
-              =link_to "#" do
-                ノーカラージャケット
+              = @grandchild.category
           %tr
             %th ブランド
             %td 
-          %tr
-            %th サイズ
-            %td 
+              = @product.brand
           %tr
             %th 商品の状態
-            %td 新品/未使用
+            %td 
+              = @product.condition
           %tr
             %th 配送料の負担
-            %td 着払い(購入者負担)
+            %td 
+              = @product.shipping_charge
           %tr
             %th 発送元の地域
             %td
-              = link_to "#" do
-                青森県
+              = @product.shipping_area
           %tr
             %th 発送日の目安
-            %td 1-2日で発送
+            %td 
+              = @product.shipping_day
+      .main-contents__show-main__product__buyArea
+        - if user_signed_in? && current_user.id == @product.seller_id
+        - else
+          =link_to buy_products_path(@product.id) , class: "buyBtn" do
+            商品を購入する
       .main-contents__show-main__product__optionArea
         .main-contents__show-main__product__optionArea__likeBtn
           = button_tag type: "button", class: "likeBtn"  do
             %i.fas.fa-star
             お気に入り
+        .main-contents__show-main__product__optionArea__editBtn
+          - if user_signed_in? && current_user.id == @product.seller_id
+            = link_to edit_product_path(@product.id),method: :get do
+              商品を編集する
         .main-contents__show-main__product__optionArea__deleteBtn
           -if user_signed_in? && current_user.id == @product.seller_id
             = link_to product_path(@product.id), method: :delete, class: "deleteBtn" do
