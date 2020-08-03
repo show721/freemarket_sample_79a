@@ -8,6 +8,8 @@ class ProductsController < ApplicationController
     @images = Image.all.order("created_at DESC").limit(8)
   end
 
+  
+
   def new
     @product = Product.new
     @product.images.build
@@ -49,7 +51,8 @@ class ProductsController < ApplicationController
   end
 
   def search
-    @products = Product.search(params[:keyword])
+    return nil if params[:keyword] == ""
+    @products = Product.where('brand LIKE(?)', "%#{params[:keyword]}%")
     respond_to do |format|
       format.html
       format.json

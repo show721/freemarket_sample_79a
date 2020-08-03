@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :users, controllers: {
     registrations: 'users/registrations',
   }
-  root "toppages#index"
+  root "products#index"
   devise_scope :user do
     get 'addresses', to: 'users/registrations#new_address'
     post 'addresses', to: 'users/registrations#create_address'
@@ -12,7 +12,6 @@ Rails.application.routes.draw do
     collection do
       get 'buy'
     end
-
     
     collection do
       get 'get_category_children', defaults: { format: 'json' }
@@ -22,7 +21,6 @@ Rails.application.routes.draw do
     collection do
       get 'search'
     end
-
   end 
   resources :users, only: [:index, :new, :edit]
 end
