@@ -1,4 +1,5 @@
 .category {
+  background-color: white;
   height: 40px;
   width: 100vw;
   padding: 15px 0 5px 80px;
@@ -21,7 +22,7 @@
 
 .main-contents {
   background-color: #f8f8f8;
-  height: 220vh;
+  height: 1900px;
   width: 100%;
   padding: 40px 0;
   &__show-main {
@@ -93,6 +94,23 @@
           }
         }
       }
+      &__buyArea {
+        height: 30px;
+        width: 700px;
+        background-color: white;
+        display: flex;
+        justify-content: center;
+        margin-right: 0px;
+        .buyBtn {
+          background-color: #3ccace;
+          color: white;
+          font-size: 20px;
+          text-decoration: none;
+          font-weight: bold;
+          border-radius: 40px;
+          padding: 6px 10px;
+        }
+      }
       &__optionArea {
         height: 100px;
         width: 600px;
@@ -113,6 +131,32 @@
             color: #3ccace;
             border: 1px solid #ffb340;
             cursor: pointer;
+          }
+        }
+        &__deleteBtn {
+          height: 30px;
+          width: 130px;
+          background-color: white;
+          border-radius: 40px;
+          padding: 6px 10px;
+          a {
+            color: #3ccace;
+            font-size: 15px;
+            text-decoration: none;
+            font-weight: bold;
+          }
+        }
+        &__editBtn {
+          height: 30px;
+          width: 130px;
+          background-color: white;
+          border-radius: 40px;
+          padding: 6px 10px;
+          a {
+            color: #3ccace;
+            font-size: 15px;
+            text-decoration: none;
+            font-weight: bold;
           }
         }
         .optional {

@@ -1,4 +1,5 @@
 class ProductsController < ApplicationController
+  before_action :set_product, only: [:show, :destroy, :edit ,:update]
   before_action :set_category, only: [:new, :edit, :show, :create]
   before_action :correct_user, only: [:edit, :update]
 
@@ -23,11 +24,9 @@ class ProductsController < ApplicationController
   end
 
   def edit
-    @product = Product.find_by(id: params[:id])
   end
   
   def update
-    @product = Product.find_by(id: params[:id])
     if @product.update_attributes(product_params)
       redirect_to root_path
     else
@@ -36,10 +35,17 @@ class ProductsController < ApplicationController
   end
 
   def show
-    @product = Product.find_by(id: params[:id])
+    @grandchild = Category.find(@product.category_id)
+    @child = @grandchild.parent
+    @parent = @child.parent
   end
 
   def destroy
+    if @product.destroy
+      redirect_to root_path
+    else
+      render :show
+    end
   end
   
   def buy
@@ -65,6 +71,10 @@ class ProductsController < ApplicationController
   end
 
   private
+
+  def set_product
+    @product = Product.find(params[:id])
+  end
 
   def product_params
     params.require(:product).permit(:name, 
