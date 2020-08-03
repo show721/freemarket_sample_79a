@@ -1,4 +1,5 @@
 .category {
+  background-color: white;
   height: 40px;
   width: 100vw;
   padding: 15px 0 5px 80px;
@@ -118,15 +119,27 @@
         &__deleteBtn {
           height: 30px;
           width: 130px;
-          .deleteBtn {
-            width: 100%;
+          background-color: #3ccace;
+          border-radius: 40px;
+          padding: 6px 10px;
+          a {
             color: #f4fcfc;
-            background-color: #3ccace;
-            padding: 6px 10px;
             font-size: 15px;
             text-decoration: none;
             font-weight: bold;
-            border-radius: 40px;
+          }
+        }
+        &__editBtn {
+          height: 30px;
+          width: 130px;
+          background-color: #3ccace;
+          border-radius: 40px;
+          padding: 6px 10px;
+          a {
+            color: white;
+            font-size: 15px;
+            text-decoration: none;
+            font-weight: bold;
           }
         }
         .optional {
