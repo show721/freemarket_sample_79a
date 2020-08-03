@@ -81,7 +81,7 @@
               = @product.shipping_day
       .main-contents__show-main__product__buyArea
         - if user_signed_in? && current_user.id == @product.seller_id
-        - else
+        - elsif user_signed_in?
           =link_to buy_products_path(@product.id) , class: "buyBtn" do
             商品を購入する
       .main-contents__show-main__product__optionArea
