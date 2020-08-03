@@ -35,11 +35,11 @@
         = @product.name
       .main-contents__show-main__product__image
         %ul1
-          = image_tag asset_path( "test.png"), size: "560x350"
+          - @product.images.first(1).each do |image|
+            = image_tag asset_path("#{image.image}"),size: "560x350"
           %ul
-            %li= image_tag asset_path( "test2.png"), size: "140x90"
-            %li= image_tag asset_path( "test3.png"), size: "140x90"
-            %li= image_tag asset_path("test4.png"), size: "140x90"
+            - @product.images.first(4).each do |image|
+              = image_tag asset_path("#{image.image}"),size: "140x90"
       
       .main-contents__show-main__product__price
         = "#{@product.price}円"
@@ -54,14 +54,11 @@
           %tr
             %th カテゴリー
             %td 
-              =link_to "#" do
-                メンズ
+              = @parent.category
               %br
-              =link_to "#" do
-                ジャケット/アウター
+              = @child.category
               %br
-              =link_to "#" do
-                ノーカラージャケット
+              = @grandchild.category
           %tr
             %th ブランド
             %td 
@@ -85,7 +82,7 @@
       .main-contents__show-main__product__buyArea
         - if user_signed_in? && current_user.id == @product.seller_id
         - else
-          =link_to"#" , class: "buyBtn" do
+          =link_to buy_products_path(@product.id) , class: "buyBtn" do
             商品を購入する
       .main-contents__show-main__product__optionArea
         .main-contents__show-main__product__optionArea__likeBtn

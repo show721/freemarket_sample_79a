@@ -37,6 +37,9 @@ class ProductsController < ApplicationController
   end
 
   def show
+    @grandchild = Category.find(@product.category_id)
+    @child = @grandchild.parent
+    @parent = @child.parent
   end
 
   def destroy
