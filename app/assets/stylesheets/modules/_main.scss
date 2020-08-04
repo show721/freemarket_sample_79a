@@ -13,7 +13,7 @@ body {
   overflow-x: hidden;
   overflow-y: auto;
 }
-.nav-guide {
+.bread_crumbs {
   height: 40px;
   width: 100%;
   padding: 0 50px;
@@ -21,7 +21,7 @@ body {
   box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.16);
   position: relative;
   background-color: white;
-  ul {
+  ol {
     height: 40px;
     width: 1155px;
     max-width: 1000;
