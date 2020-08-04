@@ -1,32 +1,13 @@
 .main-header
   =render partial: 'layouts/header'
   
-.category
-  .category__contents
-    %ul
-      %li
-        =link_to "#" do
-          FURIMA
-      %li
-        >
-      %li
-        =link_to "#" do
-          メンズ
-      %li 
-        >
-      %li
-        =link_to "#" do
-          ジャケット/アウター
-      %li 
-        >
-      %li
-        =link_to "#" do
-          ノーカラージャケット
-      %li 
-        >
-      %li
-        商品名
-
+%nav.breadcrumbs
+  %ol
+    %li
+      = link_to root_path do
+        トップページ
+      %i.fas.fa-angle-right
+      
 
 .main-contents
   .main-contents__show-main
