@@ -7,6 +7,12 @@ crumb :mypage do
   parent :root
 end
 
+#クレジットカード登録情報
+crumb :card do
+  link "クレジットカード登録", new_user_path
+  parent :mypage
+end
+
 # 商品出品ページ
 crumb :products_new do
   link "商品出品", new_product_path

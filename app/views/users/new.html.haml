@@ -1,5 +1,10 @@
 .header
   = render partial: 'layouts/header'
+%nav.bread_crumbs
+  %ol
+    %li 
+      - breadcrumb :card
+      = breadcrumbs separator: " &rsaquo; "
 .title
   .title__chapter
     クレジットカード情報入力
