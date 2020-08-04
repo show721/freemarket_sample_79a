@@ -15,20 +15,19 @@
             %p.price 
     .main__buy-container__pay-content
       .main__buy-container__pay-content__inner
-        = form_with url: purchase_products_path do
+        = form_with url: purchase_products_path(@product.id) do |f|
           %ul.buy-price
             %li.price-title 支払い金額
             %li.price-money 
               = "#{@product.price} ¥"
           .main__buy-container__pay-content__inner__pay-method
             %p 支払い方法
-            %p ※登録したカード情報表示させる
+            %p 登録カード
           .main__buy-container__pay-content__inner__address
             %p 配送先
-            %p ※登録した送付先住所表示させる
+            %p 登録住所
           .main__buy-container__pay-content__inner__buyBtn
-            :plain
-              <script type="text/javascript" src="https://checkout.pay.jp" class="payjp-button" data-key="pk_test_07db780e7718d3fb4bd5d472"></script>
+            = f.submit "カードで支払う"
 
 .Footer
   .contents

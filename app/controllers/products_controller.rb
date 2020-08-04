@@ -53,14 +53,20 @@ class ProductsController < ApplicationController
   end
 
   def purchase
-    @product = Product.find_by(id: params[:id])
-    Payjp.api_key = Rails.application.credentials[:payjp][:secret_key]
-    Payjp::Charge.create(
-      amount: 123, # 決済する値段
-      card: params['payjp-token'], # フォームを送信すると作成・送信されてくるトークン
-      currency: 'jpy'
-    )
-    redirect_to root_path
+    product = Product.find_by(id: params[:format])    
+    if current_user.card == nil
+      redirect_to users_path
+    else  
+      Payjp.api_key = Rails.application.credentials[:payjp][:secret_key]
+      Payjp::Charge.create(
+        amount: product.price, # 決済する値段
+        customer: current_user.card.client_token, # フォームを送信すると作成・送信されてくるトークン
+        currency: 'jpy'
+      )
+      product.buyer_id = current_user.id
+      product.save
+      redirect_to root_path
+    end
   end
 
   def get_category_children

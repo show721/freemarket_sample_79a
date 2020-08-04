@@ -51,11 +51,12 @@
             =link_to new_card_path do
               クレジットカード登録・変更
           = icon('fas','angle-right')
-        %li.list-setting
-          .list-setting__info
-            =link_to card_path(@user.card.id) do
-              クレジットカード登録削除
-          = icon('fas','angle-right')
+        -# - if @user.card.id
+        -#   %li.list-setting
+        -#     .list-setting__info
+        -#       =link_to card_path(@user.card.id) do
+        -#         クレジットカード登録削除
+            = icon('fas','angle-right')
         %li.list-setting
           .list-setting__info
             =link_to "#" do
