@@ -2793,10 +2793,18 @@
           = link_to "#" do
             ブランド
       %ul.right-categorys
+      - if user_signed_in?
+        %p
+          ログインしています
+        =link_to "ログアウト", destroy_user_session_path, method: :delete
+        =link_to "マイページ", users_path
+      - else
+        %p
+        ログインしていません
         %li.right-category1
-          %a{href: "#"}ログイン
+          =link_to "新規会員登録", new_user_registration_path, method: :get
         %li.right-category2
-          %a{href: "#"}新規会員登録
+          =link_to "ログイン", new_user_session_path, method: :get
             
   .Mainvisual
     .Content
@@ -2885,11 +2893,16 @@
         - @products.each do |product|
           .ProductList
             .ProductList__img
-              - product.images.each do |image|
+              - product.images.first(1).each do |image|
                 = image_tag asset_path("#{image.image}"), class: 'image-category'
+                  -if product.buyer_id.present?
+                  .products-sold
+                    .products-sold__inner
+                      SOLD
             .ProductList__Body
               %h3.name
-                = product.name
+                = link_to product.name, "/products/#{product.id}"
+                -# = product.name
               %ul.PriceLike
                 %li.price
                 = "#{product.price}円"

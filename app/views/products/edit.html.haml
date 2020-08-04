@@ -4,8 +4,9 @@
     = form_with model: @product, class: "form", id: "product-form" do |f|
       .signup-top
         %h2.signup-header
-          出品ページ
+          出品更新ページ
       .signup-body
+        
         .sell-upload-form
           -# 画像アップロード
           .sell-upload-form__image.sell-container-all-padding.container-border-top
@@ -14,20 +15,29 @@
               %span.signup-form-container__span.span-need
                 必須
             .upload-box
-              最大画像５枚までアップロードできます。
+              投稿分を変更更新できます
               #image-box-1        
-                .item-num-0#image-box__container
-                  = f.fields_for :images do |image|
-                    .clearfix
+                .item-num-0__edit#image-box__container
+                  - @product.images.each do |image|
+                    .clearfix__edit
                       // 写真のプレビューとインプットボタンのul
-                      %ul#previews
-                        %li.input
-                          // 画像を取り込むインプットボタン
-                          %label.upload-label
-                            .upload-label__text
-                              クリックしてファイルをアップロード
-                              .input-area
-                                = image.file_field :image, class: "hidden image_upload"             
+                      .previews__edit
+                        %ul#previews__edit
+                          %li.input__edit
+                            = image_tag image.image.url, width: "114", height: "114", alt: "preview"
+                    
+            .update__edit--box                                   
+              = f.fields_for :images do |image|
+                .update__edit--message
+                  %label.update__edit--update
+                    ファイル更新
+                    = image.file_field :image, class: "hidden" 
+                  .update__edit--delete
+                    - if image.index == 0
+                      削除できません
+                    - else
+                      削除
+                      = image.check_box:_destroy
             .input-error#product_image_error
           -# 商品名、商品の説明
           .signup-form-container.registration-form__first-container.sell-container-all-padding.container-border-top
@@ -49,32 +59,29 @@
             .sell-container-left
               商品の詳細
             .sell-container-right
-              .listing-product-detail__category
-                %p.sell-title
-                  = label :category, 'カテゴリー',class: 'signup-label'
-                  %span.signup-form-container__span.span-need 必須
-                .category_wrapper
-                  .select-wrap.category_index_wrapper
-                    = f.select :category, @category_parent_array, placeholder: '選択してください', class: 'default-input sell-input'
-                    //%i.select-arrow.fas.fa-chevron-down
-                  .input-error#product_category_index_id_error
-              .listing-brand-conditon
-                %p.margin-2rem.sell-title
-                  = label :brand, 'ブランド',class: 'signup-label'
-                  %span.signup-form-container__span.span-not-need 任意
-                .select-wrap
-                  = f.text_field :brand, placeholder: ' 例) シャネル', class: 'default-input sell-input'
+              %p.sell-title
+                = label :category, 'カテゴリー',class: 'signup-label'
+                %span.signup-form-container__span.span-need 必須
+              .category_wrapper
+                .select-wrap.category_index_wrapper
+                  = f.select :category, @category_parent_array, placeholder: '選択してください', class: 'default-input sell-input'
                   -# %i.select-arrow.fas.fa-chevron-down
-                .input-error#product_fresh_status_error
-                -# ここにbigcategory,smallcategoryを挿入する
-                %p.margin-2rem.sell-title
-                  = label :condition, '商品の状態',class: 'signup-label'
-                  %span.signup-form-container__span.span-need 必須
-                .select-wrap
-                  = f.text_field :condition, placeholder: ' 例) 新品、中古、古品', class: 'default-input sell-input'
-                  -# %i.select-arrow.fas.fa-chevron-down
-                .input-error#product_fresh_status_error
-
+                .input-error#product_category_index_id_error
+              %p.margin-2rem.sell-title
+                = label :brand, 'ブランド',class: 'signup-label'
+                %span.signup-form-container__span.span-not-need 任意
+              .select-wrap
+                = f.text_field :brand, placeholder: ' 例) シャネル', class: 'default-input sell-input'
+                -# %i.select-arrow.fas.fa-chevron-down
+              .input-error#product_fresh_status_error
+              -# ここにbigcategory,smallcategoryを挿入する
+              %p.margin-2rem.sell-title
+                = label :condition, '商品の状態',class: 'signup-label'
+                %span.signup-form-container__span.span-need 必須
+              .select-wrap
+                = f.text_field :condition, placeholder: ' 例) 新品、中古品、古品', class: 'default-input sell-input'
+                -# %i.select-arrow.fas.fa-chevron-down
+              .input-error#product_fresh_status_error
           -# 配送について
           .sell-container-all-padding.container-border-top.flex
             .sell-container-left
@@ -137,27 +144,9 @@
                   ー
           -# 説明、出品ボタン
           .sell-container-all-padding.container-border-top
-          - if user_signed_in?
+           
             .sell-container-submit
-              = f.submit "出品する",class: 'submit-btn submit-btn-rightgreen user-mypage-wrapper__main__credit__content__btn sell-container-submit__btn'
-            .sell-container-back
-              = link_to root_path,class: 'submit-btn submit-btn-gray user-mypage-wrapper__main__credit__content__btn sell-container-back__btn' do
-                %span.back もどる
-            .sell-container-description
-              %span
-                = link_to "禁止されている出品", ""
-                、
-                = link_to "行為", ""
-                を必ずご確認ください。
-              %span
-                またブランド品でシリアルナンバー等がある場合はご記載ください。
-                = link_to "偽ブランドの販売", "" 
-                は犯罪であり処罰される可能性があります。
-              %span
-                また、出品をもちまして
-                = link_to "加盟店規約", ""
-                に同意したことになります。
-          - else
+              = f.submit "更新する",class: 'submit-btn submit-btn-rightgreen user-mypage-wrapper__main__credit__content__btn sell-container-submit__btn'
             .sell-container-back
               = link_to root_path,class: 'submit-btn submit-btn-gray user-mypage-wrapper__main__credit__content__btn sell-container-back__btn' do
                 %span.back もどる

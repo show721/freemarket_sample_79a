@@ -40,7 +40,7 @@ $(document).on("turbolinks:load", function () {
     );
     //次の画像を読み込むためのinput。
     var append_input = $(
-      `<li class="input" style="width: calc(100%);"><label class="upload-label"><div class="upload-label__text">クリックしてファイルをアップロード<div class="input-area"><input class="hidden image_upload" type="file"></div></div></label></li>`
+      `<li class="input"><label class="upload-label"><div class="upload-label__text">クリックしてファイルをアップロード<div class="input-area"><input class="hidden image_upload" type="file"></div></div></label></li>`
     );
     $ul = $("#previews");
     $li = $(this).parents("li");
@@ -67,7 +67,7 @@ $(document).on("turbolinks:load", function () {
       $label.css("display", "none");
       $li.removeClass("input");
       $li.addClass("image-preview");
-      $lis = $ul.find(".image-preview");
+      $lis = $li.find(".image-preview");
       $("#previews li").css({
         width: `114px`,
       });
@@ -78,7 +78,7 @@ $(document).on("turbolinks:load", function () {
         $("#previews li:last-child").css({
           width: `calc(100% - (20% * ${$lis.length}))`,
         });
-      } else if ($lis.length <= 5) {
+      } else if (($lis.length = 5)) {
         $li.addClass("image-preview");
         $ul.append(append_input);
         $("#previews li:last-child").css({
