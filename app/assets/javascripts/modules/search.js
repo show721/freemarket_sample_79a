@@ -7,6 +7,7 @@ $(function() {
                  <div class="product_content">
                    <p class="product_name">
                      ${product.brand}
+                     ${product.name}
                    </p>
                  </div>
                  `

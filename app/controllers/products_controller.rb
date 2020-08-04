@@ -52,7 +52,7 @@ class ProductsController < ApplicationController
 
   def search
     return nil if params[:keyword] == ""
-    @products = Product.where('brand LIKE(?)', "%#{params[:keyword]}%")
+    @products = Product.where('brand LIKE(?) OR name LIKE(?)', "%#{params[:keyword]}%", "%#{params[:keyword]}%")
     respond_to do |format|
       format.html
       format.json
