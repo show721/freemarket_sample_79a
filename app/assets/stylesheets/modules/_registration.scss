@@ -453,6 +453,58 @@ body {
   text-align: center;
   border-radius: 4px;
   margin: 16px 0;
+  &--mail {
+    display: block;
+    width: 100%;
+    line-height: 48px;
+    font-size: 14px;
+    border: 1px solid transparent;
+    -webkit-transition: all ease-out 0.3s;
+    transition: all ease-out 0.3s;
+    cursor: pointer;
+    text-align: center;
+    border-radius: 4px;
+    margin: 16px 0 0;
+    color: #fff;
+    background-color: #ea352d;
+    text-decoration: none;
+    position: relative;
+  }
+  &--facebook {
+    display: block;
+    width: 100%;
+    line-height: 48px;
+    font-size: 14px;
+    border: 1px solid transparent;
+    -webkit-transition: all ease-out 0.3s;
+    transition: all ease-out 0.3s;
+    cursor: pointer;
+    text-align: center;
+    border-radius: 4px;
+    margin: 16px 0 0;
+    background: #385185;
+    color: #fff;
+    text-decoration: none;
+    position: relative;
+  }
+  &--google {
+    display: block;
+    width: 100%;
+    line-height: 48px;
+    font-size: 14px;
+    border: 1px solid transparent;
+    -webkit-transition: all ease-out 0.3s;
+    transition: all ease-out 0.3s;
+    cursor: pointer;
+    text-align: center;
+    border-radius: 4px;
+    margin: 16px 0 0;
+    background: #fff;
+    border: #979797 solid 1px;
+    color: #333;
+    text-decoration: none;
+    position: relative;
+  }
   &--login {
     display: block;
     width: 100%;
@@ -469,4 +521,27 @@ body {
     background-color: #3ccace;
     text-decoration: none;
   }
+}
+
+.step0 {
+  padding: 24px 40px 64px;
+  &__contents {
+    max-width: 343px;
+    margin: 0 auto;
+  }
+}
+.far.fa-envelope {
+  position: absolute;
+  top: 17px;
+  left: 20px;
+}
+.fab.fa-facebook-f {
+  position: absolute;
+  top: 17px;
+  left: 20px;
+}
+.fab.fa-google {
+  position: absolute;
+  top: 17px;
+  left: 20px;
 }

@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  before_action :set_product, only: [:show, :destroy]
+  before_action :set_product, only: [:show, :destroy, :edit, :update]
   before_action :set_category, only: [:new, :edit, :show, :create]
   before_action :correct_user, only: [:edit, :update]
 
@@ -24,11 +24,9 @@ class ProductsController < ApplicationController
   end
 
   def edit
-    @product = Product.find_by(id: params[:id])
   end
   
   def update
-    @product = Product.find_by(id: params[:id])
     if @product.update_attributes(product_params)
       redirect_to root_path
     else
@@ -51,6 +49,24 @@ class ProductsController < ApplicationController
   end
   
   def buy
+    @product = Product.find_by(id: params[:format])
+  end
+
+  def purchase
+    product = Product.find_by(id: params[:format])    
+    if current_user.card == nil
+      redirect_to users_path
+    else  
+      Payjp.api_key = Rails.application.credentials[:payjp][:secret_key]
+      Payjp::Charge.create(
+        amount: product.price, # 決済する値段
+        customer: current_user.card.client_token, # 登録カード情報
+        currency: 'jpy'
+      )
+      product.buyer_id = current_user.id
+      product.save
+      redirect_to root_path
+    end
   end
 
   def get_category_children
@@ -93,7 +109,5 @@ class ProductsController < ApplicationController
       redirect_to root_path
     end
   end
-
-
 end
 

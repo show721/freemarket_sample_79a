@@ -8,15 +8,13 @@
 .title
   .title__chapter
     クレジットカード情報入力
-
 .main-form
   .main-form__frame
-    = form_with url: users_path do |f|
+    = form_with url: cards_path, method: :post, html: {id: "charge-form", name: "inputForm"} do |f|
+      %span.charge-errors
       .form-group
         = f.label :カード番号
-        %span.form-group__require 必須
-        %br
-        = f.text_field :card_number, class:'form-card__input', placeholder:'半角数字のみ'
+        = f.text_field :number, maxlength: "16", name: "number", placeholder: "カード番号", type: "text",id: "card_number_form", value: 4242424242424242
       .form-group
         .card-company
           %ul.card-list
@@ -36,20 +34,15 @@
               = image_tag asset_path("discover.png"), size: "32x20"
       .form-group
         = f.label :有効期限
-        %span.form-group__require 必須
-        %br
-        = f.select :card_month, options_for_select(["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11","12"]),{}, class: 'form-card__input__valid'
-        = f.label :月, class: "form-group__card__deadline"
-        = f.select :card_year, options_for_select(["20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30"]),{}, class: 'form-card__input__valid'
-        = f.label :年, class: "form-group__card__deadline"
+        = f.text_field :exp_month, maxlength: "2", name: "exp_month", placeholder: "月", type: "text",id: "exp_month_form", value: 12
+        = f.text_field :exp_year, maxlength: "4", name: "exp_year", placeholder: "年", type: "text",id: "exp_year_form", value: 2022
       .form-group
-        = f.label :セキュリティコード
-        %span.form-group__require 必須
-        = f.text_field :card_pass, class:'form-card__input', placeholder: "カード背面４桁もしくは3桁の番号"
+        = f.label :CVC
+        = f.text_field :CVC, maxlength: "3", name: "cvc", placeholder: "CVC", type: "text",id: "cvc_form", value: 123
       .form-group__addition
         .form-group__addition__question ?
         %p.form-group__text
           カードの裏面の番号とは？
       .form-group
-        = f.submit "追加する", class: "btn", url:"#"
-.footer
+        = f.submit "登録", id: "regist_card" 
+-# .footer
