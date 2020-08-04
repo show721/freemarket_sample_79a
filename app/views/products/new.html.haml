@@ -1,8 +1,13 @@
 .sell-container
+  =render partial: 'layouts/header'
   .signup-container
-    -# = render partial: ''
     = form_with model: @product, class: "form", id: "product-form" do |f|
       .signup-top
+        %nav.bread_crumbs
+          %ol
+            %li 
+              - breadcrumb :products_new
+              = breadcrumbs separator: " &rsaquo; "
         %h2.signup-header
           出品ページ
       .signup-body
