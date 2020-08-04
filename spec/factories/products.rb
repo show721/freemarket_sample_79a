@@ -3,7 +3,7 @@ FactoryBot.define do
   factory :product do
     name              {"ジャケット"}
     description       {"新品です"}
-    category          {111}
+    category_id       {111}
     brand             {111}
     price             {300}
     condition         {"新品"}

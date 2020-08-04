@@ -1,0 +1,3 @@
+-if user_signed_in? && current_user.id == @card.user_id
+  = link_to card_path(@card.id), method: :delete do
+    商品を削除する

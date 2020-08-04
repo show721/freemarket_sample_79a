@@ -7,9 +7,13 @@ Rails.application.routes.draw do
     get 'addresses', to: 'users/registrations#new_address'
     post 'addresses', to: 'users/registrations#create_address'
   end
-  # root "toppages#index"
-  resources :products do
+
+  resources :cards, only: [:new, :update, :create, :show , :destroy] 
+
+  resources :products do   
+
     collection do
+      post 'purchase'
       get 'buy'
     end
 
@@ -20,5 +24,6 @@ Rails.application.routes.draw do
     end
 
   end 
-  resources :users, only: [:index, :new, :edit]
+  resources :users, only: [:index, :new, :edit] do
+  end
 end
