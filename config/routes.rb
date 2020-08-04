@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: {
-    registrations: 'users/registrations',
+    omniauth_callbacks: 'users/omniauth_callbacks',
+    registrations: 'users/registrations'
   }
   root "toppages#index"
   devise_scope :user do
@@ -24,6 +25,6 @@ Rails.application.routes.draw do
     end
 
   end 
-  resources :users, only: [:index, :new, :edit] do
-  end
+  resources :users, only: [:index, :new, :edit]
+  resources :registration, only: [:index]
 end
