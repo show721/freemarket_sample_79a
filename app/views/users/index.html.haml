@@ -1,18 +1,11 @@
 .header
   = render partial: 'layouts/header'
 
-.nav-guide
-  %ul
+%nav.bread_crumbs
+  %ol
     %li 
-      = link_to "#" do
-        furima
-      = icon('fas','angle-right')
-    %li 
-      = link_to "#" do
-        トップページ
-      = icon('fas','angle-right')
-      %mypage
-        マイページ
+      - breadcrumb :mypage
+      = breadcrumbs separator: " &rsaquo; "
 .main
   .main__left
     %nav.mypage-nav
