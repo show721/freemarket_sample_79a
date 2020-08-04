@@ -134,7 +134,7 @@
 
 - belongs_to :product
 
-## sns_credential テーブル
+## sns_credentials テーブル
 
 | Column   | Type       | Options     |
 | -------- | ---------- | ----------- |
