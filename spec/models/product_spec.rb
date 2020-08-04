@@ -17,11 +17,11 @@ describe Product do
       expect(product.errors[:description]).to include("can't be blank")
     end
 
-    # 3. categoryが空では登録できないこと
-    it "is invalid without a category" do
-      product = build(:product, category: nil)
+    # 3. category_idが空では登録できないこと
+    it "is invalid without a category_id" do
+      product = build(:product, category_id: nil)
       product.valid?
-      expect(product.errors[:category]).to include("can't be blank")
+      expect(product.errors[:category_id]).to include("can't be blank")
     end
 
     # 3. priceが空では登録できないこと
