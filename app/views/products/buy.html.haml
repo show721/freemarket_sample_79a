@@ -1,5 +1,10 @@
 .buy-header
   =render partial: 'layouts/header' 
+%nav.bread_crumbs
+  %ol
+    %li 
+      - breadcrumb :products_buy
+      = breadcrumbs separator: " &rsaquo; "
 .main
   .main__buy-container
     %h1.buy-head 購入内容の確認
