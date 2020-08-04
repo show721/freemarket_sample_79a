@@ -7,7 +7,7 @@
       .main__buy-container__product-content__inner
         .main__buy-container__product-content__inner__product-box
           .main__buy-container__product-content__inner__product-box__product-img
-            - @product.images.first(4).each do |image|
+            - @product.images.first(1).each do |image|
               = image_tag asset_path("#{image.image}"),size: "120x100"
           .main__buy-container__product-content__inner__product-box__product-detail
             %p.name
