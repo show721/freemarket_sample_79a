@@ -8,7 +8,7 @@
         furima
       = icon('fas','angle-right')
     %li 
-      = link_to "#" do
+      = link_to root_path do
         トップページ
       = icon('fas','angle-right')
       %mypage
@@ -20,7 +20,7 @@
       %ul.mypage-lists
         %li
           .lists-info
-            = link_to "#" do
+            = link_to new_product_path do
               出品する
           = icon('fas','angle-right')
         %li
@@ -48,9 +48,15 @@
       %ul.setting-lists
         %li.list-setting
           .list-setting__info
-            =link_to new_user_path do
+            =link_to new_card_path do
               クレジットカード登録・変更
           = icon('fas','angle-right')
+        -# - if @user.card.id
+        -#   %li.list-setting
+        -#     .list-setting__info
+        -#       =link_to card_path(@user.card.id) do
+        -#         クレジットカード登録削除
+            = icon('fas','angle-right')
         %li.list-setting
           .list-setting__info
             =link_to "#" do

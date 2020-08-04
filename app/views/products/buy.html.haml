@@ -7,24 +7,27 @@
       .main__buy-container__product-content__inner
         .main__buy-container__product-content__inner__product-box
           .main__buy-container__product-content__inner__product-box__product-img
-            商品写真
+            - @product.images.first(1).each do |image|
+              = image_tag asset_path("#{image.image}"),size: "120x100"
           .main__buy-container__product-content__inner__product-box__product-detail
-            %p.name 商品名表示させる
-            %p.price ¥金額表示させる
+            %p.name
+              = @product.name
+            %p.price 
     .main__buy-container__pay-content
       .main__buy-container__pay-content__inner
-        = form_for '#' do |f|
+        = form_with url: purchase_products_path(@product.id) do |f|
           %ul.buy-price
             %li.price-title 支払い金額
-            %li.price-money ¥金額表示させる
+            %li.price-money 
+              = "#{@product.price} ¥"
           .main__buy-container__pay-content__inner__pay-method
             %p 支払い方法
-            %p ※登録したカード情報表示させる
+            %p 登録カード
           .main__buy-container__pay-content__inner__address
             %p 配送先
-            %p ※登録した送付先住所表示させる
+            %p 登録住所
           .main__buy-container__pay-content__inner__buyBtn
-            = f.submit '購入する', class: 'buyBtn'
+            = f.submit "カードで支払う"
 
 .Footer
   .contents
@@ -50,3 +53,4 @@
   .Footer_logo
     = image_tag asset_path("logo-white.png"), size: "150x50"
   %p.Clogo ©︎FURIMA
+

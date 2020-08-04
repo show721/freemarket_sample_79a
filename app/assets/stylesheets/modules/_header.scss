@@ -1,5 +1,6 @@
 .home-header {
   padding: 0 60px;
+  background-color: white;
   &__box {
     max-width: 1040px;
     width: 100%;
@@ -54,7 +55,6 @@
     .header-nav {
       font-size: 14px;
       display: flex;
-      margin-bottom: 20px;
 
       .left-categorys {
         display: flex;

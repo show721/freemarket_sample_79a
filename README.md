@@ -3,6 +3,7 @@
 #ER 図
 ![データベース ER 図 (IE記法) (7)](https://user-images.githubusercontent.com/67144675/88907710-ead3dc80-d293-11ea-90a7-b510077bca36.png)
 
+
 # DB 設計
 
 ## users テーブル
@@ -14,16 +15,7 @@
 | first_name_kanji | string | null: false |
 | last_name_kana   | string | null: false |
 | first_name_kana  | string | null: false |
-
-<<<<<<< HEAD
-| birthday | date | null: false |
-=======
-| birthday | integer | null: false |
-
-> > > > > > > master
-> > > > > > > | phone_number | integer | null: false |
-> > > > > > > | email | string | null: false |
-> > > > > > > | password | string | null: false |
+| birthday         | date   | null: false |
 
 ### Association
 
@@ -55,7 +47,7 @@
 | Column       | Type       | Options                        |
 | ------------ | ---------- | ------------------------------ |
 | user_id      | references | null: false, foreign_key: true |
-| card_token   | string     | null: false                    |
+| card_token   | string     |                                |
 | client_token | string     | null: false                    |
 
 ### Association
@@ -76,14 +68,14 @@
 | shipping_area   | string  | null: false |
 | shipping_day    | integer | null: false |
 | seller_id       | integer | null: false |
-| buyer_id        | integer | null: false |
+| buyer_id        | integer |             |
 
 ### Association
 
 - belongs_to :user
 - has_many :comments
 - has_many :likes
-- has_many :images
+- has_many :images dependent: :destroy
 - has_many :categories
 
 ## comments テーブル

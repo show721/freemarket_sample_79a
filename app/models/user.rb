@@ -4,8 +4,10 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :omniauthable, omniauth_providers: [:facebook, :google_oauth2]
 
+  has_many :products
   has_one :address, dependent: :destroy
   has_many :sns_credentials, dependent: :destroy
+  has_one :card, dependent: :destroy
   
   validates :nickname, presence: true
   validates :first_name_kanji, presence: true
