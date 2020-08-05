@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_02_205408) do
+ActiveRecord::Schema.define(version: 2020_08_05_100518) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "prefecture"
@@ -47,8 +47,18 @@ ActiveRecord::Schema.define(version: 2020_08_02_205408) do
     t.index ["ancestry"], name: "index_categories_on_ancestry"
   end
 
+  create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.text "comment", null: false
+    t.bigint "user_id", null: false
+    t.bigint "product_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["product_id"], name: "index_comments_on_product_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
+  end
+
   create_table "images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "image", limit: 255, null: false
+    t.string "image", null: false
     t.bigint "product_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -56,14 +66,14 @@ ActiveRecord::Schema.define(version: 2020_08_02_205408) do
   end
 
   create_table "products", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "name", limit: 255, null: false
+    t.string "name", null: false
     t.text "description", null: false
-    t.integer "category_id", null: false
-    t.string "brand", limit: 255
+    t.string "category_id", null: false
+    t.string "brand"
     t.integer "price", null: false
-    t.string "condition", limit: 255, null: false
+    t.string "condition", null: false
     t.integer "shipping_charge", null: false
-    t.string "shipping_area", limit: 255, null: false
+    t.string "shipping_area", null: false
     t.integer "shipping_day", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -100,6 +110,8 @@ ActiveRecord::Schema.define(version: 2020_08_02_205408) do
 
   add_foreign_key "addresses", "users"
   add_foreign_key "cards", "users"
+  add_foreign_key "comments", "products"
+  add_foreign_key "comments", "users"
   add_foreign_key "images", "products"
   add_foreign_key "sns_credentials", "users"
 end
