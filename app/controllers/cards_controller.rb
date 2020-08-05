@@ -20,6 +20,7 @@ class CardsController < ApplicationController
       
     )
     @card.save
+    redirect_to root_path
   end
 
   def destroy #PayjpとCardデータベースを削除します
