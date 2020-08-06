@@ -2,10 +2,13 @@ class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :destroy]
   before_action :set_category, only: [:new, :edit, :show, :create]
   before_action :correct_user, only: [:edit, :update]
+  
 
   def index
     @products = Product.includes(:images).order('created_at DESC')
     @images = Image.all.order("created_at DESC").limit(8)
+
+    
   end
 
   
@@ -51,12 +54,10 @@ class ProductsController < ApplicationController
   end
 
   def search
-    return nil if params[:keyword] == ""
-    @products = Product.where('brand LIKE(?) OR name LIKE(?)', "%#{params[:keyword]}%", "%#{params[:keyword]}%")
-    respond_to do |format|
-      format.html
-      format.json
-    end
+    redirect_to search_products_path if params[:keyword] == ""
+
+    @products = Product.where('brand LIKE(?) OR name LIKE(?)', "%#{params[:keyword]}%", "%#{params[:keyword]}%").order("created_at DESC").limit(132)
+
   end
   
   def buy
@@ -102,7 +103,5 @@ class ProductsController < ApplicationController
       redirect_to root_path
     end
   end
-
-
 end
 
