@@ -2798,13 +2798,15 @@
       - if user_signed_in?
         %p
           ログインしています
-        =link_to "ログアウト", destroy_user_session_path, method: :delete
-        =link_to "マイページ", users_path
+        %li.right-category1
+          =link_to "ログアウト", destroy_user_session_path, method: :delete
+        %li.right-category2
+          =link_to "マイページ", users_path
       - else
         %p
         ログインしていません
         %li.right-category1
-          =link_to "新規会員登録", new_user_registration_path, method: :get
+          =link_to "新規会員登録", registration_index_path, method: :get
         %li.right-category2
           =link_to "ログイン", new_user_session_path, method: :get
             
