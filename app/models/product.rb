@@ -1,7 +1,12 @@
 class Product < ApplicationRecord
   belongs_to :user , optional: true
   has_many :images, dependent: :destroy
+  has_many :favs, dependent: :destroy
   belongs_to :category
+  
+  def fav_by?(user)
+    favs.where(user_id: user.id).exists?
+  end
   
   validates :name, :description, :category_id, :price, :condition, :shipping_charge, :shipping_area, :shipping_day, :images, presence: true
   validates :name, length: { maximum: 40 }

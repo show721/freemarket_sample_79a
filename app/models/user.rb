@@ -5,6 +5,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable, :omniauthable, omniauth_providers: [:facebook, :google_oauth2]
 
   has_many :products
+  has_many :favs, dependent: :destroy
+  has_many :fav_products, through: :favs, source: :product
   has_one :address, dependent: :destroy
   has_many :sns_credentials, dependent: :destroy
   has_one :card, dependent: :destroy
