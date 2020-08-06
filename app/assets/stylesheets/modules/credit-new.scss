@@ -156,14 +156,13 @@ $border-style: 1px solid #ccc;
       width: 350px;
       margin: 0 auto;
       color: #3ccace;
-      text-align: right;
       padding-top: 15px;
 
       &__question {
         display: inline;
         border-radius: 10px;
         line-height: 20px;
-        text-align: center;
+        text-align: left;
         padding: 3px 6px;
         background-color: #3ccace;
         color: white;
