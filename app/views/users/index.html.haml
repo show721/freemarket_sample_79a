@@ -54,8 +54,7 @@
             = icon('fas','angle-right')
         %li.list-setting
           .list-setting__info
-            =link_to "#" do
-              ログアウト
+            =link_to "ログアウト", destroy_user_session_path, method: :delete
           = icon('fas','angle-right')
 
   .main__right
