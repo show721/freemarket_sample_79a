@@ -82,14 +82,15 @@
             不適切な商品の通報
       .main-contents__show-main__product__comment
         = render partial: 'comments/create'
-      .main-contents__show-main__product-comments
+      .main-contents__show-main__product__comments
         %h1 コメント一覧
         - if @comments
           .lists_comment
             - @comments.each do |comment|
-              .lists_comment__list
-                %p.name
-                  -# = comment.user.name 
+              %p.name
+                ="#{comment.user.nickname}"
+              .comment-message
+                = comment.comment
       .main-contents__show-main__product__change-page
         .main-contents__show-main__product__change-page__back
           =link_to '#', class:"backBtn" do

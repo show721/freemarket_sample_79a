@@ -209,31 +209,22 @@
           }
         }
       }
-      &__show-main__product-comments {
-        width: 600px;
-        height: 350px;
-        padding: 40px;
-        display: inline-block;
-
+      &__comments {
         h1 {
           font-size: 20px;
           font-weight: bold;
           text-align: center;
           margin-bottom: 40px;
         }
-
+        .lists_comment {
+          font-size: 16px;
+          display: flex;
+        }
         p.name {
           font-size: 18px;
-          color: darkgray;
-          float: left;
-          margin-right: 10px;
+          margin-right: 20px;
         }
-
-        p.comment {
-          font-size: 18px;
-          color: black;
-          margin-left: 40px;
-          margin-bottom: 20px;
+        .comment-message {
         }
       }
       &__change-page {
