@@ -38,6 +38,8 @@ class ProductsController < ApplicationController
     @grandchild = Category.find(@product.category_id)
     @child = @grandchild.parent
     @parent = @child.parent
+    @comment = Comment.new
+    @comments = @product.comments
   end
 
   def destroy

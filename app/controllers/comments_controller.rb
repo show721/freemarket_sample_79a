@@ -1,17 +1,15 @@
 class CommentsController < ApplicationController
   def create
-    if @comment = Comment.create(comment_params)
-      respond_to do |format|
-        format.html{ redirect_to product_path(@comment.product.id) }
-      end
+    product_id = Product.find_by(params[:id])
+    if Comment.create(comment: comment_params[:comment],user_id: current_user.id,product_id: product_id.id)
+      redirect_to root_path
     else
-      redirect_to product_path(@comment.product.id)
+      render :show
     end
   end
 
   private
   def comment_params
-    params.require(:comment).permit(:message).merge(user_id: current_user.id, product_id: params[:product_id])
+    params.require(:comment).permit(:comment)
   end
-end
 end

@@ -17,7 +17,7 @@ Rails.application.routes.draw do
       post 'purchase'
       get 'buy'
     end
-    resources :comments, only: :create
+  
     
     collection do
       get 'get_category_children', defaults: { format: 'json' }
@@ -27,4 +27,5 @@ Rails.application.routes.draw do
   end 
   resources :users, only: [:index, :new, :edit]
   resources :registration, only: [:index]
+  resources :comments, only: [:create]
 end
