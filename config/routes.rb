@@ -17,13 +17,15 @@ Rails.application.routes.draw do
       post 'purchase'
       get 'buy'
     end
-
     
     collection do
       get 'get_category_children', defaults: { format: 'json' }
       get 'get_category_grandchildren', defaults: { format: 'json' }
     end
 
+    collection do
+      get 'search'
+    end
   end 
   resources :users, only: [:index, :new, :edit]
   resources :registration, only: [:index]

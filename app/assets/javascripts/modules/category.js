@@ -33,10 +33,11 @@ $(function () {
     $(".listing-product-detail__category").append(grandchildSelectHtml);
   }
   // 親カテゴリー選択後のイベント
-  $("#product_category").on("change", function () {
-    var parentCategory = document.getElementById("product_category").value; //選択された親カテゴリーの名前を取得
-    if (parentCategory != "---") {
-      //親カテゴリーが初期値でないことを確認
+
+  $('#product_category').on('change', function(){
+    var parentCategory = document.getElementById('product_category').value; //選択された親カテゴリーの名前を取得
+    if (parentCategory != "選択してください"){ //親カテゴリーが初期値でないことを確認
+
       $.ajax({
         url: "get_category_children",
         type: "GET",
