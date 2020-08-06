@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'favs/create'
+  get 'favs/destroy'
   devise_for :users, controllers: {
     omniauth_callbacks: 'users/omniauth_callbacks',
     registrations: 'users/registrations'
