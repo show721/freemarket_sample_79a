@@ -212,7 +212,7 @@
       &__change-page {
         padding-top: 10px;
         display: flex;
-        justify-content: space-between;
+        justify-content: space-around;
         text-decoration: none;
         a {
           color: #3ccace;
@@ -222,9 +222,11 @@
       &__relatedItems {
         height: 100px;
         width: 100%;
+        display: flex;
         a {
           color: #3ccace;
           font-weight: bold;
+          margin: 0 auto;
           font-size: 25px;
           line-height: 75px;
           text-decoration: none;
