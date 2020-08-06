@@ -44,7 +44,7 @@
           %li.list-setting
             .list-setting__info
               =link_to new_card_path do
-                クレジットカード登録・変更
+                クレジットカード登録
             = icon('fas','angle-right')
         - if current_user.card
           %li.list-setting
@@ -64,8 +64,8 @@
         = link_to "#" do
           %figure
             %img{:alt => "", :width => "60", :height => "60", :src => "//static.mercdn.net/thumb/members/394621039.jpg?1579745078" }/
-          %p
-            あなた
+            = current_user.nickname
+            
     %section.user-todo
       .tab-todo
         やることリスト
