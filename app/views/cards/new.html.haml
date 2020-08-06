@@ -46,6 +46,7 @@
         .form-group__addition__question ?
         %p.form-group__text
           カードの裏面の番号とは？
-      .form-group
-        = f.submit "登録", id: "regist_card",class: "btn" 
+      - if current_user.card == nil
+        .form-group
+          = f.submit "登録", id: "regist_card",class: "btn" 
 -# .footer
