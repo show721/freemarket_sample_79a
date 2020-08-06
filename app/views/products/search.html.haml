@@ -1,5 +1,9 @@
 =render partial: 'layouts/header'
-
+%nav.bread_crumbs
+  %ol
+    %li 
+      - breadcrumb :products_search
+      = breadcrumbs separator: " &rsaquo; "
 .MainSearch-Container
   .Search-side-container
     .select-wrap
