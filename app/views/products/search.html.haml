@@ -133,7 +133,7 @@
                   SOLD
           .Product-deatail-BottomBox
             %h3.Product-name 
-            = product.name
+            = link_to product.name, "/products/#{product.id}"
        
 %aside.AppAdvertisement
   .Inner
