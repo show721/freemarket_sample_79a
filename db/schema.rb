@@ -12,6 +12,7 @@
 
 ActiveRecord::Schema.define(version: 2020_08_04_013958) do
 
+
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "prefecture"
     t.string "zip_code"
@@ -28,6 +29,15 @@ ActiveRecord::Schema.define(version: 2020_08_04_013958) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_addresses_on_user_id"
+  end
+
+  create_table "cards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "card_token"
+    t.string "client_token", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_cards_on_user_id"
   end
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -65,6 +75,15 @@ ActiveRecord::Schema.define(version: 2020_08_04_013958) do
     t.index ["name", "brand"], name: "index_products_on_name_and_brand"
   end
 
+  create_table "sns_credentials", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "provider"
+    t.string "uid"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_sns_credentials_on_user_id"
+  end
+
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -84,5 +103,7 @@ ActiveRecord::Schema.define(version: 2020_08_04_013958) do
   end
 
   add_foreign_key "addresses", "users"
+  add_foreign_key "cards", "users"
   add_foreign_key "images", "products"
+  add_foreign_key "sns_credentials", "users"
 end

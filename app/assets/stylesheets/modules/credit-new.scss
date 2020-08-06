@@ -32,6 +32,10 @@ $border-style: 1px solid #ccc;
       height: 50px;
       margin: 15px auto;
 
+      .label__box {
+        width: 100px;
+      }
+
       label {
         font-weight: bold;
       }
@@ -47,13 +51,70 @@ $border-style: 1px solid #ccc;
       }
 
       .form-card__input {
-        width: 350px;
+        width: 200px;
         border-radius: 5px;
         padding: 10px 18px 8px;
         margin: 10px auto;
         border: $border-style;
         background-color: #fff;
-        font-size: 16px;
+        font-size: 18px;
+
+        &__valid {
+          background-color: #fff;
+          width: 48px;
+          height: 30px;
+          border: $border-style;
+          border-radius: 5px;
+          color: gray;
+          margin-top: 10px;
+        }
+      }
+      .form-card__input--month {
+        width: 60px;
+        border-radius: 5px;
+        padding: 10px 18px 8px;
+        margin: 10px auto;
+        border: $border-style;
+        background-color: #fff;
+        font-size: 18px;
+
+        &__valid {
+          background-color: #fff;
+          width: 48px;
+          height: 30px;
+          border: $border-style;
+          border-radius: 5px;
+          color: gray;
+          margin-top: 10px;
+        }
+      }
+      .form-card__input--year {
+        width: 80px;
+        border-radius: 5px;
+        padding: 10px 18px 8px;
+        margin: 10px auto;
+        border: $border-style;
+        background-color: #fff;
+        font-size: 18px;
+
+        &__valid {
+          background-color: #fff;
+          width: 48px;
+          height: 30px;
+          border: $border-style;
+          border-radius: 5px;
+          color: gray;
+          margin-top: 10px;
+        }
+      }
+      .form-card__input--cvc {
+        width: 80px;
+        border-radius: 5px;
+        padding: 10px 18px 8px;
+        margin: 10px auto;
+        border: $border-style;
+        background-color: #fff;
+        font-size: 18px;
 
         &__valid {
           background-color: #fff;
@@ -95,14 +156,13 @@ $border-style: 1px solid #ccc;
       width: 350px;
       margin: 0 auto;
       color: #3ccace;
-      text-align: right;
       padding-top: 15px;
 
       &__question {
         display: inline;
         border-radius: 10px;
         line-height: 20px;
-        text-align: center;
+        text-align: left;
         padding: 3px 6px;
         background-color: #3ccace;
         color: white;
