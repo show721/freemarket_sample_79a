@@ -12,7 +12,6 @@
 
 ActiveRecord::Schema.define(version: 2020_08_04_013958) do
 
-
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "prefecture"
     t.string "zip_code"
@@ -41,8 +40,8 @@ ActiveRecord::Schema.define(version: 2020_08_04_013958) do
   end
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "category", limit: 255
-    t.string "ancestry", limit: 255
+    t.string "category"
+    t.string "ancestry"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["ancestry"], name: "index_categories_on_ancestry"

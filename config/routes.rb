@@ -9,24 +9,17 @@ Rails.application.routes.draw do
     post 'addresses', to: 'users/registrations#create_address'
   end
 
-  resources :cards, only: [:new, :update, :create, :show , :destroy] 
-
   resources :products do   
-
     collection do
       post 'purchase'
       get 'buy'
-    end
-    
-    collection do
       get 'get_category_children', defaults: { format: 'json' }
       get 'get_category_grandchildren', defaults: { format: 'json' }
-    end
-
-    collection do
       get 'search'
     end
-  end 
+  end
+
+  resources :cards, only: [:new, :update, :create, :show , :destroy] 
   resources :users, only: [:index, :new, :edit]
   resources :registration, only: [:index]
 end
