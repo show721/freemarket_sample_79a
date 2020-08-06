@@ -12,10 +12,11 @@ Rails.application.routes.draw do
   resources :cards, only: [:new, :update, :create, :show , :destroy] 
 
   resources :products do   
-
+    resources :favs
     collection do
       post 'purchase'
       get 'buy'
+      get 'favs'
     end
 
     
