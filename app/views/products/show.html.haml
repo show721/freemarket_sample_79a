@@ -85,12 +85,11 @@
       .main-contents__show-main__product__comments
         %h1 コメント一覧
         - if @comments
-          .lists_comment
-            - @comments.each do |comment|
-              %p.name
-                ="#{comment.user.nickname}"
-              .comment-message
-                = comment.comment
+          - @comments.each do |comment|
+            %p.name
+              ="#{comment.user.nickname}:"
+            %p.comment
+              = comment.comment
       .main-contents__show-main__product__change-page
         .main-contents__show-main__product__change-page__back
           =link_to '#', class:"backBtn" do
