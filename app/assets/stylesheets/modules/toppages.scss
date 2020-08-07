@@ -10,7 +10,7 @@ html {
 }
 
 .header {
-  padding: 0 60px;
+  padding: 0;
   &__box {
     max-width: 1040px;
     width: 100%;
@@ -60,6 +60,18 @@ html {
           }
         }
       }
+    }
+    .contents {
+      width: 700px;
+      margin: 0 auto;
+    }
+    .product_content {
+      width: 700px;
+      height: 20px;
+    }
+    .product_name {
+      font-size: 18px;
+      text-align: left;
     }
 
     .header-nav {
@@ -564,8 +576,6 @@ li {
   margin: 0 0 0 5px;
 }
 
-ul.PriceLike {
-}
 li.price {
   margin: 0;
   text-align: left;

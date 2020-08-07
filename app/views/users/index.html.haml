@@ -40,21 +40,21 @@
 
       %p 設定
       %ul.setting-lists
-        %li.list-setting
-          .list-setting__info
-            =link_to new_card_path do
-              クレジットカード登録・変更
-          = icon('fas','angle-right')
-        -# - if @user.card.id
-        -#   %li.list-setting
-        -#     .list-setting__info
-        -#       =link_to card_path(@user.card.id) do
-        -#         クレジットカード登録削除
+        - if !current_user.card
+          %li.list-setting
+            .list-setting__info
+              =link_to new_card_path do
+                クレジットカード登録
+            = icon('fas','angle-right')
+        - if current_user.card
+          %li.list-setting
+            .list-setting__info
+              =link_to card_path(@user.card.id) do
+                クレジットカード登録削除
             = icon('fas','angle-right')
         %li.list-setting
           .list-setting__info
-            =link_to "#" do
-              ログアウト
+            =link_to "ログアウト", destroy_user_session_path, method: :delete
           = icon('fas','angle-right')
 
   .main__right
@@ -63,8 +63,8 @@
         = link_to "#" do
           %figure
             %img{:alt => "", :width => "60", :height => "60", :src => "//static.mercdn.net/thumb/members/394621039.jpg?1579745078" }/
-          %p
-            あなた
+            = current_user.nickname
+            
     %section.user-todo
       .tab-todo
         やることリスト

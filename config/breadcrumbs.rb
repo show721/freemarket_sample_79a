@@ -38,3 +38,9 @@ crumb :products_buy do
   link "商品購入確認", buy_products_path
   parent :products_show
 end
+
+#検索ページ
+crumb :products_search do
+  link "検索結果", search_products_path
+  parent :root
+end

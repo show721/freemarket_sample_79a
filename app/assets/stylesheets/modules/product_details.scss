@@ -29,13 +29,14 @@
     height: 250vh;
     width: 700px;
     margin: 0 auto;
+    display: flex;
     &__product {
       background-color: white;
-      height: 275vh;
+      height: 210vh;
       &__name {
         height: 50px;
         width: 100%;
-        font-size: 20px;
+        font-size: 30px;
         font-weight: bold;
         line-height: 50px;
         text-align: center;
@@ -57,6 +58,7 @@
         font-size: 46px;
         font-weight: bold;
         text-align: center;
+        font-family: sans-serif;
         &__detail {
           font-size: 16px;
           font-weight: normal;
@@ -67,20 +69,24 @@
         height: 200px;
         width: 640px;
         line-height: 1.5;
-        font-size: 18px;
-        margin: 30px 0;
+        font-size: 22px;
+        margin: 10px auto;
         padding: 0 30px;
+        border: 1px solid #f8f8f8;
+        border-radius: 3px;
       }
       &__table {
         height: 250px;
         width: 600px;
         font-size: 15px;
         padding: 0 30px;
+        border-radius: 3px;
         th {
-          background-color: #eee;
+          background-color: #3ccace;
           width: 150px;
           border: solid 1px #f8f8f8;
           text-align: center;
+          color: #fff;
         }
         td {
           background-color: white;
@@ -234,7 +240,7 @@
       &__change-page {
         padding-top: 10px;
         display: flex;
-        justify-content: space-between;
+        justify-content: space-around;
         text-decoration: none;
         a {
           color: #3ccace;
@@ -244,9 +250,11 @@
       &__relatedItems {
         height: 100px;
         width: 100%;
+        display: flex;
         a {
           color: #3ccace;
           font-weight: bold;
+          margin: 0 auto;
           font-size: 25px;
           line-height: 75px;
           text-decoration: none;
