@@ -76,7 +76,7 @@
         border-radius: 3px;
       }
       &__table {
-        height: 400px;
+        height: 250px;
         width: 600px;
         font-size: 15px;
         padding: 0 30px;
@@ -177,7 +177,7 @@
       }
       &__comment {
         background-color: white;
-        height: 300px;
+        height: 250px;
         width: 100%;
         &__new {
           height: 100px;
@@ -213,6 +213,28 @@
             font-size: 18px;
             border-radius: 100px;
           }
+        }
+      }
+      &__comments {
+        width: 600px;
+        height: 200px;
+        padding: 0 40px 40px 40px;
+        display: inline-block;
+        margin: 50px;
+        overflow-x: scroll;
+        h1 {
+          font-size: 20px;
+          font-weight: bold;
+          text-align: center;
+          margin-bottom: 40px;
+        }
+        p.name {
+          font-size: 18px;
+          float: left;
+        }
+        p.comment {
+          font-size: 18px;
+          margin-bottom: 30px;
         }
       }
       &__change-page {
