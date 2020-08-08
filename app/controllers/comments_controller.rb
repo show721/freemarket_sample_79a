@@ -8,6 +8,12 @@ class CommentsController < ApplicationController
     end
   end
 
+  def destroy
+    @comment = Comment.find_by(params[:id])
+    @comment.destroy
+      redirect_to product_path(@comment.product.id)
+  end
+
   private
   def comment_params
     params.require(:comment).permit(:comment)

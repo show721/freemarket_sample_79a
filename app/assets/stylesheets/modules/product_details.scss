@@ -236,6 +236,16 @@
           font-size: 18px;
           margin-bottom: 30px;
         }
+        .comment-delete-btn {
+          font-size: 12px;
+          color: white;
+          padding: 3px;
+          background-color: rgb(0, 181, 205);
+          border: solid 1px rgb(0, 181, 205);
+          text-decoration: none;
+          border-radius: 10px;
+          float: right;
+        }
       }
       &__change-page {
         padding-top: 10px;
