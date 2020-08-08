@@ -16,6 +16,10 @@
         %ul1
           - @product.images.first(1).each do |image|
             = image_tag asset_path("#{image.image}"),size: "560x350"
+              -if @product.buyer_id.present?
+              .products-sold
+                .products-sold__inner
+                  SOLD
           %ul
             - @product.images.first(4).each do |image|
               = image_tag asset_path("#{image.image}"),size: "140x90"
