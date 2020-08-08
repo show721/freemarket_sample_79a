@@ -2914,44 +2914,27 @@
               %p.tax (税込)
   .PickupContent
     %h2.head ピックアップブランド
-    %h2.ProductHead= link_to 'アーカイバ','/'
-    .ProductLists
-      .ProductList
-        .ProductList__img
-          = image_tag asset_path("m31802894843_1.jpg"), size: "220x150"
-        .ProductList__Body
-          %h3.name ee
-          %ul.PriceLike
-            %li.price 1000円
-            %li.star 0
-          %p.tax (税込)
-      .ProductList
-        .ProductList__img
-          = image_tag asset_path("m37656795146_1.jpg"), size: "220x150"
-        .ProductList__Body
-          %h3.name product3
-          %ul.PriceLike
-            %li.price 1000円
-            %li.star 0
-          %p.tax (税込)
-      .ProductList
-        .ProductList__img
-          = image_tag asset_path("m40806625909_1.jpg"), size: "220x150"
-        .ProductList__Body
-          %h3.name product2
-          %ul.PriceLike
-            %li.price 1000円
-            %li.star 0
-          %p.tax (税込)
-      .ProductList
-        .ProductList__img
-          = image_tag asset_path("m59665247876_1.jpg"), size: "220x150"
-        .ProductList__Body
-          %h3.name product1
-          %ul.PriceLike
-            %li.price 1000円
-            %li.star 0
-          %p.tax (税込)
+    .ProductBox
+      %h2.ProductHead= link_to 'シャネル','/'
+      .ProductLists
+        - @brands.each do |product|
+          .ProductList
+            .ProductList__img
+              - product.images.first(1).each do |image|
+                = image_tag asset_path("#{image.image}"), class: 'image-category'
+                  -if product.buyer_id.present?
+                  .products-sold
+                    .products-sold__inner
+                      SOLD
+            .ProductList__Body
+              %h3.name
+                = link_to product.name, "/products/#{product.id}"
+                -# = product.name
+              %ul.PriceLike
+                %li.price
+                = "#{product.price}円"
+                %li.star 0
+              %p.tax (税込)
 %aside.AppAdvertisement
   .Inner
     %h2.Inner__title だれでもかんたん、人生を変えるフリマアプリ
