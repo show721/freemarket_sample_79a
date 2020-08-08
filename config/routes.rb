@@ -21,5 +21,5 @@ Rails.application.routes.draw do
   resources :cards, only: [:new, :update, :create, :show , :destroy] 
   resources :users, only: [:index, :new, :edit]
   resources :registration, only: [:index]
-  resources :comments, only: [:create, :destroy]
+  resources :comments, only: [:create, :update, :destroy]
 end

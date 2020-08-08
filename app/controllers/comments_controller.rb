@@ -8,8 +8,12 @@ class CommentsController < ApplicationController
     end
   end
 
+  def update
+    redirect_to product_path(@comment.product.id)
+  end
+
   def destroy
-    @comment = Comment.find_by(params[:id])
+    @comment = Comment.find(params[:id])
     @comment.destroy
       redirect_to product_path(@comment.product.id)
   end
