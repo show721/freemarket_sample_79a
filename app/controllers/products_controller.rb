@@ -5,6 +5,7 @@ class ProductsController < ApplicationController
 
   def index
     @products = Product.includes(:images).order('created_at DESC')
+    @products = Product.all.includes(:user).recent
     @images = Image.all.order("created_at DESC").limit(8)
   end
 
@@ -110,4 +111,3 @@ class ProductsController < ApplicationController
     end
   end
 end
-

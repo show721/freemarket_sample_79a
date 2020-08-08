@@ -2,6 +2,7 @@ class Product < ApplicationRecord
   belongs_to :user , optional: true
   has_many :images, dependent: :destroy
   has_many :favs, dependent: :destroy
+  has_many :fav_products, through: :favs, source: :user
   belongs_to :category
   
   def fav_by?(user)

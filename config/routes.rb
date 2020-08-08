@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  get 'favs/create'
-  get 'favs/destroy'
   devise_for :users, controllers: {
     omniauth_callbacks: 'users/omniauth_callbacks',
     registrations: 'users/registrations'
@@ -13,21 +11,19 @@ Rails.application.routes.draw do
 
   resources :cards, only: [:new, :update, :create, :show , :destroy] 
 
-  resources :products do   
-    resources :favs
+  resources :products do
     collection do
       post 'purchase'
       get 'buy'
-      get 'favs'
-    end
+    end 
 
-    
     collection do
       get 'get_category_children', defaults: { format: 'json' }
       get 'get_category_grandchildren', defaults: { format: 'json' }
     end
 
   end 
+  resources :favs, only: [:create] 
   resources :users, only: [:index, :new, :edit]
   resources :registration, only: [:index]
 end

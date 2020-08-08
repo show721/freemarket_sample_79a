@@ -1,12 +1,8 @@
 class FavsController < ApplicationController
-  def create
-    fav = current_user.favs.build(product_id: params[:product_id])
-    fav.save!
-    redirect_to products_path, success: t('.flash.fav')
-  end
 
-  def destroy
-    current_user.favs.find_by(product_id: params[:product_id]).destroy!
-    redirect_to products_path, success: t('.flash.not_fav')
+  def create
+    product_id = Product.find(params[:id])
+    Fav.create(user_id:current_user.id, product_id:product_id.id)
+    redirect_to product_path(product_id.id)
   end
 end
