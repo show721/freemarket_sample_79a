@@ -4,7 +4,7 @@ class Product < ApplicationRecord
   has_many :favs, dependent: :destroy
   has_many :faved_users, through: :favs, source: :user
   belongs_to :category
-  has_many :comments
+  has_many :comments, dependent: :destroy
   
   validates :name, :description, :category_id, :price, :condition, :shipping_charge, :shipping_area, :shipping_day, :images, presence: true
   validates :name, length: { maximum: 40 }

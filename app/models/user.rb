@@ -10,7 +10,7 @@ class User < ApplicationRecord
   has_one :address, dependent: :destroy
   has_many :sns_credentials, dependent: :destroy
   has_one :card, dependent: :destroy
-  has_many :comments
+  has_many :comments, dependent: :destroy
   
   validates :nickname, presence: true
   validates :first_name_kanji, presence: true
