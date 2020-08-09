@@ -118,8 +118,8 @@
               
     
   .Search-result-container
-    .Search-result-head Champion スウェット グレー
-    .Search-result-number 1 - #{@products.length}件表示
+    .Search-result-head 購入した商品
+    .Search-result-number = 1 - #{@products.length}件表示
   
     .Products-box-contents
       - @products.each do |product|
@@ -127,10 +127,6 @@
           .Product-box-image
           - product.images.first(1).each do |image|
             = image_tag asset_path("#{image.image}"), size: "160x160"
-            -if product.buyer_id.present?
-              .products-sold
-                .products-sold__inner
-                  SOLD
           .Product-deatail-BottomBox
             %h3.Product-name 
             = link_to product.name, "/products/#{product.id}"

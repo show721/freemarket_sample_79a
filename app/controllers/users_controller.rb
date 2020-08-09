@@ -9,4 +9,13 @@ class UsersController < ApplicationController
 
   def edit
   end
+
+  def bought
+    @products = Product.where(buyer_id: current_user.id).order("created_at DESC")
+  end
+
+  def selled
+    @products = Product.where(seller_id: current_user.id).order("created_at DESC")
+  end
+
 end

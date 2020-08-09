@@ -3,7 +3,7 @@ Rails.application.routes.draw do
     omniauth_callbacks: 'users/omniauth_callbacks',
     registrations: 'users/registrations'
   }
-  
+
   root "toppages#index"
 
   devise_scope :user do
@@ -20,9 +20,14 @@ Rails.application.routes.draw do
       get 'search'
     end
   end
+  resources :users, only: [:index, :new, :edit] do
+    collection do
+      get "bought"
+      get "selled"
+    end
+  end
 
   resources :cards, only: [:new, :update, :create, :show , :destroy] 
-  resources :users, only: [:index, :new, :edit]
   resources :registration, only: [:index]
   resources :comments, only: [:create]
 end
