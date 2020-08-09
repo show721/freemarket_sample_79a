@@ -9,8 +9,6 @@ class ToppagesController < ApplicationController
     @product = Product.find(params[:id])
   end
 
-  
-
   def post_params
     params.require(:images).permit(:image)
     params.require(:products).permit(:product_name, :price)

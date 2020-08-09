@@ -52,9 +52,7 @@ class ProductsController < ApplicationController
 
   def search
     redirect_to search_products_path if params[:keyword] == ""
-
     @products = Product.where('brand LIKE(?) OR name LIKE(?)', "%#{params[:keyword]}%", "%#{params[:keyword]}%").order("created_at DESC").limit(132)
-
   end
   
   def buy
