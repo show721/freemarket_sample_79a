@@ -15,8 +15,8 @@ class FavsController < ApplicationController
   end
 
   def destroy
-    product_id = Product.find(params[:id])
-    @fav = Fav.find_by(product_id:product_id.id, user_id: current_user.id)
+    product = Product.find(params[:id])
+    @fav = Fav.find_by(product:product.id, user_id: current_user.id)
     @fav.destroy
   end
 end
