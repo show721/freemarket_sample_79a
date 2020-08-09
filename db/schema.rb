@@ -123,10 +123,10 @@ ActiveRecord::Schema.define(version: 2020_08_06_042341) do
 
   add_foreign_key "addresses", "users"
   add_foreign_key "cards", "users"
-  add_foreign_key "favs", "products"
-  add_foreign_key "favs", "users"
   add_foreign_key "comments", "products"
   add_foreign_key "comments", "users"
+  add_foreign_key "favs", "products"
+  add_foreign_key "favs", "users"
   add_foreign_key "images", "products"
   add_foreign_key "sns_credentials", "users"
 end
