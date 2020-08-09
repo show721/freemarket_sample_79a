@@ -85,7 +85,9 @@ html {
         .left-category1 {
           width: 100px;
           z-index: 1;
+          position: relative;
         }
+      
         > li {
           width: 25%;
         }
@@ -93,7 +95,7 @@ html {
         li {
           list-style: none;
           width: 240px;
-          position: relative;
+         
           a {
             color: #333;
             display: block;
@@ -101,10 +103,13 @@ html {
             line-height: 2rem;
             text-decoration: none;
             &:hover {
-              color: #ffd340;
+              color: #333;
             }
+            
           }
 
+          
+          
           li {
             height: 0;
             overflow: hidden;
@@ -118,12 +123,19 @@ html {
             overflow: visible;
           }
 
-          ul li ul {
+          ul li ul{
             left: 100%;
             position: absolute;
+            margin-top: 2rem;
+            margin-left: 8.5rem;
             top: 0;
             width: 100%;
+            
+            ul {
+              margin-top: 0px;
+            }
           }
+
 
           &:hover a {
             background: #ffffff;
