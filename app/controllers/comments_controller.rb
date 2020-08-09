@@ -9,7 +9,6 @@ class CommentsController < ApplicationController
   end
 
   def edit
-    binding.pry
     comment = Comment.find(params[:id])
   end
 
