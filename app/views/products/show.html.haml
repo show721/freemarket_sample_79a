@@ -16,6 +16,10 @@
         %ul1
           - @product.images.first(1).each do |image|
             = image_tag asset_path("#{image.image}"),size: "560x350"
+              -if @product.buyer_id.present?
+              .products-sold
+                .products-sold__inner
+                  SOLD
           %ul
             - @product.images.first(4).each do |image|
               = image_tag asset_path("#{image.image}"),size: "140x90"
@@ -59,7 +63,7 @@
             %td 
               = @product.shipping_day
       .main-contents__show-main__product__buyArea
-        - if user_signed_in? && current_user.id == @product.seller_id
+        - if user_signed_in? && current_user.id == @product.seller_id || @product.buyer_id
         - elsif user_signed_in?
           =link_to buy_products_path(@product.id) , class: "buyBtn" do
             商品を購入する
@@ -105,8 +109,8 @@
             後ろの商品
             %i.fas.fa-angle-right
       .main-contents__show-main__product__relatedItems
-        =link_to '#' do
-          メンズをもっと見る
+        -# =link_to '#' do
+        -#   メンズをもっと見る
       
 .Footer
   .contents

@@ -6,12 +6,8 @@ class ProductsController < ApplicationController
 
   def index
     @products = Product.includes(:images).order('created_at DESC')
-    @images = Image.all.order("created_at DESC").limit(8)
-
-    
+    @images = Image.all.order("created_at DESC").limit(8) 
   end
-
-  
 
   def new
     @product = Product.new
@@ -43,8 +39,7 @@ class ProductsController < ApplicationController
     @grandchild = Category.find(@product.category_id)
     @child = @grandchild.parent
     @parent = @child.parent
-    @comment = Comment.new
-    @comments = @product.comments
+    @comments = Comment.where(product_id: params[:id])
   end
 
   def destroy
@@ -57,9 +52,7 @@ class ProductsController < ApplicationController
 
   def search
     redirect_to search_products_path if params[:keyword] == ""
-
     @products = Product.where('brand LIKE(?) OR name LIKE(?)', "%#{params[:keyword]}%", "%#{params[:keyword]}%").order("created_at DESC").limit(132)
-
   end
   
   def buy
