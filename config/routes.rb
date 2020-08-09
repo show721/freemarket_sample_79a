@@ -11,7 +11,7 @@ Rails.application.routes.draw do
 
   resources :cards, only: [:new, :update, :create, :show , :destroy] 
 
-  resources :products do 
+  resources :products do
     collection do
       post 'purchase'
       get 'buy'
@@ -23,7 +23,7 @@ Rails.application.routes.draw do
     end
 
   end 
-  resources :favs, only: [:create] 
+  resources :favs, only: [:index, :create, :destroy] 
   resources :users, only: [:index, :new, :edit]
   resources :registration, only: [:index]
 end

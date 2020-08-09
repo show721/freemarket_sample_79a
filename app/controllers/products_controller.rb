@@ -40,6 +40,7 @@ class ProductsController < ApplicationController
     @child = @grandchild.parent
     @parent = @child.parent
     @fav = Fav.new
+    @favs = @product.favs.includes(:user)
   end
 
   def destroy
