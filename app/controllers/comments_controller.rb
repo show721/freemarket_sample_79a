@@ -8,8 +8,14 @@ class CommentsController < ApplicationController
     end
   end
 
+  def edit
+    binding.pry
+    comment = Comment.find(params[:id])
+  end
+
   def update
-    redirect_to product_path(@comment.product.id)
+    comment = Comment.find(params[:id])
+    comment.update(comment_params)
   end
 
   def destroy
