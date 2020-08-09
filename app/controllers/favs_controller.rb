@@ -4,5 +4,5 @@ class FavsController < ApplicationController
     product_id = Product.find(params[:id])
     Fav.create(user_id:current_user.id, product_id:product_id.id)
   end
-  
+
 end

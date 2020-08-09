@@ -6,7 +6,7 @@ class User < ApplicationRecord
 
   has_many :products
   has_many :favs, dependent: :destroy
-  has_many :fav_products, through: :favs, source: :product
+  has_many :faved_produtcs, through: :favs, source: :product
   has_one :address, dependent: :destroy
   has_many :sns_credentials, dependent: :destroy
   has_one :card, dependent: :destroy
@@ -34,5 +34,9 @@ class User < ApplicationRecord
       sns.save
     end
     { user: user, sns: sns }
+  end
+
+  def fav_by?(product)
+    favs.where(product_id: product.id).exists?
   end
 end

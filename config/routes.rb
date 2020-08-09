@@ -11,7 +11,7 @@ Rails.application.routes.draw do
 
   resources :cards, only: [:new, :update, :create, :show , :destroy] 
 
-  resources :products do
+  resources :products do 
     collection do
       post 'purchase'
       get 'buy'
