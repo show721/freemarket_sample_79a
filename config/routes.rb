@@ -3,27 +3,33 @@ Rails.application.routes.draw do
     omniauth_callbacks: 'users/omniauth_callbacks',
     registrations: 'users/registrations'
   }
+
   root "toppages#index"
+
   devise_scope :user do
     get 'addresses', to: 'users/registrations#new_address'
     post 'addresses', to: 'users/registrations#create_address'
   end
 
-  resources :cards, only: [:new, :update, :create, :show , :destroy] 
-
-  resources :products do
+  resources :products do   
     collection do
       post 'purchase'
       get 'buy'
-    end 
-
-    collection do
       get 'get_category_children', defaults: { format: 'json' }
       get 'get_category_grandchildren', defaults: { format: 'json' }
+      get 'search'
     end
+  end
+  resources :users, only: [:index, :new, :edit] do
+    collection do
+      get "bought"
+      get "selled"
+    end
+  end
 
   end 
   resources :favs, only: [:index, :create, :destroy] 
-  resources :users, only: [:index, :new, :edit]
+  resources :cards, only: [:new, :update, :create, :show , :destroy] 
   resources :registration, only: [:index]
+  resources :comments, only: [:create]
 end

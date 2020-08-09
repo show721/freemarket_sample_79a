@@ -67,5 +67,5 @@
             %br/
             = f.text_field :building_name, autofocus: true, placeholder: "例）柳ビル103", class: 'form-group__input'
           .form-group
-            = f.submit '次へ進む', class: "btn-default btn-red", url: "root_path", method: :post
+            = f.submit '次へ進む', class: "btn-default btn-red", url: "new_card_path", method: :post
     = render "registration_footer"         

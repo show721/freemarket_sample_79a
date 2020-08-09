@@ -7,7 +7,7 @@
       - breadcrumb :mypage
       = breadcrumbs separator: " &rsaquo; "
 
-.main
+.main__mypage
   .main__left
     %nav.mypage-nav
       %p マイページ
@@ -19,12 +19,12 @@
           = icon('fas','angle-right')
         %li
           .lists-info
-            = link_to "#" do
+            = link_to selled_users_path do
               出品した商品
           = icon('fas','angle-right')
         %li
           .lists-info
-            = link_to "#" do
+            = link_to bought_users_path do
               購入した商品
           = icon('fas','angle-right')
         %li
@@ -86,12 +86,35 @@
             = icon('fas','angle-right')
     %section.buy-product
       %h2.buy-product__head 
-        購入したもの
-      .tab-buy
-        取引中
-      .tab-content
-        %ul.buy-lists
-          %li
-            .list-item
-              メンズ、Tシャツ（M）
-            = icon('fas','angle-right')
+        直近で購入したもの
+      - @buyer.each do |buy| 
+        .tab-content
+          %ul.buy-lists
+            %li
+              .list-item
+                = link_to buy.name, "/products/#{buy.id}"
+              = icon('fas','angle-right')
+.Footer
+  .contents
+    %ul.contents
+      %li.content
+        %h2.content__head FURIMAについて
+        %ul
+          %li.content= link_to '会社概要','/'
+          %li.content= link_to 'プライバシーポリシー','/'
+          %li.content= link_to 'FURIMA利用規約','/'
+          %li.content= link_to 'ポイントに関する特約','/'
+      %li.content
+        %h2.content__head FURIMAを見る
+        %ul
+          %li.content= link_to 'カテゴリー一覧','/'
+          %li.content= link_to 'ブランド一覧','/'   
+      %li.contect
+        %h2.content__head ヘルプ＆ガイド
+        %ul
+          %li.content= link_to 'FURIMAガイド','/'
+          %li.content= link_to 'FURIMAロゴ利用ガイドライン','/'
+          %li.content= link_to 'お知らせ','/'
+  .Footer_logo
+    = image_tag asset_path("logo-white.png"), size: "150x50"
+  %p.Clogo ©︎FURIMA
