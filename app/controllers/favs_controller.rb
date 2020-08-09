@@ -1,5 +1,5 @@
 class FavsController < ApplicationController
-
+  
   def index
       @user = current_user
       favs = Fav.where(user_id: @user.id).all
