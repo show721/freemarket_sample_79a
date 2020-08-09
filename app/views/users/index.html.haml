@@ -81,11 +81,10 @@
     %section.buy-product
       %h2.buy-product__head 
         購入したもの
-      .tab-buy
-        取引中
-      .tab-content
-        %ul.buy-lists
-          %li
-            .list-item
-              メンズ、Tシャツ（M）
-            = icon('fas','angle-right')
+      - @buyer.each do |buy| 
+        .tab-content
+          %ul.buy-lists
+            %li
+              .list-item
+                = link_to buy.name, "/products/#{buy.id}"
+              = icon('fas','angle-right')
