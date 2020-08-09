@@ -1,4 +1,4 @@
-.Footer{
+.Footer {
   height: 250px;
   width: 100%;
   padding: 60px 0;
@@ -6,27 +6,30 @@
   background-color: #272727;
 }
 
-ul.contents{
+ul.contents {
   display: flex;
   justify-content: space-around;
   list-style: none;
   width: 100%;
   margin: 0 100px 0 100px;
-  padding:0}
+  padding: 0;
+}
 
-h2.content__head{margin: 0 0 20px;
+h2.content__head {
+  margin: 0 0 20px;
   font-size: 16px;
   font-weight: bold;
-  color: #fff;}
+  color: #fff;
+}
 
-li{
+li {
   list-style: none;
 }
 
-.Footer_logo{
+.Footer_logo {
   text-align: center;
 }
 
-p{
-text-align: center;
+p {
+  text-align: center;
 }
