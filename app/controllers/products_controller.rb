@@ -6,7 +6,7 @@ class ProductsController < ApplicationController
 
   def index
     @products = Product.includes(:images).order('created_at DESC')
-    @products = Product.all.includes(:user).recent
+    # @products = Product.all.includes(:user).recent
     @images = Image.all.order("created_at DESC").limit(8) 
   end
 
@@ -16,9 +16,10 @@ class ProductsController < ApplicationController
   end
 
   def create
+    binding.pry
     @product = Product.new(product_params)
     @product[:seller_id] = current_user.id
-    if @product.save
+    if @product.save!
       redirect_to root_path
     else
       render :new
