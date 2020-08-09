@@ -6,6 +6,7 @@ class ProductsController < ApplicationController
 
   def index
     @products = Product.includes(:images).order('created_at DESC')
+    @products = Product.all.includes(:user).recent
     @images = Image.all.order("created_at DESC").limit(8) 
   end
 
@@ -39,6 +40,8 @@ class ProductsController < ApplicationController
     @grandchild = Category.find(@product.category_id)
     @child = @grandchild.parent
     @parent = @child.parent
+    @fav = Fav.new
+    @favs = @product.favs.includes(:user)
     @comments = Comment.where(product_id: params[:id])
   end
 
@@ -117,4 +120,3 @@ class ProductsController < ApplicationController
     end
   end
 end
-

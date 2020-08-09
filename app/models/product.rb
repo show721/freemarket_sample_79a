@@ -1,6 +1,8 @@
 class Product < ApplicationRecord
   belongs_to :user , optional: true
   has_many :images, dependent: :destroy
+  has_many :favs, dependent: :destroy
+  has_many :faved_users, through: :favs, source: :user
   belongs_to :category
   has_many :comments, dependent: :destroy
   

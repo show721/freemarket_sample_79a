@@ -26,7 +26,7 @@ Rails.application.routes.draw do
       get "selled"
     end
   end
-
+  resources :favs, only: [:index, :create, :destroy] 
   resources :cards, only: [:new, :update, :create, :show , :destroy] 
   resources :registration, only: [:index]
   resources :comments, only: [:create, :edit, :update, :destroy]
