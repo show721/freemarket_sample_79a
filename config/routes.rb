@@ -24,7 +24,6 @@ Rails.application.routes.draw do
 
   end 
   resources :users, only: [:index, :new, :edit]
-  end
   resources :users, only: [:index, :new, :edit] do
     collection do
       get "bought"

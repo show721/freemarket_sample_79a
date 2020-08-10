@@ -41,7 +41,10 @@ class User < ApplicationRecord
 
   def already_liked?(product)
     self.likes.exists?(product_id: product.id)
+  end
+
   def fav_by?(product)
     favs.where(product_id: product.id).exists?
   end
+  
 end
