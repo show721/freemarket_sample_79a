@@ -22,7 +22,7 @@
 
 .main-contents {
   background-color: #f8f8f8;
-  height: calc(210vh + 80px);
+  height: calc(195vh + 500px);
   width: 100%;
   padding: 40px 0;
   &__show-main {
@@ -32,7 +32,6 @@
     display: flex;
     &__product {
       background-color: white;
-      height: 210vh;
       &__name {
         height: 50px;
         width: 100%;
@@ -218,7 +217,6 @@
       &__comments {
         width: 600px;
         height: 200px;
-        padding: 0 40px 40px 40px;
         display: inline-block;
         margin: 50px;
         overflow-x: scroll;
@@ -231,10 +229,12 @@
         p.name {
           font-size: 18px;
           float: left;
+          margin-right: 20px;
         }
         p.comment {
           font-size: 18px;
           margin-bottom: 30px;
+          text-align: justify;
         }
         .comment-custom-btn {
           font-size: 12px;
@@ -249,7 +249,7 @@
         }
       }
       &__change-page {
-        padding-top: 10px;
+        padding-top: 25px;
         display: flex;
         justify-content: space-around;
         text-decoration: none;
