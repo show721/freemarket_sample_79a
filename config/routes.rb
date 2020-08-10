@@ -19,7 +19,11 @@ Rails.application.routes.draw do
       get 'get_category_grandchildren', defaults: { format: 'json' }
       get 'search'
     end
-  end
+
+    resource :likes, only: [:create, :destroy]
+
+  end 
+  resources :users, only: [:index, :new, :edit]
   resources :users, only: [:index, :new, :edit] do
     collection do
       get "bought"

@@ -76,6 +76,15 @@ ActiveRecord::Schema.define(version: 2020_08_06_042341) do
     t.index ["product_id"], name: "index_images_on_product_id"
   end
 
+  create_table "likes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "product_id"
+    t.bigint "user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["product_id"], name: "index_likes_on_product_id"
+    t.index ["user_id"], name: "index_likes_on_user_id"
+  end
+
   create_table "products", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
     t.text "description", null: false
@@ -128,5 +137,7 @@ ActiveRecord::Schema.define(version: 2020_08_06_042341) do
   add_foreign_key "favs", "products"
   add_foreign_key "favs", "users"
   add_foreign_key "images", "products"
+  add_foreign_key "likes", "products"
+  add_foreign_key "likes", "users"
   add_foreign_key "sns_credentials", "users"
 end

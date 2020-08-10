@@ -4,8 +4,8 @@
 %nav.bread_crumbs
   %ol
     %li
-      - breadcrumb :products_show
-      = breadcrumbs separator: " &rsaquo; "
+      -# - breadcrumb :products_show
+      -# = breadcrumbs separator: " &rsaquo; "
 
 .main-contents
   .main-contents__show-main
@@ -37,9 +37,11 @@
           %tr
             %th カテゴリー
             %td 
-              = @parent.category
+              -# = @parent.category
+              親カテゴリ
               %br
-              = @child.category
+              -# = @child.category
+              子カテゴリ
               %br
               = @grandchild.category
           %tr
@@ -82,6 +84,9 @@
           =link_to '#', class: "optional" do
             %i.fas.fa-flag
             不適切な商品の通報
+      .main-contents__show-main__product__comment__like
+        = render partial: 'likes/like', locals: {product: @product}
+
       .main-contents__show-main__product__comment
         = render partial: 'comments/create'
       .main-contents__show-main__product__comments

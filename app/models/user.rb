@@ -8,8 +8,10 @@ class User < ApplicationRecord
   has_many :favs, dependent: :destroy
   has_many :faved_produtcs, through: :favs, source: :product
   has_one :address, dependent: :destroy
-  has_many :sns_credentials, dependent: :destroy
   has_one :card, dependent: :destroy
+  has_many :products
+  has_many :sns_credentials, dependent: :destroy
+  has_many :likes, dependent: :destroy
   has_many :comments, dependent: :destroy
   
   validates :nickname, presence: true
@@ -37,7 +39,12 @@ class User < ApplicationRecord
     { user: user, sns: sns }
   end
 
+  def already_liked?(product)
+    self.likes.exists?(product_id: product.id)
+  end
+
   def fav_by?(product)
     favs.where(product_id: product.id).exists?
   end
+  
 end
