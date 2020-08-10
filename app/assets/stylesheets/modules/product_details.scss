@@ -22,7 +22,7 @@
 
 .main-contents {
   background-color: #f8f8f8;
-  height: calc(210vh + 500px);
+  height: calc(195vh + 500px);
   width: 100%;
   padding: 40px 0;
   &__show-main {
@@ -249,7 +249,7 @@
         }
       }
       &__change-page {
-        padding-top: 10px;
+        padding-top: 25px;
         display: flex;
         justify-content: space-around;
         text-decoration: none;
