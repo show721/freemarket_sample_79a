@@ -4,11 +4,15 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :omniauthable, omniauth_providers: [:facebook, :google_oauth2]
 
+  has_many :products
+  has_many :favs, dependent: :destroy
+  has_many :faved_produtcs, through: :favs, source: :product
   has_one :address, dependent: :destroy
   has_one :card, dependent: :destroy
   has_many :products
   has_many :sns_credentials, dependent: :destroy
   has_many :likes, dependent: :destroy
+  has_many :comments, dependent: :destroy
   
   validates :nickname, presence: true
   validates :first_name_kanji, presence: true
@@ -37,5 +41,7 @@ class User < ApplicationRecord
 
   def already_liked?(product)
     self.likes.exists?(product_id: product.id)
+  def fav_by?(product)
+    favs.where(product_id: product.id).exists?
   end
 end

@@ -1,8 +1,13 @@
 .sell-container
   .signup-container
-    -# = render partial: ''
+    =render partial: 'layouts/header'
     = form_with model: @product, class: "form", id: "product-form" do |f|
       .signup-top
+        %nav.bread_crumbs
+          %ol
+            %li 
+              - breadcrumb :products_edit
+              = breadcrumbs separator: " &rsaquo; "
         %h2.signup-header
           出品更新ページ
       .signup-body
@@ -128,7 +133,7 @@
                 .sell-container-right__price-wrapper__input
                   %p
                     ¥
-                    = f.text_field :price, placeholder: "例：300", id:"product_price", class: 'default-input price ', style:"text-align:right"
+                    = f.text_field :price, placeholder: "例：300", id:"product_price", class: 'default-input sell-input ', style:"text-align:right"
               .input-error#product_price_error
               .sell-container-right__price-fee
                 .sell-container-right__price-fee__text

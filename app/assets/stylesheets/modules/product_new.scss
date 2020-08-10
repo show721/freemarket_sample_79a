@@ -36,8 +36,8 @@
     .signup-top {
       height: 48px;
       width: 100%;
-      padding: 40px 0;
       .signup-header {
+        padding-top: 10px;
         font-size: 36px;
         text-align: center;
       }
@@ -242,7 +242,7 @@
         }
         .sell-container-description {
           font-size: 14px;
-          margin-bottom: 20px;
+          padding-bottom: 40px;
           a {
             letter-spacing: -0.5px;
             text-decoration: none;
@@ -285,4 +285,10 @@
     height: 123.59px;
     object-fit: cover;
   }
+}
+.sell-input {
+  height: 28px;
+  font-family: inherit;
+  font-weight: inherit;
+  font-size: 16px;
 }

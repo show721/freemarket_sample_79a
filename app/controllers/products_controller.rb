@@ -2,10 +2,12 @@ class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :destroy, :edit, :update]
   before_action :set_category, only: [:new, :edit, :show, :create]
   before_action :correct_user, only: [:edit, :update]
+  
 
   def index
     @products = Product.includes(:images).order('created_at DESC')
-    @images = Image.all.order("created_at DESC").limit(8)
+    # @products = Product.all.includes(:user).recent
+    @images = Image.all.order("created_at DESC").limit(8) 
   end
 
   def new
@@ -14,9 +16,10 @@ class ProductsController < ApplicationController
   end
 
   def create
+    binding.pry
     @product = Product.new(product_params)
     @product[:seller_id] = current_user.id
-    if @product.save
+    if @product.save!
       redirect_to root_path
     else
       render :new
@@ -37,7 +40,10 @@ class ProductsController < ApplicationController
   def show
     @grandchild = Category.find(@product.category_id)
     @child = @grandchild.parent
-    # @parent = @child.parent
+    @parent = @child.parent
+    @fav = Fav.new
+    @favs = @product.favs.includes(:user)
+    @comments = Comment.where(product_id: params[:id])
   end
 
   def destroy
@@ -46,6 +52,11 @@ class ProductsController < ApplicationController
     else
       render :show
     end
+  end
+
+  def search
+    redirect_to search_products_path if params[:keyword] == ""
+    @products = Product.where('brand LIKE(?) OR name LIKE(?)', "%#{params[:keyword]}%", "%#{params[:keyword]}%").order("created_at DESC").limit(132)
   end
   
   def buy
@@ -110,4 +121,3 @@ class ProductsController < ApplicationController
     end
   end
 end
-

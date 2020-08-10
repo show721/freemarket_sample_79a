@@ -1,32 +1,11 @@
 .main-header
   =render partial: 'layouts/header'
   
-.category
-  .category__contents
-    %ul
-      %li
-        =link_to "#" do
-          FURIMA
-      %li
-        >
-      %li
-        =link_to "#" do
-          メンズ
-      %li 
-        >
-      %li
-        =link_to "#" do
-          ジャケット/アウター
-      %li 
-        >
-      %li
-        =link_to "#" do
-          ノーカラージャケット
-      %li 
-        >
-      %li
-        商品名
-
+%nav.bread_crumbs
+  %ol
+    %li
+      - breadcrumb :products_show
+      = breadcrumbs separator: " &rsaquo; "
 
 .main-contents
   .main-contents__show-main
@@ -37,6 +16,10 @@
         %ul1
           - @product.images.first(1).each do |image|
             = image_tag asset_path("#{image.image}"),size: "560x350"
+              -if @product.buyer_id.present?
+              .products-sold
+                .products-sold__inner
+                  SOLD
           %ul
             - @product.images.first(4).each do |image|
               = image_tag asset_path("#{image.image}"),size: "140x90"
@@ -81,16 +64,15 @@
             %th 発送日の目安
             %td 
               = @product.shipping_day
+      
       .main-contents__show-main__product__buyArea
-        - if user_signed_in? && current_user.id == @product.seller_id
+        - if user_signed_in? && current_user.id == @product.seller_id || @product.buyer_id
         - elsif user_signed_in?
           =link_to buy_products_path(@product.id) , class: "buyBtn" do
             商品を購入する
       .main-contents__show-main__product__optionArea
         .main-contents__show-main__product__optionArea__likeBtn
-          = button_tag type: "button", class: "likeBtn"  do
-            %i.fas.fa-star
-            お気に入り
+          =render partial: 'favs/fav'
         .main-contents__show-main__product__optionArea__editBtn
           - if user_signed_in? && current_user.id == @product.seller_id
             = link_to edit_product_path(@product.id),method: :get do
@@ -107,16 +89,20 @@
         = render partial: 'likes/like', locals: {product: @product}
 
       .main-contents__show-main__product__comment
-        =form_for '#' do |f|
-          .main-contents__show-main__product__comment__new
-            = f.text_area :comment, class: "new"
-          .main-contents__show-main__product__comment__precautions
-            %p 相手のことを考え丁寧なコメントを心がけましょう。
-            %P 不快な言葉遣いなどは利用制限や退会処分となることがあります。
-          .main-contents__show-main__product__comment__commentBtn
-            = button_tag type: 'submit', class: 'commentBtn' do
-              %i.far.fa-comment
-              コメントする
+        = render partial: 'comments/create'
+      .main-contents__show-main__product__comments
+        %h1 コメント一覧
+        - if @comments
+          - @comments.each do |comment|
+            %p.name
+              ="#{comment.user.nickname}:"
+            %p.comment
+              = comment.comment
+              - if user_signed_in? && current_user.id == @product.seller_id
+                = link_to comment_path(comment.id), method: :delete, class: "comment-custom-btn" do
+                  削除
+                = link_to edit_comment_path(comment.id), method: :get, class: "comment-custom-btn" do
+                  編集
       .main-contents__show-main__product__change-page
         .main-contents__show-main__product__change-page__back
           =link_to '#', class:"backBtn" do
@@ -127,8 +113,8 @@
             後ろの商品
             %i.fas.fa-angle-right
       .main-contents__show-main__product__relatedItems
-        =link_to '#' do
-          メンズをもっと見る
+        -# =link_to '#' do
+        -#   メンズをもっと見る
       
 .Footer
   .contents

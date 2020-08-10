@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_05_014739) do
+ActiveRecord::Schema.define(version: 2020_08_06_042341) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "prefecture"
@@ -45,6 +45,27 @@ ActiveRecord::Schema.define(version: 2020_08_05_014739) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["ancestry"], name: "index_categories_on_ancestry"
+    t.index ["category"], name: "index_categories_on_category"
+  end
+
+  create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.text "comment", null: false
+    t.bigint "user_id", null: false
+    t.bigint "product_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["product_id"], name: "index_comments_on_product_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
+  end
+
+  create_table "favs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "product_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["product_id"], name: "index_favs_on_product_id"
+    t.index ["user_id", "product_id"], name: "index_favs_on_user_id_and_product_id", unique: true
+    t.index ["user_id"], name: "index_favs_on_user_id"
   end
 
   create_table "images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -78,6 +99,8 @@ ActiveRecord::Schema.define(version: 2020_08_05_014739) do
     t.datetime "updated_at", precision: 6, null: false
     t.integer "seller_id"
     t.integer "buyer_id"
+    t.index ["brand"], name: "index_products_on_brand"
+    t.index ["name", "brand"], name: "index_products_on_name_and_brand"
   end
 
   create_table "sns_credentials", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -109,6 +132,10 @@ ActiveRecord::Schema.define(version: 2020_08_05_014739) do
 
   add_foreign_key "addresses", "users"
   add_foreign_key "cards", "users"
+  add_foreign_key "comments", "products"
+  add_foreign_key "comments", "users"
+  add_foreign_key "favs", "products"
+  add_foreign_key "favs", "users"
   add_foreign_key "images", "products"
   add_foreign_key "likes", "products"
   add_foreign_key "likes", "users"

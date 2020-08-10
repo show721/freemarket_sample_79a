@@ -1,3 +1,4 @@
+console.log("test");
 $(function () {
   Payjp.setPublicKey("pk_test_07db780e7718d3fb4bd5d472");
 

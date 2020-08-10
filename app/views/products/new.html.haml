@@ -1,10 +1,15 @@
 .sell-container
+  =render partial: 'layouts/header'
   .signup-container
-    -# = render partial: ''
     = form_with model: @product, class: "form", id: "product-form" do |f|
       .signup-top
+        %nav.bread_crumbs
+          %ol
+            %li 
+              - breadcrumb :products_new
+              = breadcrumbs separator: " &rsaquo; "
         %h2.signup-header
-          出品ページ
+
       .signup-body
         .sell-upload-form
           -# 画像アップロード
@@ -33,7 +38,7 @@
           .signup-form-container.registration-form__first-container.sell-container-all-padding.container-border-top
             .signup-form-container__title
               %p.sell-title
-                = label :name, '商品名',class: 'signup-label'
+                = label :name, '商品名',class: 'signup-label sell-input'
                 %span.signup-form-container__span.span-need 必須
             = f.text_field :name, placeholder: '商品名（必須40文字まで）', class: 'default-input sell-input'
             .input-error#product_title_error
@@ -71,7 +76,7 @@
                   = label :condition, '商品の状態',class: 'signup-label'
                   %span.signup-form-container__span.span-need 必須
                 .select-wrap
-                  = f.text_field :condition, placeholder: ' 例) 新品、中古、古品', class: 'default-input sell-input'
+                  = f.select :condition, [["新品、未使用"],["未使用に近い"],["目立った傷や汚れなし"],["やや傷や汚れあり"],["傷や汚れあり"],["全体的に状態が悪い"]], {},class: 'default-input sell-input'
                   -# %i.select-arrow.fas.fa-chevron-down
                 .input-error#product_fresh_status_error
 
@@ -87,21 +92,22 @@
                 = label :shipping_charge, '配送料の負担',class: 'signup-label'
                 %span.signup-form-container__span.span-need 必須
               .select-wrap
-                = f.text_field :shipping_charge, placeholder: ' 例) 1 or 2    1.送料込,2.着払い  ', class: 'default-input sell-input'
-                -# %i.select-arrow.fas.fa-chevron-down
+                = f.select :shipping_charge,[[1],[2]],  {}, class: 'default-input sell-input', placeholder: ' 例) 1 or 2    1.送料込,2.着払い  '
+              例) 1.送料込    2.着払い
               .input-error#product_deliver_person_error
               %p.margin-2rem.sell-title
                 = label :shipping_area, '発送元の地域',class: 'signup-label'
                 %span.signup-form-container__span.span-need 必須
               .select-wrap
-                = f.text_field :shipping_area, placeholder: ' 例) 東京都', class: 'default-input sell-input'
+                = f.select :shipping_area, Address.prefectures.keys, {}, {class: 'default-input sell-input'}
+                -# = f.text_field :shipping_area, placeholder: ' 例) 東京都', class: 'default-input sell-input'
                 -# %i.select-arrow.fas.fa-chevron-down
               .input-error#product_from_area_error
               %p.margin-2rem.sell-title
                 = label :shipping_day, '発送までの日数',class: 'signup-label'
                 %span.signup-form-container__span.span-need 必須
               .select-wrap
-                = f.text_field :shipping_day, placeholder: ' 例) ”1”から”7”で入力', class: 'default-input sell-input'
+                = f.select :shipping_day,[[1],[2],[3],[4],[5],[6],[7]], placeholder: ' 例) ”1”から”7”で入力', class: 'default-input sell-input'
                 -# %i.select-arrow.fas.fa-chevron-down
               .input-error#product_deliver_leadtime_error
           -# 販売価格
@@ -121,7 +127,7 @@
                 .sell-container-right__price-wrapper__input
                   %p
                     ¥
-                    = f.text_field :price, placeholder: "例：300", id:"product_price", class: 'default-input price ', style:"text-align:right"
+                    = f.text_field :price, placeholder: "例：300", id:"product_price", class: 'default-input sell-input ', style:"text-align:right"
               .input-error#product_price_error
               .sell-container-right__price-fee
                 .sell-container-right__price-fee__text
@@ -175,3 +181,27 @@
                 また、出品をもちまして
                 = link_to "加盟店規約", ""
                 に同意したことになります。
+.Footer
+  .contents
+    %ul.contents
+      %li.content
+        %h2.content__head FURIMAについて
+        %ul
+          %li.content= link_to '会社概要','/'
+          %li.content= link_to 'プライバシーポリシー','/'
+          %li.content= link_to 'FURIMA利用規約','/'
+          %li.content= link_to 'ポイントに関する特約','/'
+      %li.content
+        %h2.content__head FURIMAを見る
+        %ul
+          %li.content= link_to 'カテゴリー一覧','/'
+          %li.content= link_to 'ブランド一覧','/'   
+      %li.contect
+        %h2.content__head ヘルプ＆ガイド
+        %ul
+          %li.content= link_to 'FURIMAガイド','/'
+          %li.content= link_to 'FURIMAロゴ利用ガイドライン','/'
+          %li.content= link_to 'お知らせ','/'
+  .Footer_logo
+    = image_tag asset_path("logo-white.png"), size: "150x50"
+  %p.Clogo ©︎FURIMA
