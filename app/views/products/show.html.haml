@@ -93,12 +93,7 @@
               ="#{comment.user.nickname}:"
             %p.comment
               = comment.comment
-              - if user_signed_in? && current_user.id == @product.seller_id
-                = link_to comment_path(comment.id), method: :delete, class: "comment-custom-btn" do
-                  削除
-                = link_to edit_comment_path(comment.id), method: :get, class: "comment-custom-btn" do
-                  編集
-              - elsif user_signed_in? && comment.user == current_user
+              - if user_signed_in? && comment.user == current_user
                 = link_to comment_path(comment.id), method: :delete, class: "comment-custom-btn" do
                   削除
                 = link_to edit_comment_path(comment.id), method: :get, class: "comment-custom-btn" do
